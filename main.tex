@@ -1,0 +1,63 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\graphicspath{{images/}}
+
+% THEOREM MACROS
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+% MATH SHORTCUTS
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\HH}{\mathbb{H}}
+\DeclareMathOperator{\Mr}{M_{\R}}
+\DeclareMathOperator{\Mc}{M_{\C}}
+\DeclareMathOperator{\Mh}{M_{\HH}}
+
+% DOCUMENT SETUP
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{2.0}
+
+% DETAILS
+\title{
+	{An Application of the Study Determinant on Skew-Coninvolutory
+	 Quaternionic Matrices}\\
+	{\large University of the Philippines Cebu}\\
+}
+
+\author{John Aaron Q. Alcoseba}
+%\date{The Future}
+
+% MAIN DOCUMENT
+\begin{document}
+	\maketitle
+	\tableofcontents
+
+	%main body
+	\chapter{Introduction}
+	\input{chapters/chapter01}
+
+	\chapter{Preliminaries}
+	\input{chapters/chapter02}
+
+	\chapter{Results and Discussion}
+	\input{chapters/chapter03}
+
+	\chapter{Summary and Recommendations}
+	\input{chapters/chapter04}
+
+	\bibliographystyle{ieeetr}
+	\bibliography{bibliography}
+\end{document}
