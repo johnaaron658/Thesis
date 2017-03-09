@@ -1,11 +1,16 @@
 \documentclass[12pt]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{titlesec}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{graphicx}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage{float}
+\usepackage{layout}
+\usepackage[hmargin={1.5in,1in},vmargin=1in,includehead,includefoot]{geometry}
 \graphicspath{{images/}}
 
 % THEOREM MACROS
@@ -21,14 +26,39 @@
 \DeclareMathOperator{\R}{\mathbb{R}}
 \DeclareMathOperator{\C}{\mathbb{C}}
 \DeclareMathOperator{\HH}{\mathbb{H}}
-\DeclareMathOperator{\Mr}{M_{\R}}
-\DeclareMathOperator{\Mc}{M_{\C}}
-\DeclareMathOperator{\Mh}{M_{\HH}}
+\newcommand{\Rx}[3]{{#1}_{#2}{(#3)}}
+\newcommand{\Mr}[1]{\Rx{$M$}{#1}{\R}}
+\newcommand{\Mc}[1]{\Rx{$M$}{#1}{\C}}
+\newcommand{\Mh}[1]{\Rx{$M$}{#1}{\HH}}
+
+% MATH ENVIRONMENT SETUP
+\setlength\arraycolsep{6pt}
+\renewcommand{\arraystretch}{0.75}
 
 % DOCUMENT SETUP
 \setlength{\parindent}{4em}
-\setlength{\parskip}{1em}
+%\setlength{\parskip}{1em}
 \renewcommand{\baselinestretch}{2.0}
+\makeatletter
+\def\@makechapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries \@chapapp\space \thechapter
+        \par\nobreak
+        \vskip 20\p@
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+\def\@makeschapterhead#1{
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
 
 % DETAILS
 \title{
