@@ -1,6 +1,7 @@
 \documentclass[12pt]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage[mathscr]{euscript}
 \usepackage{titlesec}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -30,10 +31,10 @@
 \newcommand{\Mr}[1]{\Rx{$M$}{#1}{\R}}
 \newcommand{\Mc}[1]{\Rx{$M$}{#1}{\C}}
 \newcommand{\Mh}[1]{\Rx{$M$}{#1}{\HH}}
-\newcommand{\nhat}[1]{\hat{\textbf{#1}}}
-\newcommand{\ihat}{\nhat{i}}
-\newcommand{\jhat}{\nhat{j}}
-\newcommand{\khat}{\nhat{k}}
+\newcommand{\nbf}[1]{\textbf{#1}}
+\newcommand{\ihat}{\nbf{i}}
+\newcommand{\jhat}{\nbf{j}}
+\newcommand{\khat}{\nbf{k}}
 \newcommand{\quat}[4]{#1 + #2\ihat + #3\jhat + #4\khat}
 
 % MATH ENVIRONMENT SETUP
@@ -77,7 +78,7 @@
 
 % MAIN DOCUMENT
 \begin{document}
-	\maketitle
+	%\maketitle
 	\tableofcontents
 
 	%main body
