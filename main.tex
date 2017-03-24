@@ -39,6 +39,16 @@
 \newcommand{\jhat}{\hat{\jb}}
 \newcommand{\khat}{\hat{\kb}}
 \newcommand{\quat}[4]{#1 + #2\ib + #3\jb + #4\kb}
+\newcommand{\genmatk}[4]{
+	\begin{matrix}
+	 #1 & \ldots & #2 \\
+	 \vdots & \ddots & \vdots \\
+	 #3 & \ldots & #4
+	 \end{matrix}
+}
+\newcommand{\genmat}[1]{
+	\genmatk{#1_{11}}{#1_{1n}}{#1_{n1}}{#1_{nn}}
+}
 
 % MATH ENVIRONMENT SETUP
 \setlength\arraycolsep{6pt}

@@ -198,16 +198,71 @@ In the previous subsection, we saw that we can represent complex numbers as $2\t
 	Let $\phi : \C \rightarrow \Mr{2}$ such that $a+b\ib \mapsto$ \begin{pmatrix} a & -b \\ b & a \end{pmatrix}. Then $\phi$ is a homomorphism from $\C$ to $\Mr{2}.
 \end{theorem}
 
+%\begin{proof}
+%	Let $z_1 = a+b\ib$ and $z_2 = c+d\ib \in \C$ . \\
+%	Then $\phi(z_1z_2) = \phi[(a+b\ib)(c+d\ib)] = \phi[(ac-bd)+(ad+bc)\ib] = $\begin{pmatrix} (ac-bd) & -(ad+bc) \\ (ad+bc) & (ac-bd)$ \end{pmatrix}. \\ \\
+%	Now, $\phi(z_1)\phi(z_2) = \phi[(a+b\ib)]\phi[(c+d\ib)] = $\begin{pmatrix} a & -b \\ b & a \end{pmatrix}\begin{pmatrix} c & -d \\ d & c \end{pmatrix}$ = $\begin{pmatrix} (ac-bd) & -(ad+bc) \\ (ad+bc) & (ac-bd)$ \end{pmatrix}. \\
+%	Hence, $\phi(z_1z_2) = \phi(z_1)\phi(z_2)$.
+%\end{proof}
+
+\begin{remark}
+	We will not include the proof for this theorem as this is merely a special case of Theorem \ref{phimorph} (when $n = 1$). 
+\end{remark}
+
+We will extend the definition of $\phi$ to hold for complex matrices in general. To do this, notice that every complex matrix can be represented as the sum of a real matrix and a purely imaginary matrix, i.e., for an $n\times n$ matrix $N$, $N = C + D\ib$ where $C,D \in \Mr{n}$. We see that we can intuitively extend the definition of $\phi$ by defining \begin{equation*} \phi(C+D\ib) = \begin{pmatrix} C & -D \\ D & C \end{pmatrix}  \cite{aslaksen}\end{equation*}
+
+\noindent Alternatively, we can define a matrix \begin{equation*} J = \begin{pmatrix} 0 & -I_n \\ I_n & 0 \end{pmatrix} \end{equation*} and define $\phi$ more generally as $\phi(\Mc{n}) = \{P \in \Mr{2n} | JP = PJ\}$. 
+
+Before we prove that the mapping $\phi$ is a homomorphism, we first prove that the left distributive laws hold for matrices in $\Mc{n}$.
+
+\begin{theorem}\label{distributive}
+	For matrices $A,B,C \in \Mc{n}$, $A(B+C) = AB + AC$.
+}
+\end{theorem}
+
 \begin{proof}
-	Let $z_1 = a+b\ib$ and $z_2 = c+d\ib \in \C$ . \\
-	Then $\phi(z_1z_2) = \phi[(a+b\ib)(c+d\ib)] = \phi[(ac-bd)+(ad+bc)\ib] = $\begin{pmatrix} (ac-bd) & -(ad+bc) \\ (ad+bc) & (ac-bd)$ \end{pmatrix}. \\ \\
-	Now, $\phi(z_1)\phi(z_2) = \phi[(a+b\ib)]\phi[(c+d\ib)] = $\begin{pmatrix} a & -b \\ b & a \end{pmatrix}\begin{pmatrix} c & -d \\ d & c \end{pmatrix}$ = $\begin{pmatrix} (ac-bd) & -(ad+bc) \\ (ad+bc) & (ac-bd)$ \end{pmatrix}. \\
-	Hence, $\phi(z_1z_2) = \phi(z_1)\phi(z_2)$.
+	Let $A = [a_{ij}]$, $B = [b_{ij}]$, $C = [c_{ij}] \in \Mc{n}$. Then $B+C = [b_{ij}+c_{ij}]$ and \begin{equation} 
+	\begin{align*} 
+	A(B+C) &= [\sum_{k=1}^{n}a_{ik}(b_{kj}+c_{kj})] = [\sum_{k=1}^{n}(a_{ik}b_{kj}+a_{ik}c_{kj})] \\ 
+	&= [\sum_{k=1}^{n}a_{ik}b_{kj} + \sum_{k=1}^{n}a_{ik}c_{kj}] = [\sum_{k=1}^{n}a_{ik}b_{kj}] + [\sum_{k=1}^{n}a_{ik}c_{kj}] = AB + AC 
+	\end{align*} \end{equation}
 \end{proof}
+
+\begin{remark}
+	The same method of proof can be used for the right distributive law. Furthermore, this also holds for matrices in $\Mr{n}$ and $\Mh{n}$.
+\end{remark}
+
+\begin{theorem} \label{phimorph}
+	Let $\phi: \Mc{n} \rightarrow \Mr{2n}$ such that $C+D\ib \mapsto $ \begin{pmatrix} C & -D \\ D & C \end{pmatrix} where $C+D\ib \in \Mc{n}$. Then $\phi$ is a homomorphism. 
+\end{theorem}
+
+\begin{proof}
+	Let $A+B\ib$, $C+D\ib \in \Mc{n}$. Then \begin{align*}
+		\phi[(A+B\ib)(C+D\ib)] &= \phi[(A+B\ib)C+(A+B\ib)D\ib] \text{ by Theorem \ref{distributive}} \\
+		&= \phi[AC+BC\ib+AD\ib-BD] = \phi[(AC-BD)+(BC+AD)\ib] \\
+		&= \begin{pmatrix} (AC-BD) & -(BC+AD) \\ (BC+AD) & (AC-BD) \end{pmatrix}
+	\end{align*}
+	\begin{equation*}
+		\phi[(A+B\ib)]\phi[(C+D\ib)] &= \begin{pmatrix}A & -B \\ B & A \end{pmatrix}\begin{pmatrix}C & -D \\ D & C \end{pmatrix} = \begin{pmatrix} (AC-BD) & -(BC+AD) \\ (BC+AD) & (AC-BD) \end{pmatrix}
+	\end{equation*}
+\end{proof}
+
+\begin{remark}
+	Notice that the above matrix multiplication is valid because, \\
+	\begin{pmatrix} A & -B \\ B & A \end{pmatrix} \begin{pmatrix} C & -D \\ D & C \end{pmatrix} \newline = \begin{pmatrix} \genmat{a} & \genmat{-b} \\ \genmat{b} & \genmat{a} \end{pmatrix}\begin{pmatrix} \genmat{c} & \genmat{-d} \\ \genmat{d} & \genmat{c} \end{pmatrix} \\  
+	= \begin{pmatrix} 
+	\genmatk{\sum_{k=1}^{n}a_{1k}c_{k1} - \sum_{k=1}^{n}b_{1k}d_{k1}}{-\sum_{k=1}^{n}a_{1k}d_{kn} - \sum_{k=1}^{n}b_{1k}c_{kn}}{\sum_{k=1}^{n}b_{nk}c_{k1} + \sum_{k=1}^{n}a_{nk}d_{k1}}{-\sum_{k=1}^{n}b_{nk}d_{kn} + \sum_{k=1}^{n}a_{nk}c_{kn}} 
+	%\genmatk{\sum_{k=1}^{n}a_{1k}c_{k1} - \sum{k=1}^{n}b_{1k}d_{k1}}{\sum_{k=1}^{n}a_{1k}c_{kn} - \sum{k=1}^{n}b_{1k}d_{kn}}{\sum_{k=1}^{n}a_{nk}c_{k1} - \sum{k=1}^{n}b_{nk}d_{k1}}{\sum_{k=1}^{n}a_{nk}c_{kn} - \sum{k=1}^{n}b_{nk}d_{kn}} &
+	%\genmatk{-(\sum_{k=1}^{n}a_{1k}d_{k1} + \sum_{k=1}^{n}b_{1k}c{k1})}{-(\sum_{k=1}^{n}a_{1k}d_{kn} + \sum_{k=1}^{n}b_{1k}c_{kn})}{-(\sum_{k=1}^{n}a_{nk}d_{k1} + \sum_{k=1}^{n}b_{nk}c{k1})}{-(\sum_{k=1}^{n}a_{nk}d_{kn} + \sum_{k=1}^{n}b_{nk}c_{kn})} \\
+	%\genmatk{\sum_{k=1}^{n}a_{1k}d_{k1} + \sum_{k=1}^{n}b_{1k}c{k1}}{\sum_{k=1}^{n}a_{1k}d_{kn} + \sum_{k=1}^{n}b_{1k}c_{kn}}{\sum_{k=1}^{n}a_{nk}d_{k1} + \sum_{k=1}^{n}b_{nk}c{k1}}{\sum_{k=1}^{n}a_{nk}d_{kn} + \sum_{k=1}^{n}b_{nk}c_{kn}} &
+	%\genmatk{\sum_{k=1}^{n}a_{1k}c_{k1} - \sum{k=1}^{n}b_{1k}d_{k1}}{\sum_{k=1}^{n}a_{1k}c_{kn} - \sum{k=1}^{n}b_{1k}d_{kn}}{\sum_{k=1}^{n}a_{nk}c_{k1} - \sum{k=1}^{n}b_{nk}d_{k1}}{\sum_{k=1}^{n}a_{nk}c_{kn} - \sum{k=1}^{n}b_{nk}d_{kn}}
+	\end{pmatrix} \\
+	= \begin{pmatrix} (AC-BD) & -(BC+AD) \\ (BC+AD) & (AC-BD) \end{pmatrix}
+\end{remark}
 
 \subsection{Representing Quaternions as Complex Matrices}
 
-%exposition
+%expository
 
 \subsection{Homomorphisms from $\Mh{n}$ to $\Mc{2n}$}
 
