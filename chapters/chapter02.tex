@@ -195,7 +195,7 @@ Consider the complex function $f(z) = (a+b\ib)z$. We see that the images of $1$ 
 In the previous subsection, we saw that we can represent complex numbers as $2\times 2$ real matrices. We can then define a mapping from $\C$ to $\Mr{2}$. We can also show that this mapping is a homomorphism.
 
 \begin{theorem}
-	Let $\phi : \C \rightarrow \Mr{2}$ such that $a+b\ib \mapsto$ \begin{pmatrix} a & -b \\ b & a \end{pmatrix}. Then $\phi$ is a homomorphism from $\C$ to $\Mr{2}.
+	Let $\phi : \C \rightarrow \Mr{2}$ such that $a+b\ib \mapsto$ \begin{pmatrix} a & -b \\ b & a \end{pmatrix}. Then $\phi$ is an injective homomorphism from $\C$ to $\Mr{2}.
 \end{theorem}
 
 %\begin{proof}
@@ -233,48 +233,63 @@ Before we prove that the mapping $\phi$ is a homomorphism, we first prove that t
 \end{remark}
 
 \begin{theorem} \label{phimorph}
-	Let $\phi: \Mc{n} \rightarrow \Mr{2n}$ such that $C+D\ib \mapsto $ \begin{pmatrix} C & -D \\ D & C \end{pmatrix} where $C+D\ib \in \Mc{n}$. Then $\phi$ is a homomorphism. 
+	Let $\phi: \Mc{n} \rightarrow \Mr{2n}$ such that $C+D\ib \mapsto $ \begin{pmatrix} C & -D \\ D & C \end{pmatrix} where $C+D\ib \in \Mc{n}$. Then $\phi$ is an injective homomorphism. 
 \end{theorem}
 
 \begin{proof}
+	\textbf{\newline1-1:}
+	\begin{equation*}
+		\phi(A+B\ib) = \phi(C+D\ib)
+		&\implies \begin{pmatrix}A & -B \\ B & A \end{pmatrix} = \begin{pmatrix}C & -D \\ D & C \end{pmatrix}
+	\end{equation*}
+	\begin{align*}
+		\implies A = C \text{ and } B = D \text{ by Matrix Equality}
+		\implies A+B\ib = C+D\ib
+		\implies \phi \text{ is injective.}
+	\end{align*}
+	\textbf{Homomorphism: \newline}
 	Let $A+B\ib$, $C+D\ib \in \Mc{n}$. Then \begin{align*}
 		\phi[(A+B\ib)(C+D\ib)] &= \phi[(A+B\ib)C+(A+B\ib)D\ib] \text{ by Theorem \ref{distributive}} \\
 		&= \phi[AC+BC\ib+AD\ib-BD] = \phi[(AC-BD)+(BC+AD)\ib] \\
 		&= \begin{pmatrix} (AC-BD) & -(BC+AD) \\ (BC+AD) & (AC-BD) \end{pmatrix}
 	\end{align*}
-	\begin{equation*}
-		\phi[(A+B\ib)]\phi[(C+D\ib)] &= \begin{pmatrix}A & -B \\ B & A \end{pmatrix}\begin{pmatrix}C & -D \\ D & C \end{pmatrix} = \begin{pmatrix} (AC-BD) & -(BC+AD) \\ (BC+AD) & (AC-BD) \end{pmatrix}
-	\end{equation*}
-\end{proof}
-
-\begin{remark}
-	Notice that the above matrix multiplication is valid because, \\
-	\begin{pmatrix} A & -B \\ B & A \end{pmatrix} \begin{pmatrix} C & -D \\ D & C \end{pmatrix} \newline = \begin{pmatrix} \genmat{a} & \genmat{-b} \\ \genmat{b} & \genmat{a} \end{pmatrix}\begin{pmatrix} \genmat{c} & \genmat{-d} \\ \genmat{d} & \genmat{c} \end{pmatrix} \\  
+		$\phi[(A+B\ib)]\phi[(C+D\ib)]$ = \begin{pmatrix}A & -B \\ B & A \end{pmatrix}\begin{pmatrix}C & -D \\ D & C \end{pmatrix} \newline \\ = \begin{pmatrix} \genmat{a} & \genmat{-b} \\ \genmat{b} & \genmat{a} \end{pmatrix}\begin{pmatrix} \genmat{c} & \genmat{-d} \\ \genmat{d} & \genmat{c} \end{pmatrix} \\  \\
 	= \begin{pmatrix} 
 	\genmatk{\sum_{k=1}^{n}a_{1k}c_{k1} - \sum_{k=1}^{n}b_{1k}d_{k1}}{-\sum_{k=1}^{n}a_{1k}d_{kn} - \sum_{k=1}^{n}b_{1k}c_{kn}}{\sum_{k=1}^{n}b_{nk}c_{k1} + \sum_{k=1}^{n}a_{nk}d_{k1}}{-\sum_{k=1}^{n}b_{nk}d_{kn} + \sum_{k=1}^{n}a_{nk}c_{kn}} 
 	%\genmatk{\sum_{k=1}^{n}a_{1k}c_{k1} - \sum{k=1}^{n}b_{1k}d_{k1}}{\sum_{k=1}^{n}a_{1k}c_{kn} - \sum{k=1}^{n}b_{1k}d_{kn}}{\sum_{k=1}^{n}a_{nk}c_{k1} - \sum{k=1}^{n}b_{nk}d_{k1}}{\sum_{k=1}^{n}a_{nk}c_{kn} - \sum{k=1}^{n}b_{nk}d_{kn}} &
 	%\genmatk{-(\sum_{k=1}^{n}a_{1k}d_{k1} + \sum_{k=1}^{n}b_{1k}c{k1})}{-(\sum_{k=1}^{n}a_{1k}d_{kn} + \sum_{k=1}^{n}b_{1k}c_{kn})}{-(\sum_{k=1}^{n}a_{nk}d_{k1} + \sum_{k=1}^{n}b_{nk}c{k1})}{-(\sum_{k=1}^{n}a_{nk}d_{kn} + \sum_{k=1}^{n}b_{nk}c_{kn})} \\
 	%\genmatk{\sum_{k=1}^{n}a_{1k}d_{k1} + \sum_{k=1}^{n}b_{1k}c{k1}}{\sum_{k=1}^{n}a_{1k}d_{kn} + \sum_{k=1}^{n}b_{1k}c_{kn}}{\sum_{k=1}^{n}a_{nk}d_{k1} + \sum_{k=1}^{n}b_{nk}c{k1}}{\sum_{k=1}^{n}a_{nk}d_{kn} + \sum_{k=1}^{n}b_{nk}c_{kn}} &
 	%\genmatk{\sum_{k=1}^{n}a_{1k}c_{k1} - \sum{k=1}^{n}b_{1k}d_{k1}}{\sum_{k=1}^{n}a_{1k}c_{kn} - \sum{k=1}^{n}b_{1k}d_{kn}}{\sum_{k=1}^{n}a_{nk}c_{k1} - \sum{k=1}^{n}b_{nk}d_{k1}}{\sum_{k=1}^{n}a_{nk}c_{kn} - \sum{k=1}^{n}b_{nk}d_{kn}}
-	\end{pmatrix} \\
+	\end{pmatrix} \\ \\
 	= \begin{pmatrix} (AC-BD) & -(BC+AD) \\ (BC+AD) & (AC-BD) \end{pmatrix}
-\end{remark}
+\end{proof}
 
 \subsection{Representing Quaternions as Complex Matrices}
 
-%expository
+A quaternion $q = a + b\ib + c\jb + d\kb$ can be written as $q = (a+b\ib) + (c+d\ib)\jb = (a+b\ib) + (d-c\ib)\kb$ where $a+b\ib,c+d\ib,d-c\ib \in \C$. We can therefore view the set of quaternions as a two-dimensional algebra over $\C$ \cite{stamaria}, i.e., we can define a mapping $\Omega : \HH \rightarrow \C^2$ such that $\quat{a}{b}{c}{d} \mapsto (a+b\ib,c+d\ib)$. We can easily show that $\Omega$ is an isomorphism.
+
+\begin{theorem}
+	Let $\Omega : \HH \rightarrow \C^2$ such that $\quat{a}{b}{c}{d} \mapsto (a+b\ib,c+d\ib)$. Then $\Omega$ is an isomorphism.
+\end{theorem}
+
+\begin{proof}
+	\textbf{1-1: }
+	\begin{align*}
+		&\Omega(\quat{a}{b}{c}{d}) = \Omega(\quat{e}{f}{g}{h})
+		\implies (a+b\ib,c+d\ib) = (e+f\ib,g+h\ib) \\
+		&\implies a+b\ib = e+f\ib \text{ and } c+d\ib = g+h\ib
+		\implies a = e, b = f, c = g, \text{ and } d = h \\
+		&\implies \quat{a}{b}{c}{d} = \quat{e}{f}{g}{h}
+		\implies \Omega \text{ is injective.}
+	\end{align*}
+	\textbf{Onto: }
+	We show that $\forall (a+b\ib,c+d\ib) \in \C^2 \exists q \in \HH$ such that $\Omega(q) = (a+b\ib,c+d\ib)$. 
+	Let $(a+b\ib,c+d\ib) \in \C^2$. Take $q = \quat{a}{b}{c}{d}$. Then $\Omega(q) = \Omega(\quat{a}{b}{c}{d}) = (a+b\ib,c+d\ib)$.
+	
+	\noindent \textbf{Homomorphism: }
+	Let $q_1 = \quat{a_1}{b_1}{c_1}{d_1}$, $q_2 = \quat{a_2}{b_2}{c_2}{d_2} \in \HH$. Then,
+	$\Omega(q_1q_2) = \Omega((\quat{a_1}{b_1}{c_1}{d_1})(\quat{a_2}{b_2}{c_2}{d_2})) = \Omega(\quat{a_1a_2-b_1b_2-c_1c_2-d_1d_2}{a_1b_2+b_1a_2+c_1d_2-d_1c_2}{a_1c_2-b_1d_2+c_1a_2+d_1b_2}{a_1d_2+b_1c_2-c_1b_2+d_1a_2}) = ((a_1a_2-b_1b_2-c_1c_2-d_1d_2)+(a_1b_2+b_1a_2+c_1d_2-d_1c_2)\ib, (a_1c_2-b_1d_2+c_1a_2+d_1b_2)+(a_1d_2+b_1c_2-c_1b_2+d_1a_2)\ib)$.
+\end{proof}
+
 
 \subsection{Homomorphisms from $\Mh{n}$ to $\Mc{2n}$}
-
-
-\section{Quaternionic Determinants}
-
-\subsection{Aslaksen's Axioms and the Cayley Determinant}
-
-\subsection{The Study Determinant}
-
-\subsection{The Dieudonne Determinant}
-
-\subsection{Moore's Determinant}
-
-%A quaternion $q = a + b\ib + c\jb + d\kb$ can be written as $q = (a+b\ib) + (c+d\ib)\jb = (a+b\ib) + (d-c\ib)\kb$ where $a+b\ib,c+d\ib,d-c\ib \in \C$. We can therefore view the set of quaternions as a two-dimensional algebra over \C \cite{stamaria}.
