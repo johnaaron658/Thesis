@@ -1,4 +1,4 @@
-\section{Complex Vectors and Complex Matrices}
+\section{Complex Matrices}
 
 \begin{definition}[Conjugate Matrix]
 	A \emph{conjugate matrix} is a matrix $\bar{E}$ obtained from $E$ by taking the complex conjugate of every entry of $E$.
@@ -83,7 +83,7 @@ From the above equation, we can easily derive the following:
 \begin{align*}
 	\jb\kb &= \ib & \kb\jb &= -\ib \\
 	\kb\ib &= \jb & \ib\kb &= -\jb \\
-	\ib\jb &= \kb & \jb\kb &= -\kb
+	\ib\jb &= \kb & \jb\ib &= -\kb
 \end{align*}
 
 Notice that the quaternions are not commutative under \emph{multiplication}. In general, for quaternions $q_1 = a_1 + b_1\ib + c_1\jb + d_1\kb$ and $q_2 = a_2 + b_2\ib + c_2\jb + d_2\kb$, 
@@ -151,7 +151,7 @@ We look into functions that make it possible for us to represent complex numbers
 
 In abstract algebra, we saw that we can define a bijection from the field of complex numbers to the 2D-plane ($\R^2$) - a mapping $\Theta : \C \rightarrow \R^2$ where a complex number $a+b\ib$ is mapped to a vector/point $(a,b)$ in the 2D-plane. Therefore, in order to represent complex numbers as real matrices, we have to find a way to view them as linear transformations over $\R^2$. 
 
-Consider the complex function $f(z) = (a+b\ib)z$. We see that the images of $1$ and $\ib$ are $a+b\ib$ and $-b+a\ib$ respectively. Under the isomorphism $\Theta$ (in which case $1$ is mapped to $(1,0)$ while $\ib$ is mapped to $(0,1)$), we seek a matrix in $\Mr{2}$ that maps $(1,0)$ to $\Theta(a+b\ib) = (a,b)$ and $(0,1)$ to $\Theta(-b+a\ib) = (-b,a)$. 
+Consider the complex function $f(z) = (a+b\ib)z$. We see that the images of $1$ and $\ib$ are $a+b\ib$ and $-b+a\ib$ respectively. Under the function $\Theta$ (in which case $1$ is mapped to $(1,0)$ while $\ib$ is mapped to $(0,1)$), we seek a matrix in $\Mr{2}$ that maps $(1,0)$ to $\Theta(a+b\ib) = (a,b)$ and $(0,1)$ to $\Theta(-b+a\ib) = (-b,a)$. 
 \\
 \noindent Let this matrix be $F$ = \begin{pmatrix} \alpha & \beta \\ \chi & \delta \end{pmatrix} where $\alpha, \beta, \chi, \text{ and } \delta \in \R$. Then, 
 \begin{equation*}
@@ -187,7 +187,7 @@ Consider the complex function $f(z) = (a+b\ib)z$. We see that the images of $1$ 
 \noindent Therefore, $F$ = \begin{pmatrix} \alpha & \beta \\ \chi & \delta \end{pmatrix} = \begin{pmatrix} a & -b \\ b & a \end{pmatrix}. The matrix $F$ can be seen as the matrix representation of the function $f$ which is defined by multiplying a complex number $z$ by $a+b\ib$. We can therefore see the matrix $F$ as the real matrix representation of the complex number $a+b\ib$.
 
 \begin{remark}
-	Notice that the column vectors of the matrix $F$ are where the vectors $(1,0)$ and $(0,1)$ are mapped to. This pattern shows up in most of the matrices that we will be dealing with - the column vectors of a matrix are the images of the basis vectors under the linear transformation.
+	Notice that the column vectors of the matrix $F$ are where the vectors $(1,0)$ and $(0,1)$ are mapped to. This pattern shows up in most of the matrices that we will be dealing with - the column vectors of a matrix are the images of the basis vectors (standard) under the linear transformation.
 \end{remark}
 
 \subsection{Homomorphisms from $\Mc{n}$ to $\Mr{2n}$}
@@ -264,6 +264,8 @@ Before we prove that the mapping $\phi$ is a homomorphism, we first prove that t
 	= \begin{pmatrix} (AC-BD) & -(BC+AD) \\ (BC+AD) & (AC-BD) \end{pmatrix}
 \end{proof}
 
+\iffalse
+
 \subsection{Representing Quaternions as Complex Matrices}
 
 A quaternion $q = a + b\ib + c\jb + d\kb$ can be written as $q = (a+b\ib) + (c+d\ib)\jb = (a+b\ib) + (d-c\ib)\kb$ where $a+b\ib,c+d\ib,d-c\ib \in \C$. We can therefore view the set of quaternions as a two-dimensional algebra over $\C$ \cite{stamaria}, i.e., we can define a mapping $\Omega : \HH \rightarrow \C^2$ such that $\quat{a}{b}{c}{d} \mapsto (a+b\ib,c+d\ib)$. We can easily show that $\Omega$ is a bijection.
@@ -273,6 +275,7 @@ A quaternion $q = a + b\ib + c\jb + d\kb$ can be written as $q = (a+b\ib) + (c+d
 \end{theorem}
 
 \begin{proof}
+\\
 	\textbf{1-1: }
 	\begin{align*}
 		&\Omega(\quat{a}{b}{c}{d}) = \Omega(\quat{e}{f}{g}{h})
@@ -284,8 +287,21 @@ A quaternion $q = a + b\ib + c\jb + d\kb$ can be written as $q = (a+b\ib) + (c+d
 	\end{align*}
 	\textbf{Onto: }
 	We show that $\forall (a+b\ib,c+d\ib) \in \C^2 \exists q \in \HH$ such that $\Omega(q) = (a+b\ib,c+d\ib)$. 
-	Let $(a+b\ib,c+d\ib) \in \C^2$. Take $q = \quat{a}{b}{c}{d}$. Then $\Omega(q) = \Omega(\quat{a}{b}{c}{d}) = (a+b\ib,c+d\ib)$.
+	Let $(a+b\ib,c+d\ib) \in \C^2$. Take $q = \quat{a}{b}{c}{d}$. Then $\Omega(q) = \Omega(\quat{a}{b}{c}{d}) = (a+b\ib,c+d\ib)$. Hence, $\Omega$ is onto.
 \end{proof}
 
+Let us consider the quaternionic function $g(q) = (\quat{a}{b}{c}{d})q$. We see that the images of $1, \ib, \jb$ and $\kb$ are $\quat{a}{b}{c}{d}$, $-b+a\ib+d\jb-c\kb$, $-c-d\ib+a\jb+b\kb$, and $-d-b\ib-c\jb+a\kb$. Under the function $\Omega$, $1 \mapsto (1,0)$, $\ib \mapsto (\ib,0)$, $\jb \mapsto (0,1)$, and $\kb \mapsto (0,\ib)$. We seek a matrix in $\Mc{2}$ that maps the latter images $(1,0)$ to $\Omega(\quat{a}{b}{c}{d}) = (a+b\ib, c+d\ib)$, $(\ib,0)$ to $\Omega(-b+a\ib+d\jb-c\kb) = (-b+a\ib,d-c\ib)$, $(0,1)$ to $\Omega(-c-d\ib+a\jb+b\kb) = (-c-d\ib,a+b\ib)$, and $(0,\ib)$ to $\Omega(-d-b\ib-c\jb+a\kb) = (-d-b\ib,-c+a\ib)$.
+
+\newcommand{\kmat}{\begin{pmatrix} \kappa & \lambda \\ \mu & \nu \end{pmatrix}}
+
+\newcommand{\vectC}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+
+Let this matrix be $G = $ \kmat, where $\kappa, \lambda, \mu, $ and $\nu \in \C$. Then, 
+
+\kmat \vectC{1}{0} $=$ \vectC{\kappa}{\mu} $=$ \vectC{a+b\ib}{c+d\ib} $\implies$ $\kappa = a+b\ib$ and $\mu = c+d\ib$.
+
+\kmat \vectC{\ib}{0} $=$ \vectC{\kappa \ib}{\mu \ib} $=$ \vectC{-b+a\ib}{d-c\ib} $\implies$ $\kappa = a+\ib$ and $\mu = 
 
 \subsection{Homomorphisms from $\Mh{n}$ to $\Mc{2n}$}
+
+\fi
