@@ -146,7 +146,7 @@ Most of the definitions we've already mentioned for complex matrices can also be
 \section{Matrix Homomorphisms}
 
 We look into functions that make it possible for us to represent complex numbers and quaternions as matrices. These functions are of extreme importance as they are used to define some of the quaternionic determinants we will encounter.
-
+\iffalse
 \subsection{Representing Complex Numbers as Real Matrices}
 
 In abstract algebra, we saw that we can define a bijection from the field of complex numbers to the 2D-plane ($\R^2$) - a mapping $\Theta : \C \rightarrow \R^2$ where a complex number $a+b\ib$ is mapped to a vector/point $(a,b)$ in the 2D-plane. Therefore, in order to represent complex numbers as real matrices, we have to find a way to view them as linear transformations over $\R^2$. 
@@ -185,13 +185,9 @@ Consider the complex function $f(z) = (a+b\ib)z$. We see that the images of $1$ 
 \end{equation*}
 \\
 \noindent Therefore, $F$ = \begin{pmatrix} \alpha & \beta \\ \chi & \delta \end{pmatrix} = \begin{pmatrix} a & -b \\ b & a \end{pmatrix}. The matrix $F$ can be seen as the matrix representation of the function $f$ which is defined by multiplying a complex number $z$ by $a+b\ib$. We can therefore see the matrix $F$ as the real matrix representation of the complex number $a+b\ib$.
-
-\begin{remark}
-	Notice that the column vectors of the matrix $F$ are where the vectors $(1,0)$ and $(0,1)$ are mapped to. This pattern shows up in most of the matrices that we will be dealing with - the column vectors of a matrix are the images of the basis vectors (standard) under the linear transformation.
-\end{remark}
-
+\fi
 \subsection{Homomorphisms from $\Mc{n}$ to $\Mr{2n}$}
-
+\iffalse
 In the previous subsection, we saw that we can represent complex numbers as $2\times 2$ real matrices. We can then define a mapping from $\C$ to $\Mr{2}$. We can also show that this mapping is a homomorphism.
 
 \begin{theorem}
@@ -208,12 +204,11 @@ In the previous subsection, we saw that we can represent complex numbers as $2\t
 \begin{remark}
 	We will not include the proof for this theorem as this is merely a special case of Theorem \ref{phimorph} (when $n = 1$). 
 \end{remark}
+\fi
 
-We will extend the definition of $\phi$ to hold for complex matrices in general. To do this, notice that every complex matrix can be represented as the sum of a real matrix and a purely imaginary matrix, i.e., for an $n\times n$ matrix $N$, $N = C + D\ib$ where $C,D \in \Mr{n}$. We see that we can intuitively extend the definition of $\phi$ by defining \begin{equation*} \phi(C+D\ib) = \begin{pmatrix} C & -D \\ D & C \end{pmatrix}  \cite{aslaksen}\end{equation*}
+In order to represent complex matrices as real matrices, notice that every complex matrix can be represented as the sum of a real matrix and a purely imaginary matrix, i.e., for an $n\times n$ matrix $Z$, $Z = A + B\ib$ where $A,B \in \Mr{n}$ \cite{aslaksen}. We define a mapping \begin{equation*} \phi(A+B\ib) = \begin{pmatrix} A & -B \\ B & A \end{pmatrix}  \cite{aslaksen}\end{equation*} 
 
-\noindent Alternatively, we can define a matrix \begin{equation*} J = \begin{pmatrix} 0 & -I_n \\ I_n & 0 \end{pmatrix} \end{equation*} and define $\phi$ more generally as $\phi(\Mc{n}) = \{P \in \Mr{2n} | JP = PJ\}$. 
-
-Before we prove that the mapping $\phi$ is a homomorphism, we first prove that the left distributive laws hold for matrices in $\Mc{n}$.
+Before we show that this mapping is an injective homomorphism, we first show that the left distributive laws hold for matrices in $\Mc{n}$.
 
 \begin{theorem}\label{distributive}
 	For matrices $A,B,C \in \Mc{n}$, $A(B+C) = AB + AC$.
@@ -263,34 +258,28 @@ Before we prove that the mapping $\phi$ is a homomorphism, we first prove that t
 	\end{pmatrix} \\ \\
 	= \begin{pmatrix} (AC-BD) & -(BC+AD) \\ (BC+AD) & (AC-BD) \end{pmatrix}
 \end{proof}
+\newline
+\newline
+\begin{definition}[Complex Structure]
+	A \emph{complex structure} of a vector space $V$ is defined by the linear map (linear transformation) $J: V \rightarrow V$ such that $J^2 = -I$, where $I$ is the identity map. \cite{wolfram} 
+\end{definition}
+
+Complex structures are, in general, linear maps that exhibit the property of the imaginary number $i$, that is, $i^2 = -1$. It is important to note that a linear map \emph{must} commute with scalar multiplication, and thus, representing complex linear maps as real linear maps requires the latter to commute with a complex structure of its vector space (this applies to any associated linear maps between different vector spaces) \cite{aslaksen} \cite{stack}.
+
+We define a matrix \begin{equation*} J = \begin{pmatrix} 0 & -I_n \\ I_n & 0 \end{pmatrix} \end{equation*}. Notice that the matrix $J$ is the image of $iI \in \Mc{n}$ under $\phi$ \cite{aslaksen}. It can be easily shown that $J^2 = -I$. It is obvious that J gives a \emph{complex structure} in $\R^{2n}$. Hence, $\phi(\Mc{n}) = \{P \in \Mr{2n} | JP = PJ\}$, i.e., the real matrix representations of complex matrices are the linear maps in $\Mr{2n}$ that commute with the complex structure \cite{aslaksen}. 
+
+%We will extend the definition of $\phi$ to hold for complex matrices in general. To do this, notice that every complex matrix can be represented as the sum of a real matrix and a purely imaginary matrix, i.e., for an $n\times n$ matrix $N$, $N = C + D\ib$ where $C,D \in \Mr{n}$ \cite{aslaksen}. We see that we can intuitively extend the definition of $\phi$ by defining \begin{equation*} \phi(C+D\ib) = \begin{pmatrix} C & -D \\ D & C \end{pmatrix}  \cite{aslaksen}\end{equation*} 
+
 
 \iffalse
-
 \subsection{Representing Quaternions as Complex Matrices}
 
-A quaternion $q = a + b\ib + c\jb + d\kb$ can be written as $q = (a+b\ib) + (c+d\ib)\jb = (a+b\ib) + (d-c\ib)\kb$ where $a+b\ib,c+d\ib,d-c\ib \in \C$. We can therefore view the set of quaternions as a two-dimensional algebra over $\C$ \cite{stamaria}, i.e., we can define a mapping $\Omega : \HH \rightarrow \C^2$ such that $\quat{a}{b}{c}{d} \mapsto (a+b\ib,c+d\ib)$. We can easily show that $\Omega$ is a bijection.
+A quaternion $q = a + b\ib + c\jb + d\kb$ can be written as $q = (a+b\ib) + (c+d\ib)\jb = (a+b\ib)+\jb(c-d\ib) = (a+b\ib)-\jb(-c+d\ib)$ where $a+b\ib,c+d\ib,c-d\ib, -c+d\ib \in \C$. Note that from the latter, we can easily deduce that $v\jb = \jb\bar{v}$ for $v \in \C$. 
 
-\begin{theorem}
-	The mapping $\Omega : \HH \rightarrow \C^2$ such that $\quat{a}{b}{c}{d} \mapsto (a+b\ib,c+d\ib)$ is a bijection.
-\end{theorem}
+We can therefore view the set of quaternions as a two-dimensional algebra over $\C$ \cite{stamaria}, i.e., we can define a mapping $\Omega : \HH \rightarrow \C^2$ such that $\quat{a}{b}{c}{d} \mapsto (a+b\ib,-c+d\ib)$. We can easily show that $\Omega$ is a bijection.
 
-\begin{proof}
-\\
-	\textbf{1-1: }
-	\begin{align*}
-		&\Omega(\quat{a}{b}{c}{d}) = \Omega(\quat{e}{f}{g}{h})
-		\implies (a+b\ib,c+d\ib) = (e+f\ib,g+h\ib) \\
-		&\implies a+b\ib = e+f\ib \text{ and } c+d\ib = g+h\ib
-		\implies a = e, b = f, c = g, \text{ and } d = h \\
-		&\implies \quat{a}{b}{c}{d} = \quat{e}{f}{g}{h}
-		\implies \Omega \text{ is injective.}
-	\end{align*}
-	\textbf{Onto: }
-	We show that $\forall (a+b\ib,c+d\ib) \in \C^2 \exists q \in \HH$ such that $\Omega(q) = (a+b\ib,c+d\ib)$. 
-	Let $(a+b\ib,c+d\ib) \in \C^2$. Take $q = \quat{a}{b}{c}{d}$. Then $\Omega(q) = \Omega(\quat{a}{b}{c}{d}) = (a+b\ib,c+d\ib)$. Hence, $\Omega$ is onto.
-\end{proof}
+Let us consider the quaternionic function $g(q) = (\quat{a}{b}{c}{d})q$. 
 
-Let us consider the quaternionic function $g(q) = (\quat{a}{b}{c}{d})q$. We see that the images of $1, \ib, \jb$ and $\kb$ are $\quat{a}{b}{c}{d}$, $-b+a\ib+d\jb-c\kb$, $-c-d\ib+a\jb+b\kb$, and $-d-b\ib-c\jb+a\kb$. Under the function $\Omega$, $1 \mapsto (1,0)$, $\ib \mapsto (\ib,0)$, $\jb \mapsto (0,1)$, and $\kb \mapsto (0,\ib)$. We seek a matrix in $\Mc{2}$ that maps the latter images $(1,0)$ to $\Omega(\quat{a}{b}{c}{d}) = (a+b\ib, c+d\ib)$, $(\ib,0)$ to $\Omega(-b+a\ib+d\jb-c\kb) = (-b+a\ib,d-c\ib)$, $(0,1)$ to $\Omega(-c-d\ib+a\jb+b\kb) = (-c-d\ib,a+b\ib)$, and $(0,\ib)$ to $\Omega(-d-b\ib-c\jb+a\kb) = (-d-b\ib,-c+a\ib)$.
 
 \newcommand{\kmat}{\begin{pmatrix} \kappa & \lambda \\ \mu & \nu \end{pmatrix}}
 
@@ -300,8 +289,12 @@ Let this matrix be $G = $ \kmat, where $\kappa, \lambda, \mu, $ and $\nu \in \C$
 
 \kmat \vectC{1}{0} $=$ \vectC{\kappa}{\mu} $=$ \vectC{a+b\ib}{c+d\ib} $\implies$ $\kappa = a+b\ib$ and $\mu = c+d\ib$.
 
-\kmat \vectC{\ib}{0} $=$ \vectC{\kappa \ib}{\mu \ib} $=$ \vectC{-b+a\ib}{d-c\ib} $\implies$ $\kappa = a+\ib$ and $\mu = 
-
+\kmat \vectC{\ib}{0} $=$ \vectC{\kappa \ib}{\mu \ib} $=$ \vectC{-b+a\ib}{d-c\ib} $\implies$ $\kappa = a+\ib$ and $\mu = $
+\fi
 \subsection{Homomorphisms from $\Mh{n}$ to $\Mc{2n}$}
 
-\fi
+To represent quaternionic matrices as complex matrices, notice that every quaternionic matrix can be represented as the sum $Y = C + \jb D$ where $C, D \in \Mc{n}$ \cite{aslaksen}. We define a mapping \begin{equation*} \psi(C+\jb D) = \begin{pmatrix} C & -\overline{D} \\ D & \overline{C} \end{pmatrix}  \cite{aslaksen}\end{equation*} 
+
+We can show that $\psi$ is an injective homomorphism using the same proof outline in the previous subsection \cite{aslaksen}.
+
+The non-commutativity of quaternions presents some problems in representing \emph{quaternionic linear maps} as complex linear maps. If we consider a quaternionic linear map say $L(v) = Av$ for $A \in \Mh{n}$ where we take in quaternions as scalars, then, $cAv = c L(v) = L(cv) = Acv$ which is false (considering the base case for $1\times 1$ matrices) \cite{stack}. However, $Avc = L(v)c = L(vc) = Avc$. Hence, we now see that any quaternionic linear map commutes with right scalar multiplication by a quaternion which itself is not a linear map in $\HH$ (in order for it to be a linear map, it in turn, has to commute with other quaternions - which it, of course, doesn't)\cite{stack} \cite{aslaksen}. This poses a problem because it implies that there is no matrix representation for right scalar multiplication \cite{aslaksen}. However, in \cite{aslaksen}, we see that we can consider a linear map $\widetilde{R_j}$ in $\C^{2n}$ as the image of right scalar multiplication by $\jb$ under the homomorphism. $\widetilde{R_j}$ corresponds to multiplying $v \in \C^{2n}$ by the matrix $J$ and then conjugating \cite{aslaksen}. This gives a quaternionic structure in $\C^{2n}$ and thus, a quaternionic linear map corresponds to a complex linear map $Q$ that commutes with $\widetilde{R_j}$, i.e., $Q \overline{Jv} = \overline{JQv}$ for $v \in \C^{2n}$. It can be easily shown that the latter holds if and only if $\overline{Q}J = JQ$ using the fact that $Q\overline{Jv} = \overline{QJv}$. Thus, $\psi(\Mh{n}) = \{Q \in \Mc{2n} |\overline{Q}J = JQ\}.
