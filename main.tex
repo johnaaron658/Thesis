@@ -20,6 +20,7 @@
 \newtheorem{definition}{Definition}[section]
 \theoremstyle{theorem}
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}{Proposition}
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 \renewcommand\qedsymbol{$\blacksquare$}
@@ -40,6 +41,8 @@
 \newcommand{\jhat}{\hat{\jb}}
 \newcommand{\khat}{\hat{\kb}}
 \newcommand{\quat}[4]{#1 + #2\ib + #3\jb + #4\kb}
+\newcommand{\cdet}[1]{det_{\C}(#1)}
+\newcommand{\rdet}[1]{det_{\R}(#1)}
 \newcommand{\genmatk}[4]{
 	\begin{matrix}
 	 #1 & \ldots & #2 \\
@@ -93,7 +96,7 @@
 % MAIN DOCUMENT
 \begin{document}
 	%\maketitle
-	\tableofcontents
+	%\tableofcontents
 
 	%main body
 	\chapter{Introduction}
@@ -102,8 +105,8 @@
 	\chapter{Preliminaries}
 	\input{chapters/chapter02}
 
-	%\chapter{Results and Discussion}
-	%\input{chapters/chapter03}
+	\chapter{Results and Discussion}
+	\input{chapters/chapter03}
 
 	%\chapter{Summary and Recommendations}
 	%\input{chapters/chapter04}
