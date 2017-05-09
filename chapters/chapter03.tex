@@ -8,14 +8,16 @@ In 1845, 2 years after William Rowan Hamilton discovered quaternions, Arthur Cay
 We take a step back and revisit what it means for a mapping to be a determinant. We present the determinant function as defined by J.L. Brenner.
 
 \begin{definition}[Determinant Function]
-	For a skew-field $F$, a determinant over the matrices of $\Mf{n}$ is a function $det$ from $\Mf{n}$ into $F$ such that 
+	For a field $F$, a determinant over the matrices of $\Mf{n}$ is a function $det$ from $\Mf{n}$ into $F$ such that 
 	\begin{equation}
 	det(AB) = det(A)det(B) = det(B)det(A)
 	\end{equation} 
 	holds either \textbf{(1)} $\forall A, B \in \Mf{n}$ or \textbf{(2)} $\forall$ invertible $A, B \in \Mf{n}$. 
 \end{definition}
 
- We see that if $det$ is a constant function that only maps to either 0 or 1 (with 0 for singular matrices and 1 for invertible matrices), then $det$ satisfies the above definition \cite{brenner}. The following theorem by Brenner shows that this holds for non-trivial determinants and that conditions (1) and (2) are essentially equivalent \cite{brenner}. Notice that the 
+Notice that the definition requires the images of $A$ and $B$ to commute (this is not possible for skew-fields like the quaternions). We can see this matter viewed in a more rigorous manner (also in a manner more specific to the quaternions) while discussing Aslaksen's axioms. 
+
+We see that if $det$ is a constant function that only maps to either 0 or 1 (with 0 for singular matrices and 1 for invertible matrices), then $det$ satisfies the above definition \cite{brenner}. The following theorem by Brenner shows that this holds for non-trivial determinants as well and that conditions (1) and (2) are essentially equivalent \cite{brenner}. 
 
 \begin{theorem}
 If $det$ is not constantly equal to 1 or 0 (i.e., $det$ is not a mapping $det: \Mf{n} \rightarrow F$ where $F$ is a field with two elements), then $det(B) = 0$ for all singular matrices. 
