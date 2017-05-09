@@ -10,31 +10,34 @@
 \usepackage{comment}
 \usepackage{subcaption}
 \usepackage{graphicx}
-\usepackage{float}
-\usepackage{layout}
-\usepackage[inline]{enumitem}
-\usepackage{paralist}
-\usepackage[hmargin={1.5in,1in},vmargin=1in,includehead,includefoot]{geometry}
+\usepackage{epsfig}
+\usepackage{upcebumath}  
+\usepackage{UPnotations}
+\usepackage{hyperref}
+\usepackage{rotating}
+%\usepackage{float}
+%\usepackage{layout}
+%\usepackage[hmargin={1.5in,1in},vmargin=1in,includehead,includefoot]{geometry}
 \graphicspath{{images/}}
 
 % THEOREM MACROS
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{lemma}{Lemma}[section]
-\theoremstyle{theorem}
-\newtheorem{theorem}{Theorem}[section]
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}[section]
+%\newtheorem{lemma}{Lemma}[section]
+%\theoremstyle{theorem}
+%\newtheorem{theorem}{Theorem}[section]
 \newtheorem{prop}{Proposition}
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\renewcommand\qedsymbol{$\blacksquare$}
+%\theoremstyle{remark}
+%\newtheorem*{remark}{Remark}
+%\renewcommand\qedsymbol{$\blacksquare$}
 
 % MATH SHORTCUTS
 \DeclareMathOperator{\R}{\mathbb{R}}
-\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\CC}{\mathbb{C}}
 \DeclareMathOperator{\HH}{\mathbb{H}}
 \newcommand{\Rx}[3]{{#1}_{#2}{(#3)}}
 \newcommand{\Mr}[1]{\Rx{$M$}{#1}{\R}}
-\newcommand{\Mc}[1]{\Rx{$M$}{#1}{\C}}
+\newcommand{\Mc}[1]{\Rx{$M$}{#1}{\CC}}
 \newcommand{\Mh}[1]{\Rx{$M$}{#1}{\HH}}
 \newcommand{\Mf}[1]{\Rx{$M$}{#1}{$F$}}
 \newcommand{\nbf}[1]{\textbf{#1}}
@@ -45,7 +48,7 @@
 \newcommand{\jhat}{\hat{\jb}}
 \newcommand{\khat}{\hat{\kb}}
 \newcommand{\quat}[4]{#1 + #2\ib + #3\jb + #4\kb}
-\newcommand{\cdet}[1]{det_{\C}(#1)}
+\newcommand{\cdet}[1]{det_{\CC}(#1)}
 \newcommand{\rdet}[1]{det_{\R}(#1)}
 \newcommand{\genmatk}[4]{
 	\begin{matrix}
@@ -59,48 +62,81 @@
 }
 
 % MATH ENVIRONMENT SETUP
-\setlength\arraycolsep{6pt}
-\renewcommand{\arraystretch}{0.75}
+%\setlength\arraycolsep{6pt}
+%\renewcommand{\arraystretch}{0.75}
+\newenvironment{proof}{\noindent \textit{Proof.}~}{\hfill$\square$}
 
 % DOCUMENT SETUP
-\setlength{\parindent}{4em}
+%\setlength{\parindent}{4em}
 %\setlength{\parskip}{1em}
-\renewcommand{\baselinestretch}{2.0}
-\makeatletter
-\def\@makechapterhead#1{
-  {\parindent \z@ \raggedright \normalfont
-    \ifnum \c@secnumdepth >\m@ne
-        \huge\bfseries \@chapapp\space \thechapter
-        \par\nobreak
-        \vskip 20\p@
-    \fi
-    \interlinepenalty\@M
-    \Huge \bfseries #1\par\nobreak
-    \vskip 40\p@
-  }}
-\def\@makeschapterhead#1{
-  {\parindent \z@ \raggedright
-    \normalfont
-    \interlinepenalty\@M
-    \Huge \bfseries  #1\par\nobreak
-    \vskip 40\p@
-  }}
-\makeatother
+%\renewcommand{\baselinestretch}{2.0}
+%\makeatletter
+%\def\@makechapterhead#1{
+%  {\parindent \z@ \raggedright \normalfont
+%    \ifnum \c@secnumdepth >\m@ne
+%        \huge\bfseries \@chapapp\space \thechapter
+%        \par\nobreak
+%        \vskip 20\p@
+%    \fi
+%    \interlinepenalty\@M
+%    \Huge \bfseries #1\par\nobreak
+%    \vskip 40\p@
+%  }}
+%\def\@makeschapterhead#1{
+%  {\parindent \z@ \raggedright
+%    \normalfont
+%    \interlinepenalty\@M
+%    \Huge \bfseries  #1\par\nobreak
+%    \vskip 40\p@
+%  }}
+%\makeatother
 
-% DETAILS
-\title{
-	{An Application of the Study Determinant on Skew-Coninvolutory
-	 Quaternionic Matrices}\\
-	{\large University of the Philippines Cebu}\\
-}
-
-\author{John Aaron Q. Alcoseba}
-%\date{The Future}
 
 % MAIN DOCUMENT
 \begin{document}
-	%\maketitle
-	%\tableofcontents
+	% DETAILS
+	\title{An Application of the Study Determinant on Skew-Coninvolutory Quaternionic Matrices}
+
+	\authorfirst{John Aaron Q.}
+	\authorlast{Alcoseba}
+
+	\degree{Bachelor of Science in Mathematics}
+	\thesistype{Undergraduate Thesis}
+	\thesisdocument{Thesis}
+	\defensedate{May 29, 2017}
+	\submitmonth{June}
+	\submityear{2017}
+	\adviser{Dr. Lorna S. Almocera}
+	\reader{Someone}
+
+	\bothabsenttrue
+
+	\coadviser{co-Adviser, Ph.D.}
+
+	\chairman{Jonnifer R. Sinogaya, Ph.D.} 
+	\abs{Type your abstract here.  Your abstract should have a minimum
+	of 150 words and a maximum of 300 words.}
+
+	\acknowledge{Type your acknowledgements here. It is customary to acknowledge special assistance from
+	extramural agencies. There is no obligation that assistance received from members of the dissertation or
+	thesis committee be acknowledged. \medskip
+
+	Acknowledgments should be couched in terms consistent with the
+	scholarly nature of the work. Your name and the date should not appear on this page.}
+
+	\beforepreface
+	\tableofcontents
+
+	\newpage
+
+	\acknowledgetrue
+	\acknowledgepage
+
+	\abstractpage
+	%\listoftables
+	%\listoffigures
+
+	\afterpreface
 
 	%main body
 	\chapter{Introduction} 
@@ -115,6 +151,10 @@
 	%\chapter{Summary and Recommendations}
 	%\input{chapters/chapter04}
 
-	\bibliographystyle{ieeetr}
+	\appendix
+	%\input{newfile}
+	\nocite*
+
+	\bibliographystyle{siam}
 	\bibliography{bibliography}
 \end{document}

@@ -1,6 +1,6 @@
 \section{The Cayley Determinant and Aslaksen's Axioms}
 
-In 1845, 2 years after William Rowan Hamilton discovered quaternions, Arthur Cayley attempted to define the determinant of a quaternionic matrix using the usual formula (we denote the Cayley determinant by $Cdet$), i.e., for a $2 \times 2$ quaternionic matrix $A = $ \begin{pmatrix} a & b \\ c & d \end{pmatrix}, $Cdet(A) = ad - cb$ for $a,b,c,d \in \HH$ \cite{aslaksen}. The same goes for $3 \times 3$ matrices and so on. Taking into account the fact that the quaternions are non-commutative (and the implications it has on linear mappings as will be discussed later), we might ask whether or not this determinant behaves the way we expect - Will it really determine whether or not a quaternionic matrix is singular or not? Will the properties of the determinant still hold? Will the determinant still be a map from $M_{n}(G) \rightarrow G$ (in this case, $G = \HH$)? The last question comes from the fact that the determinants of complex matrices is a map from $\Mc{n} \rightarrow \C$.  
+In 1845, 2 years after William Rowan Hamilton discovered quaternions, Arthur Cayley attempted to define the determinant of a quaternionic matrix using the usual formula (we denote the Cayley determinant by $Cdet$), i.e., for a $2 \times 2$ quaternionic matrix $A = $ \begin{pmatrix} a & b \\ c & d \end{pmatrix}, $Cdet(A) = ad - cb$ for $a,b,c,d \in \HH$ \cite{aslaksen}. The same goes for $3 \times 3$ matrices and so on. Taking into account the fact that the quaternions are non-commutative (and the implications it has on linear mappings as will be discussed later), we might ask whether or not this determinant behaves the way we expect - Will it really determine whether or not a quaternionic matrix is singular or not? Will the properties of the determinant still hold? Will the determinant still be a map from $M_{n}(G) \rightarrow G$ (in this case, $G = \HH$)? The last question comes from the fact that the determinants of complex matrices is a map from $\Mc{n} \rightarrow \CC$.  
 
 
 \subsection{The Determinant Function}
@@ -77,7 +77,7 @@ We look into functions that make it possible for us to represent complex numbers
 \iffalse
 \subsubsection{Representing Complex Numbers as Real Matrices}
 
-In abstract algebra, we saw that we can define a bijection from the field of complex numbers to the 2D-plane ($\R^2$) - a mapping $\Theta : \C \rightarrow \R^2$ where a complex number $a+b\ib$ is mapped to a vector/point $(a,b)$ in the 2D-plane. Therefore, in order to represent complex numbers as real matrices, we have to find a way to view them as linear transformations over $\R^2$. 
+In abstract algebra, we saw that we can define a bijection from the field of complex numbers to the 2D-plane ($\R^2$) - a mapping $\Theta : \CC \rightarrow \R^2$ where a complex number $a+b\ib$ is mapped to a vector/point $(a,b)$ in the 2D-plane. Therefore, in order to represent complex numbers as real matrices, we have to find a way to view them as linear transformations over $\R^2$. 
 
 Consider the complex function $f(z) = (a+b\ib)z$. We see that the images of $1$ and $\ib$ are $a+b\ib$ and $-b+a\ib$ respectively. Under the function $\Theta$ (in which case $1$ is mapped to $(1,0)$ while $\ib$ is mapped to $(0,1)$), we seek a matrix in $\Mr{2}$ that maps $(1,0)$ to $\Theta(a+b\ib) = (a,b)$ and $(0,1)$ to $\Theta(-b+a\ib) = (-b,a)$. 
 \\
@@ -116,14 +116,14 @@ Consider the complex function $f(z) = (a+b\ib)z$. We see that the images of $1$ 
 \fi
 \subsubsection{Homomorphisms from $\Mc{n}$ to $\Mr{2n}$}
 \iffalse
-In the previous subsection, we saw that we can represent complex numbers as $2\times 2$ real matrices. We can then define a mapping from $\C$ to $\Mr{2}$. We can also show that this mapping is a homomorphism.
+In the previous subsection, we saw that we can represent complex numbers as $2\times 2$ real matrices. We can then define a mapping from $\CC$ to $\Mr{2}$. We can also show that this mapping is a homomorphism.
 
 \begin{theorem}
-	Let $\phi : \C \rightarrow \Mr{2}$ such that $a+b\ib \mapsto$ \begin{pmatrix} a & -b \\ b & a \end{pmatrix}. Then $\phi$ is an injective homomorphism from $\C$ to $\Mr{2}.
+	Let $\phi : \CC \rightarrow \Mr{2}$ such that $a+b\ib \mapsto$ \begin{pmatrix} a & -b \\ b & a \end{pmatrix}. Then $\phi$ is an injective homomorphism from $\CC$ to $\Mr{2}.
 \end{theorem}
 
 %\begin{proof}
-%	Let $z_1 = a+b\ib$ and $z_2 = c+d\ib \in \C$ . \\
+%	Let $z_1 = a+b\ib$ and $z_2 = c+d\ib \in \CC$ . \\
 %	Then $\phi(z_1z_2) = \phi[(a+b\ib)(c+d\ib)] = \phi[(ac-bd)+(ad+bc)\ib] = $\begin{pmatrix} (ac-bd) & -(ad+bc) \\ (ad+bc) & (ac-bd)$ \end{pmatrix}. \\ \\
 %	Now, $\phi(z_1)\phi(z_2) = \phi[(a+b\ib)]\phi[(c+d\ib)] = $\begin{pmatrix} a & -b \\ b & a \end{pmatrix}\begin{pmatrix} c & -d \\ d & c \end{pmatrix}$ = $\begin{pmatrix} (ac-bd) & -(ad+bc) \\ (ad+bc) & (ac-bd)$ \end{pmatrix}. \\
 %	Hence, $\phi(z_1z_2) = \phi(z_1)\phi(z_2)$.
@@ -202,9 +202,9 @@ We define a matrix \begin{equation*} J = \begin{pmatrix} 0 & -I_n \\ I_n & 0 \en
 \iffalse
 \subsection{Representing Quaternions as Complex Matrices}
 
-A quaternion $q = a + b\ib + c\jb + d\kb$ can be written as $q = (a+b\ib) + (c+d\ib)\jb = (a+b\ib)+\jb(c-d\ib) = (a+b\ib)-\jb(-c+d\ib)$ where $a+b\ib,c+d\ib,c-d\ib, -c+d\ib \in \C$. Note that from the latter, we can easily deduce that $v\jb = \jb\bar{v}$ for $v \in \C$. 
+A quaternion $q = a + b\ib + c\jb + d\kb$ can be written as $q = (a+b\ib) + (c+d\ib)\jb = (a+b\ib)+\jb(c-d\ib) = (a+b\ib)-\jb(-c+d\ib)$ where $a+b\ib,c+d\ib,c-d\ib, -c+d\ib \in \CC$. Note that from the latter, we can easily deduce that $v\jb = \jb\bar{v}$ for $v \in \CC$. 
 
-We can therefore view the set of quaternions as a two-dimensional algebra over $\C$ \cite{stamaria}, i.e., we can define a mapping $\Omega : \HH \rightarrow \C^2$ such that $\quat{a}{b}{c}{d} \mapsto (a+b\ib,-c+d\ib)$. We can easily show that $\Omega$ is a bijection.
+We can therefore view the set of quaternions as a two-dimensional algebra over $\CC$ \cite{stamaria}, i.e., we can define a mapping $\Omega : \HH \rightarrow \CC^2$ such that $\quat{a}{b}{c}{d} \mapsto (a+b\ib,-c+d\ib)$. We can easily show that $\Omega$ is a bijection.
 
 Let us consider the quaternionic function $g(q) = (\quat{a}{b}{c}{d})q$. 
 
@@ -213,7 +213,7 @@ Let us consider the quaternionic function $g(q) = (\quat{a}{b}{c}{d})q$.
 
 \newcommand{\vectC}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
 
-Let this matrix be $G = $ \kmat, where $\kappa, \lambda, \mu, $ and $\nu \in \C$. Then, 
+Let this matrix be $G = $ \kmat, where $\kappa, \lambda, \mu, $ and $\nu \in \CC$. Then, 
 
 \kmat \vectC{1}{0} $=$ \vectC{\kappa}{\mu} $=$ \vectC{a+b\ib}{c+d\ib} $\implies$ $\kappa = a+b\ib$ and $\mu = c+d\ib$.
 
@@ -225,7 +225,7 @@ To represent quaternionic matrices as complex matrices, notice that every quater
 
 We can show that $\psi$ is an injective homomorphism using the same proof outline in the previous subsection \cite{aslaksen}.
 
-The non-commutativity of quaternions presents some problems in representing \emph{quaternionic linear maps} as complex linear maps. If we consider a quaternionic linear map say $L(v) = Av$ for $A \in \Mh{n}$ where we take in quaternions as scalars, then, $cAv = c L(v) = L(cv) = Acv$ which is false (considering the base case for $1\times 1$ matrices) \cite{stack}. However, $Avc = L(v)c = L(vc) = Avc$. Hence, we now see that any quaternionic linear map commutes with right scalar multiplication by a quaternion which itself is not a linear map in $\HH$ (in order for it to be a linear map, it in turn, has to commute with other quaternions)\cite{stack} \cite{aslaksen}. This poses a problem because it implies that there is no matrix representation for right scalar multiplication \cite{aslaksen}. However, in \cite{aslaksen}, we see that we can consider a linear map $\widetilde{R_j}$ in $\C^{2n}$ as the image of right scalar multiplication by $\jb$ under the homomorphism. $\widetilde{R_j}$ corresponds to multiplying $v \in \C^{2n}$ by the matrix $J$ and then conjugating \cite{aslaksen}. This gives a quaternionic structure in $\C^{2n}$ and thus, a quaternionic linear map corresponds to a complex linear map $Q$ that commutes with $\widetilde{R_j}$, i.e., $Q \overline{Jv} = \overline{JQv}$ for $v \in \C^{2n}$. It can be easily shown that the latter holds if and only if $\overline{Q}J = JQ$ using the fact that $Q\overline{Jv} = \overline{QJv}$. Thus, $\psi(\Mh{n}) = \{Q \in \Mc{2n} |\overline{Q}J = JQ\}.
+The non-commutativity of quaternions presents some problems in representing \emph{quaternionic linear maps} as complex linear maps. If we consider a quaternionic linear map say $L(v) = Av$ for $A \in \Mh{n}$ where we take in quaternions as scalars, then, $cAv = c L(v) = L(cv) = Acv$ which is false (considering the base case for $1\times 1$ matrices) \cite{stack}. However, $Avc = L(v)c = L(vc) = Avc$. Hence, we now see that any quaternionic linear map commutes with right scalar multiplication by a quaternion which itself is not a linear map in $\HH$ (in order for it to be a linear map, it in turn, has to commute with other quaternions)\cite{stack} \cite{aslaksen}. This poses a problem because it implies that there is no matrix representation for right scalar multiplication \cite{aslaksen}. However, in \cite{aslaksen}, we see that we can consider a linear map $\widetilde{R_j}$ in $\CC^{2n}$ as the image of right scalar multiplication by $\jb$ under the homomorphism. $\widetilde{R_j}$ corresponds to multiplying $v \in \CC^{2n}$ by the matrix $J$ and then conjugating \cite{aslaksen}. This gives a quaternionic structure in $\CC^{2n}$ and thus, a quaternionic linear map corresponds to a complex linear map $Q$ that commutes with $\widetilde{R_j}$, i.e., $Q \overline{Jv} = \overline{JQv}$ for $v \in \CC^{2n}$. It can be easily shown that the latter holds if and only if $\overline{Q}J = JQ$ using the fact that $Q\overline{Jv} = \overline{QJv}$. Thus, $\psi(\Mh{n}) = \{Q \in \Mc{2n} |\overline{Q}J = JQ\}.
 
 \subsection{Study Determinant}
 
@@ -249,6 +249,7 @@ It can be shown that the Study Determinant satisfies all of Aslaksen's axioms \c
 	\end{align*}
 	Since $|Sdet(E)|^2 > 0$, $(-1)^n > 0$. Hence, $n$ must be even.
 \end{proof}
+
 \begin{remark}
 	Theorem \ref{detbar} holds because the Study determinant is a complex determinant.
 \end{remark}
