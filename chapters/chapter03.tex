@@ -1,10 +1,69 @@
 \section{The Cayley Determinant and Aslaksen's Axioms}
 
-In 1845, 2 years after William Rowan Hamilton discovered quaternions, Arthur Cayley attempted to define the determinant of a quaternionic matrix using the usual formula (we denote the Cayley determinant by $Cdet$), i.e., for a $2 \times 2$ quaternionic matrix $A = $ \begin{pmatrix} a & b \\ c & d \end{pmatrix}, $Cdet(A) = ad - cb$ for $a,b,c,d \in \HH$ \cite{aslaksen}. The same goes for $3 \times 3$ matrices and so on. Taking into account the fact that the quaternions are non-commutative (and the implications it has on linear mappings as discussed in the previous chapter), we might ask whether or not this determinant behaves the way we expect - Will it really determine whether or not a quaternionic matrix is singular or not? Will the properties of the determinant still hold? Will the determinant still be a map from $M_{n}(F) \rightarrow F$ (in this case, $F = \HH$)? The last question comes from the fact that the determinants of complex matrices is a map from $\Mc{n} \rightarrow \C$.  
+In 1845, 2 years after William Rowan Hamilton discovered quaternions, Arthur Cayley attempted to define the determinant of a quaternionic matrix using the usual formula (we denote the Cayley determinant by $Cdet$), i.e., for a $2 \times 2$ quaternionic matrix $A = $ \begin{pmatrix} a & b \\ c & d \end{pmatrix}, $Cdet(A) = ad - cb$ for $a,b,c,d \in \HH$ \cite{aslaksen}. The same goes for $3 \times 3$ matrices and so on. Taking into account the fact that the quaternions are non-commutative (and the implications it has on linear mappings as will be discussed later), we might ask whether or not this determinant behaves the way we expect - Will it really determine whether or not a quaternionic matrix is singular or not? Will the properties of the determinant still hold? Will the determinant still be a map from $M_{n}(G) \rightarrow G$ (in this case, $G = \HH$)? The last question comes from the fact that the determinants of complex matrices is a map from $\Mc{n} \rightarrow \C$.  
 
-In the \emph{Mathematical Intelligencer}, Helmer Aslaksen presented 3 determinant \emph{axioms} which a determinant definition must satisfy in order for it to behave the way we expect, i.e., it has the properties we associate with determinants. These axioms were already introduced in Chapter 1. 
 
-The Cayley Determinant doesn't satisfy any of the axioms \cite{aslaksen}. More importantly, it can be shown that the value of a quaternionic determinant must be a commutative subset of $\HH$ \cite{aslaksen} therefore, a quaternionic determinant cannot be a map from $M_{n}(\HH) \rightarrow \HH$. 
+\subsection{The Determinant Function}
+
+We take a step back and revisit what it means for a mapping to be a determinant. We present the determinant function as defined by J.L. Brenner.
+
+\begin{definition}[Determinant Function]
+	For a skew-field $F$, a determinant over the matrices of $\Mf{n}$ is a function $det$ from $\Mf{n}$ into $F$ such that 
+	\begin{equation}
+	det(AB) = det(A)det(B) = det(B)det(A)
+	\end{equation} 
+	holds either \textbf{(1)} $\forall A, B \in \Mf{n}$ or \textbf{(2)} $\forall$ invertible $A, B \in \Mf{n}$. 
+\end{definition}
+
+ We see that if $det$ is a constant function that only maps to either 0 or 1 (with 0 for singular matrices and 1 for invertible matrices), then $det$ satisfies the above definition \cite{brenner}. The following theorem by Brenner shows that this holds for non-trivial determinants and that conditions (1) and (2) are essentially equivalent \cite{brenner}. Notice that the 
+
+\begin{theorem}
+If $det$ is not constantly equal to 1 or 0 (i.e., $det$ is not a mapping $det: \Mf{n} \rightarrow F$ where $F$ is a field with two elements), then $det(B) = 0$ for all singular matrices. 
+\end{theorem}
+\iffalse
+\begin{proof}
+	Let $O$ be the zero matrix, $I$ the identity matrix, and $A$ a matrix whose determinant (image under $det$) is neither 1 nor 0. 
+	Since $OA = O$, by Axiom 2, $det(O)det(A) = det(O)$. Suppose $det(O) \neq 0$, then $det(A) = 1$ which is a contradiction. Hence, $det(O) = 0$.
+	Similarly, since $IA = A$, by Axiom 2, $det(I)det(A) = det(A) \implies det(I) = 1$.
+	Also note that for a permutation matrix (an elementary matrix that permutes the rows/columns) $E$, $E^m = I$ for some $m$, hence $det(E) \neq 0$.
+	Now, define a matrix
+	\begin{equation*}
+		D = 
+		\begin{pmatrix}
+			1 &  &  &  &  &  \\
+			 & \ddots & & & & \\
+			  & & 1 & & & \\
+			  & & & 0 & & \\
+			  & & & & \ddots & \\
+			  & & & & & 0
+		\end{pmatrix}
+	\end{equation*}
+	Notice that if $D$ is singular, then $det(D) = 0$.
+\end{proof}
+\fi
+
+\subsection{Aslaksen's Axioms}
+
+In the \emph{Mathematical Intelligencer}, Helmer Aslaksen presented 3 determinant \emph{axioms} which a determinant definition must satisfy in order for it to behave the way we expect, i.e., it has the properties we associate with determinants. These axioms were already introduced in Chapter 1 and we will be discussing them in greater detail here. 
+\begin{itemize}
+	\item \textbf{Axiom 1.} $det(A) = 0$ if and only if $A$ is singular.
+	\item \textbf{Axiom 2.} $det(AB) = det(A)det(B)$ for all quaternionic matrices $A$ and $B$.
+	\item \textbf{Axiom 3.} If $A'$ is obtained by adding a left-multiple of a row to another row or a right-multiple of a column to another column, then $det(A')=det(A)$.
+\end{itemize}
+
+
+
+\begin{lemma}
+
+\end{lemma}
+
+\begin{lemma}
+
+\end{lemma}
+
+\begin{theorem}
+
+\end{theorem}
 
 \section{The Study Determinant}
 

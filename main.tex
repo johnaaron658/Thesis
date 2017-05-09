@@ -12,12 +12,15 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{layout}
+\usepackage[inline]{enumitem}
+\usepackage{paralist}
 \usepackage[hmargin={1.5in,1in},vmargin=1in,includehead,includefoot]{geometry}
 \graphicspath{{images/}}
 
 % THEOREM MACROS
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}[section]
 \theoremstyle{theorem}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{prop}{Proposition}
@@ -33,6 +36,7 @@
 \newcommand{\Mr}[1]{\Rx{$M$}{#1}{\R}}
 \newcommand{\Mc}[1]{\Rx{$M$}{#1}{\C}}
 \newcommand{\Mh}[1]{\Rx{$M$}{#1}{\HH}}
+\newcommand{\Mf}[1]{\Rx{$M$}{#1}{$F$}}
 \newcommand{\nbf}[1]{\textbf{#1}}
 \newcommand{\ib}{\nbf{i}}
 \newcommand{\jb}{\nbf{j}}
@@ -95,11 +99,11 @@
 
 % MAIN DOCUMENT
 \begin{document}
-	\maketitle
-	\tableofcontents
+	%\maketitle
+	%\tableofcontents
 
 	%main body
-	\chapter{Introduction}
+	\chapter{Introduction} 
 	\input{chapters/chapter01}
 
 	\chapter{Preliminaries}
