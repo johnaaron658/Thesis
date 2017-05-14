@@ -1,4 +1,10 @@
+In this chapter, we will be presenting terms and known results which are key to building and understanding the theory of quaternionic determinants.  
+
 \section{Complex Matrices}
+
+Our discussions regarding quaternionic matrices will mostly revolve around extending properties and definitions that already hold for complex matrices. 
+
+To put it simply, \emph{complex matrices} are simply matrices that have complex entries. However, even with this little difference, complex matrices can give us deeper insight into concepts we've already seen in linear algebra - revisiting notions such as the definition of transposes and orthogonal matrices (see \cite{stamaria} for deeper discussion regarding this matter). 
 
 \begin{definition}[Conjugate Matrix]
 	A \emph{conjugate matrix} is a matrix $\bar{E}$ obtained from $E$ by taking the complex conjugate of every entry of $E$.
@@ -8,20 +14,69 @@
 	A matrix is said to be \emph{coninvolutory} if $E\bar{E} = I_n$ for $E \in \Mc{n}$.
 \end{definition}	
 
-\begin{remark}
-	By manipulation, we obtain $E^{-1} = \bar{E}$. Hence, we may also say that a matrix whose inverse is its own conjugate matrix is a coninvolutory matrix. Furthermore, we see that coninvolutory matrices are the extension of complex numbers with modulus 1 \cite{stamaria}.
-\end{remark}
+	By manipulation, we obtain $E^{-1} = \bar{E}$. Hence, we may also say that a matrix whose inverse is its own conjugate matrix is a coninvolutory matrix. 
+\begin{ex}
+	Consider the complex matrix, $E = $
+	\begin{pmatrix} 
+	-\frac{13}{17}+\frac{16}{17}\ib & -\frac{8}{17}+\frac{2}{17}\ib \\
+	\frac{16}{17}-\frac{4}{17}\ib & \frac{19}{17}+\frac{8}{17}\ib
+	\end{pmatrix}
+	
+	We see that 
+	\begin{align*}
+	E\bar{E} &=  
+		\begin{pmatrix} 
+		-\frac{13}{17}+\frac{16}{17}\ib & -\frac{8}{17}+\frac{2}{17}\ib \\
+		\frac{16}{17}-\frac{4}{17}\ib & \frac{19}{17}+\frac{8}{17}\ib
+		\end{pmatrix}
+		\begin{pmatrix} 
+		-\frac{13}{17}-\frac{16}{17}\ib & -\frac{8}{17}-\frac{2}{17}\ib \\
+		\frac{16}{17}+\frac{4}{17}\ib & \frac{19}{17}-\frac{8}{17}\ib
+		\end{pmatrix} \\
+		&= \frac{1}{17}\frac{1}{17}
+		\begin{pmatrix}
+		-13+16\ib & -8+2\ib \\
+		16-4\ib & 19+8\ib
+		\end{pmatrix}
+		\begin{pmatrix}
+		-13-16\ib & -8-2\ib \\
+		16+4\ib & 19-8\ib
+		\end{pmatrix} \\
+		&=
+		\frac{1}{289}
+		\begin{pmatrix}
+		289 & 0 \\
+		0 & 289
+		\end{pmatrix} \\
+		&=
+		\begin{pmatrix}
+		1 & 0 \\
+		0 & 1
+		\end{pmatrix}
+	\end{align*}
+Hence, we see that $E$ is a coninvolutory matrix. \textbf{Side note: } We've obtained $E$ using the factorization provided in Theorem 2.3 found in \cite{stamaria}. 
+
+\end{ex}
+	If we take the concept of coninvolutory matrices in the context of real matrices, we get $EE = E^2 = I_n$ since $\forall E \in \Mr{n}$, $E = \bar{E}$. This is what we call an \emph{Involutory Matrix}, i.e.,  a matrix whose inverse is itself. We see that the coninvolutory matrix is, in some way, an extension of the concept of an involutory matrix in $\Mr{n}$. Also, notice that a coninvolutory matrix generalizes complex numbers with modulus 1 (complex numbers that lie on the unit circle of the complex plane), i.e., $z\bar{z} = |z|^2 = 1$ for $z \in \CC$ \cite{stamaria}.
 
 \begin{definition}[Skew-Coninvolutory Matrix]
 	A matrix is said to be \emph{skew-coninvolutory} if $E\bar{E} = -I_n$ for $E \in \Mc{n}$.
 \end{definition}
 
-\begin{remark}
-	Again, we may say that a matrix whose inverse is the negative of its own conjugate matrix is a skew-coninvolutory matrix. This is analogous to the skew-symmetric matrices we've encountered in linear algebra.
-\end{remark}
+	Again, we may say that a matrix whose inverse is the negative of its own conjugate matrix is a skew-coninvolutory matrix. If we take this in the context of real matrices, we get $EE = E^2 = -I_n$. Notice how this closely resembles a property of the complex number $\ib$, i.e., $\ib^2 = -1$. In fact, we have a special name for these linear maps: \emph{complex structures} \cite{wolfram}. 
+
+	\begin{definition}[Complex Structure]
+	A \emph{complex structure} of a vector space $V$ is defined by the linear map (linear transformation) $J: V \rightarrow V$ such that $J^2 = -I$, where $I$ is the identity map. \cite{wolfram} 
+\end{definition}
+
+ In later discussions, we will be looking into functions that make it possible for us to represent complex numbers and complex matrices (complex linear maps) as real matrices (real linear maps). In doing so, we will have to define a complex structure in the real matrices. 
+
+ Recall in linear algebra that a linear map \emph{must} commute with scalar multiplication, i.e. $L(cv) = cL(v)$ for a linear map $L$, $v \in V$ (where $V$ is a vector space over the field $F$) and $c \in F$.  Hence, representing complex linear maps as real linear maps requires the latter to commute with a complex structure of its vector space (this applies to any associated linear maps between different vector spaces) \cite{aslaksen} \cite{stack}.
+
+ We can also take the determinants of complex matrices by using the classical definition. We see that computing for the determinant of a complex matrix will give us a complex number. We shall denote this determinant by $\ccdet$. The following theorem shows one very useful result.
 
 \begin{theorem} \label{detbar}
-	For a matrix $E \in \Mc{n}$, $det(\bar{E}) = \overline{det(E)}$.
+	For a matrix $E \in \Mc{n}$, $\ccdet(\bar{E}) = \overline{\ccdet(E)}$.
 }
 \end{theorem}
 
@@ -34,22 +89,24 @@
 		\bar{a} & \bar{b} \\
 		\bar{c} & \bar{d}
 	\end{pmatrix}, 
-	$det(\bar{E})$ & =
+	$\ccdet(\bar{E})$ & =
 	\begin{vmatrix}
 		\bar{a} & \bar{b} \\
 		\bar{c} & \bar{d}
-	\end{vmatrix} $= \overline{ad} - \overline{bc} = \overline{ad-bc} = \overline{det(E)}$
+	\end{vmatrix} $= \overline{ad} - \overline{bc} = \overline{ad-bc} = \overline{\ccdet(E)}$
 	\newline
 	\newline
 	\textbf{Induction Hypothesis}:
-	Suppose $det(\bar{E}) = \overline{det(E)}$ holds for $E \in \Mc{n}$.
+	Suppose $\ccdet(\bar{E}) = \overline{\ccdet(E)}$ holds for $E \in \Mc{n}$.
 	\newline
-	Let $X \in \Mc{n+1}$. Then, $$det(\overline{X}) = \overline{\sum_{j=1}^{n+1} a_{ij}c_{ij}} = \sum_{j=1}^{n+1} \overline{a_{ij}}\text{ }\overline{c_{ij}}$$ is the $i^{th}$ row expansion of an $(n+1)\times (n+1)$ matrix where $\overline{c_{ij}}$ is the cofactor of $\overline{a_{ij}}$.
+	Let $X \in \Mc{n+1}$. Then, $$\ccdet(\overline{X}) = \overline{\sum_{j=1}^{n+1} a_{ij}c_{ij}} = \sum_{j=1}^{n+1} \overline{a_{ij}}\text{ }\overline{c_{ij}}$$ is the $i^{th}$ row expansion of an $(n+1)\times (n+1)$ matrix where $\overline{c_{ij}}$ is the cofactor of $\overline{a_{ij}}$.
 	\newline
 	Note that $\overline{c_{ij}} = (-1)^{i+j}\overline{M_{ij}}$ where $\overline{M_{ij}}$ is the determinant of the $n\times n$ matrix obtained by deleting the $i^{th}$ row and the $j^{th}$ column of the original matrix.
 	\newline
 	By I.H., $\overline{M_{ij}}$ is the determinant of an $n\times n$ conjugate matrix. Thus, we see that we are computing for the determinant of an $(n+1)\times (n+1)$ conjugate matrix. 
 \end{proof}
+
+Theorem \ref{detbar} states that computing for the determinant commutes with conjugation, i.e., the determinant of the conjugate matrix is the conjugate of the determinant. 
 
 \subsection{Skew-Coninvolutory Complex Matrices}
 
@@ -62,49 +119,51 @@ We now show and prove a result concerning whether or not $\mathscr{D}_n(\CC)$ is
 \begin{proof}
 	If $E \in \mathscr{D}_{n}(\CC)$ then $E\bar{E} = -I_n$. \newline Taking the determinant of both sides, 
 	\begin{align*}
-		det(E\bar{E}) &= det(-I_n) \\
-		det(E)det(\bar{E}) &= (-1)^n \\
-		det(E)\overline{det(E)} &= (-1)^n \text{, by Theorem \ref{detbar}} \\
-		|det(E)|^2 &= (-1)^n
+		\ccdet(E\bar{E}) &= \ccdet(-I_n) \\
+		\ccdet(E)\ccdet(\bar{E}) &= (-1)^n \\
+		\ccdet(E)\overline{\ccdet(E)} &= (-1)^n \text{, by Theorem \ref{detbar}} \\
+		|\ccdet(E)|^2 &= (-1)^n
 	\end{align*}
-	Since $|det(E)|^2 > 0$, $(-1)^n > 0$. Hence, $n$ must be even.
+	Since $|\ccdet(E)|^2 > 0$, $(-1)^n > 0$. Hence, $n$ must be even.
 \end{proof}
+
+The above theorem puts a restriction on the dimension of complex matrices that are skew-coninvolutory. In the context of real matrices, this means that $E^2 = -I_n$ only holds if $E$ is a $2n\times 2n$ real matrix, i.e., a complex structure only exists for real matrices with even dimensions. We will see manifestations of this fact in later discussions especially when we represent complex matrices as real matrices.
 
 \section{Quaternion Basics}
 
+In this section, we introduce properties and operations associated with quaternions including addition, multiplication, conjugation, inverse, and norm.
+
+\begin{definition}[Quaternion] \label{quatdef}
+	The four-dimensional algebra of \emph{Quaternions} is generated by the basis elements $\{1,\ib,\jb,\kb\}$ such that $\ib^2 = \jb^2 = \kb^2 = \ib \jb \kb = -1$. $\HH := \{\quat{a}{b}{c}{d} | a,b,c,d \in \R\}$. \cite{stamaria}
+\end{definition}
+
 \subsection{Multiplication and Addition}
 
-Recall in Chapter 1 - the four-dimensional algebra of quaternions is generated by the basis elements $\{1,\ib,\jb,\kb\}$ such that 
-\begin{equation} \label{quat_eq}
-\ib^2 = \jb^2 = \kb^2 = \ib \jb \kb = -1
-\end{equation}
-
-From the above equation, we can easily derive the following:
+From definition \ref{quatdef} we can easily derive the following:
 \begin{align*}
 	\jb\kb &= \ib & \kb\jb &= -\ib \\
 	\kb\ib &= \jb & \ib\kb &= -\jb \\
 	\ib\jb &= \kb & \jb\ib &= -\kb
 \end{align*}
 
-Notice that the quaternions are not commutative under \emph{multiplication}. In general, for quaternions $q_1 = a_1 + b_1\ib + c_1\jb + d_1\kb$ and $q_2 = a_2 + b_2\ib + c_2\jb + d_2\kb$, 
-\begin{align*}
-	q_1q_2 &= (a_1a_2 - b_1b_2 - c_1c_2 - d_1d_2) + (a_1b_2 + b_1a_2 + c_1d_2 - d_1c_2)\ib \\
-		   &+ (a_1c_2 - b_1d_2 + c_1a_2 + d_1b_2)\jb + (a_1d_2 + b_1c_2 - c_1b_2 + d_1a_2)\kb
-\end{align*}
+Notice that the quaternions are not commutative under \textbf{multiplication}. 
+\begin{theorem}[Quaternion Multiplication]
+	For quaternions $q_1 = a_1 + b_1\ib + c_1\jb + d_1\kb$ and $q_2 = a_2 + b_2\ib + c_2\jb + d_2\kb$, 
+	\begin{align*}
+		q_1q_2 &= (a_1a_2 - b_1b_2 - c_1c_2 - d_1d_2) + (a_1b_2 + b_1a_2 + c_1d_2 - d_1c_2)\ib \\
+			   &+ (a_1c_2 - b_1d_2 + c_1a_2 + d_1b_2)\jb + (a_1d_2 + b_1c_2 - c_1b_2 + d_1a_2)\kb
+	\end{align*}
+\end{theorem}
 
-%insert vector representation
-
-Quaternions are, however, commutative under \emph{addition} where $q_1+q_2 = (a_1+a_2) + (b_1+b_2)\ib + (c_1+c_2)\jb + (d_1+d_2)\kb$.
+Quaternions are, however, commutative under \textbf{addition} where $q_1+q_2 = (a_1+a_2) + (b_1+b_2)\ib + (c_1+c_2)\jb + (d_1+d_2)\kb$. We can clearly see (and it can be shown) that the quaternions form a \emph{skew-field} \cite{aslaksen} \cite{brenner}. 
 
 \subsection{Other Operations and Properties}
 
-\begin{definition}[$\HH$-Conjugate]
+\begin{definition}[$\HH$-Conjugate] \label{hconj}
 	The $\HH$-Conjugate of a quaternion $q = \quat{a}{b}{c}{d}$ is $\bar{q} = a - b\ib - c\jb - d\kb$.
 \end{definition}
-
-\begin{remark}
-	Notice that $q\bar{q} = (\quat{a}{b}{c}{d})(a - b\ib -c\jb-d\kb) = a^2+b^2+c^2+d^2$.
-\end{remark}
+	
+	Since $\CC \subseteq \HH$, we see that definition \ref{hconj} reduces to the definition of a complex conjugate when $c,d = 0$. Also notice that $q\bar{q} = (\quat{a}{b}{c}{d})(a - b\ib -c\jb-d\kb) = a^2+b^2+c^2+d^2$.
 
 \begin{definition}[$\HH$-Norm]
 	The $\HH$-Norm of a quaternion $q = \quat{a}{b}{c}{d}$ is $|q| = \sqrt{q\bar{q}} = \sqrt{a^2+b^2+c^2+d^2}$
