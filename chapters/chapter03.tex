@@ -1,11 +1,44 @@
 \section{The Cayley Determinant and Aslaksen's Axioms}
 
-In 1845, 2 years after William Rowan Hamilton discovered quaternions, Arthur Cayley attempted to define the determinant of a quaternionic matrix using the usual formula (we denote the Cayley determinant by $Cdet$), i.e., for a $2 \times 2$ quaternionic matrix $A = $ \begin{pmatrix} a & b \\ c & d \end{pmatrix}, $Cdet(A) = ad - cb$ for $a,b,c,d \in \HH$ \cite{aslaksen}. The same goes for $3 \times 3$ matrices and so on. Taking into account the fact that the quaternions are non-commutative (and the implications it has on linear mappings as will be discussed later), we might ask whether or not this determinant behaves the way we expect - Will it really determine whether or not a quaternionic matrix is singular or not? Will the properties of the determinant still hold? Will the determinant still be a map from $M_{n}(G) \rightarrow G$ (in this case, $G = \HH$)? The last question comes from the fact that the determinants of complex matrices is a map from $\Mc{n} \rightarrow \CC$.  
+In 1845, 2 years after William Rowan Hamilton discovered quaternions, Arthur Cayley attempted to define the determinant of a quaternionic matrix using the usual formula (we denote the Cayley determinant by $Cdet$). Note that the following definition can be extended for $n\times n$ quaternionic matrices.
 
+\begin{definition}[$2\times 2$ Cayley Determinant]
+ For a $2 \times 2$ quaternionic matrix \newline $A = $ \begin{pmatrix} a & b \\ c & d \end{pmatrix}, $Cdet(A) = ad - cb$ for $a,b,c,d \in \HH$ \cite{aslaksen}. 
+\end{definition}
+ 
+ Notice that the order in which the entries are multiplied matters. We can see that for a $3\times 3$ quaternionic matrix 
 
+ $B = $
+\begin{pmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{pmatrix}, $Cdet(B) = (aei+bfg+cdh)-(gec+hfa+idb)$.
+ 
+ The following examples are given in \cite{aslaksen}.
+ \begin{ex} \label{singbutnot}
+ 	Let $M = $
+ 	\begin{pmatrix}
+ 		\kb & \jb \\
+ 		\ib & 1
+ 	\end{pmatrix}.
+ 	Then, $Cdet(M) = \kb-\ib\jb = \kb-\kb = 0$. Hence, we can say that by the Cayley determinant, $M$ is singular.
+ \end{ex}
+ \begin{ex}
+ 	Consider the transpose of the matrix $M$, $M^T = $
+ 	\begin{pmatrix} \label{invertbutnot}
+ 		\kb & \ib \\
+ 		\jb & 1
+ 	\end{pmatrix}.
+ 	Then $Cdet(M^T) = \kb-(\jb\ib) = \kb - (-\kb) = 2\kb$. Hence, we can say that by the Cayley determinant, $M^T$ is invertible.
+ \end{ex}
+  Taking into account the fact that the quaternions are non-commutative, we might ask whether or not this determinant behaves the way we expect - Will it really determine whether or not a quaternionic matrix is singular or not? Will the properties of the determinant still hold? Will the determinant still be a map from $M_{n}(G) \rightarrow G$ (in this case, $G = \HH$)? The last question comes from the fact that the determinants of complex matrices is a map from $\Mc{n} \rightarrow \C$.  
+}
+
+\iffalse
 \subsection{The Determinant Function}
 
-We take a step back and revisit what it means for a mapping to be a determinant. We present the determinant function as defined by J.L. Brenner.
+We take a step back and revisit what it means for a mapping to be 	a determinant. We present the determinant function as defined by J.L. Brenner.
 
 \begin{definition}[Determinant Function]
 	For a field $F$, a determinant over the matrices of $\Mf{n}$ is a function $det$ from $\Mf{n}$ into $F$ such that 
@@ -22,7 +55,7 @@ We see that if $det$ is a constant function that only maps to either 0 or 1 (wit
 \begin{theorem}
 If $det$ is not constantly equal to 1 or 0 (i.e., $det$ is not a mapping $det: \Mf{n} \rightarrow F$ where $F$ is a field with two elements), then $det(B) = 0$ for all singular matrices. 
 \end{theorem}
-\iffalse
+
 \begin{proof}
 	Let $O$ be the zero matrix, $I$ the identity matrix, and $A$ a matrix whose determinant (image under $det$) is neither 1 nor 0. 
 	Since $OA = O$, by Axiom 2, $det(O)det(A) = det(O)$. Suppose $det(O) \neq 0$, then $det(A) = 1$ which is a contradiction. Hence, $det(O) = 0$.
@@ -44,86 +77,155 @@ If $det$ is not constantly equal to 1 or 0 (i.e., $det$ is not a mapping $det: \
 \end{proof}
 \fi
 
-\subsection{Aslaksen's Axioms}
+\subsection{Brenner's Determinant Function and Aslaksen's Axioms}
 
-In the \emph{Mathematical Intelligencer}, Helmer Aslaksen presented 3 determinant \emph{axioms} which a determinant definition must satisfy in order for it to behave the way we expect, i.e., it has the properties we associate with determinants. These axioms were already introduced in Chapter 1 and we will be discussing them in greater detail here. 
+We take a step back and revisit what it means for a mapping to be 	a determinant. J.L. Brenner and Helmer Aslaksen offer different approaches to this, however, we will see how we can both arrive at the same conclusions. Brenner presented a general definition for a determinant function.
+\begin{definition}[Determinant Function] \label{detfn}
+	For a field $F$, a determinant over the matrices of $\Mf{n}$ is a function $det$ from $\Mf{n}$ into $F$ such that 
+	\begin{equation}
+	det(AB) = det(A)det(B) = det(B)det(A)
+	\end{equation} 
+	holds either \textbf{(1)} $\forall A, B \in \Mf{n}$ or \textbf{(2)} $\forall$ invertible $A, B \in \Mf{n}$. 
+\end{definition} 
+
+Aslaksen, on the other hand, uses a more axiomatic approach in defining a determinant, presenting three determinant \emph{axioms} which a determinant definition must satisfy in order for it to behave the way we expect, i.e., it has the properties we associate with determinants. 
 \begin{itemize}
 	\item \textbf{Axiom 1.} $det(A) = 0$ if and only if $A$ is singular.
 	\item \textbf{Axiom 2.} $det(AB) = det(A)det(B)$ for all quaternionic matrices $A$ and $B$.
-	\item \textbf{Axiom 3.} If $A'$ is obtained by adding a left-multiple of a row to another row or a right-multiple of a column to another column, then $det(A')=det(A)$.
+	\item \textbf{Axiom 3.} If $A'$ is obtained by adding a left-multiple of a row to another row or a right-multiple of a column to another column, then $det(A')=det(A)$ (as we have already encountered in linear algebra, this operation can be described by an elementary matrix \cite{aslaksen}).
 \end{itemize}
 
+Notice that a determinant is essentially a function that:
+\begin{enumerate}
+ \item Maps to 0 if a matrix is singular
+ \item Preserves multiplication and,
+ \item Remains unchanged after applying the elementary operation of adding a left/right-multiple of one row/column to another row/column respectively.
+\end{enumerate}
 
+Also notice that Alaksen's second axiom is the first condition in Brenner's determinant function.
 
-\begin{lemma}
+We can trivially define the determinant merely as a function that constantly maps to 0 for all singular matrices and 1 for all non-singular matrices \cite{brenner}. This will easily satisfy the above axioms \cite{brenner} \cite{aslaksen}, however, we will mostly deal with determinants that are non-trivial (for instance the $\rdet$, $\ccdet$, and $Cdet$). 
 
-\end{lemma}
-
-\begin{lemma}
-
-\end{lemma}
-
-\begin{theorem}
-
+\begin{theorem} \label{nontrivdetfn}
+If $det$ is not constantly equal to 1 or 0 (i.e., $det$ is not a mapping $det: \Mf{n} \rightarrow F$ where $F$ is a field with two elements), then $det(B) = 0$ for all singular matrices. 
 \end{theorem}
 
-\section{The Study Determinant}
+Theorem \ref{nontrivdetfn} not only shows how the determinant function in \ref{detfn} holds for the non-trivial case, it also shows that conditions (1) and (2) of the determinant function are essentially equivalent \cite{brenner}. 
 
-It was not until 1920, that a new approach in defining a quaternionic determinant was presented in a paper by Eduard Study \cite{aslaksen}. His idea involved transforming quaternionic matrices into complex matrices from which one could then just simply take the determinant \cite{aslaksen}. The method involves homomorphisms between quaternionic, complex, and real matrices.
+\begin{theorem} \label{comh}
+	If $det$ satisfies all of Aslaksen's axioms, then $det(\Mh{n})$ is a commutative subset of $\HH$. \cite{aslaksen}
+\end{theorem}
 
-\subsection{Matrix Homomorphisms}
+Notice how theorem \ref{comh} is already implied in Brenner's determinant function in which it is already deemed necessary for the images to commute. By Theorem \ref{comh}, we see that $det$ cannot be a mapping onto $\HH$. Since $Cdet$ is onto $\HH$, by contrapositive of theorem \ref{comh}, $Cdet$ does not satisfy one of the axioms - in fact, it doesn't satisfy any of them \cite{aslaksen}. 
 
-We look into functions that make it possible for us to represent complex numbers and quaternions as matrices. 
-\iffalse
-\subsubsection{Representing Complex Numbers as Real Matrices}
+As an illustration (as seen in \cite{aslaksen}), recall examples \ref{singbutnot} and \ref{invertbutnot}. Notice that,
+\begin{align*}
+	&\text{\indent\indent\indent}M\begin{pmatrix}
+	x \\
+	y
+	\end{pmatrix} = 
+	\begin{pmatrix}
+	0 \\
+	0
+	\end{pmatrix} \\ &\implies
+	\begin{pmatrix}
+	 		\kb & \jb \\
+	 		\ib & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+	x \\
+	y
+	\end{pmatrix} = 
+	\begin{pmatrix}
+	0 \\
+	0
+	\end{pmatrix} \\ &\implies
+	\kb x + \jb y = 0 \text{ and } \ib x + y = 0 \\ &\implies
+	x = 0 \text{ and } y = 0. \\ &\implies
+	M \text{ is invertible. This contradicts with the fact that $Cdet(M) = 0$.}
+\end{align*}
 
-In abstract algebra, we saw that we can define a bijection from the field of complex numbers to the 2D-plane ($\R^2$) - a mapping $\Theta : \CC \rightarrow \R^2$ where a complex number $a+b\ib$ is mapped to a vector/point $(a,b)$ in the 2D-plane. Therefore, in order to represent complex numbers as real matrices, we have to find a way to view them as linear transformations over $\R^2$. 
+Also notice that,
 
-Consider the complex function $f(z) = (a+b\ib)z$. We see that the images of $1$ and $\ib$ are $a+b\ib$ and $-b+a\ib$ respectively. Under the function $\Theta$ (in which case $1$ is mapped to $(1,0)$ while $\ib$ is mapped to $(0,1)$), we seek a matrix in $\Mr{2}$ that maps $(1,0)$ to $\Theta(a+b\ib) = (a,b)$ and $(0,1)$ to $\Theta(-b+a\ib) = (-b,a)$. 
+\begin{align*}
+	&M^T\begin{pmatrix}
+	-1 \\
+	\jb
+	\end{pmatrix} = 
+	\begin{pmatrix}
+	 		\kb & \ib \\
+	 		\jb & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+	-1 \\
+	\jb
+	\end{pmatrix} = 
+	\begin{pmatrix}
+	0 \\
+	0
+	\end{pmatrix} \\ &\implies
+	M^T \text{ is singular. This contradicts with the fact that $Cdet(M^T) = 2\kb$.}
+\end{align*}
+
+We now see that the Cayley determinant doesn't satisfy Axiom 1. Aslaksen provides counterexamples that show how the Cayley determinant fails to satisfy the other two axioms \cite{aslaksen}.
+
+\section{Matrix Homomorphisms}
+
+ It is clear that the classical definition of the determinant cannot be extended to quaternionic matrices. It was not until 1920, that a new approach in defining a quaternionic determinant was presented in a paper by Eduard Study \cite{aslaksen}. His idea involved transforming quaternionic matrices into complex matrices from which one could then just simply take the determinant \cite{aslaksen}. The method involves homomorphisms between quaternionic, complex, and real matrices. 
+
+ In this section, we take a closer look into these homomorphisms - first discussing the motivation behind them and then the theory. 
+
+\subsection{Representing Complex Numbers as Real Matrices}
+
+In abstract algebra, we saw that we can define a bijection from the field of complex numbers to the 2D-plane ($\R^2$) - a mapping $\Theta : \C \rightarrow \R^2$ where a complex number $a+b\ib$ is mapped to a vector/point $(a,b)$ in the 2D-plane. Therefore, in order to represent complex numbers as real matrices, we have to find a way to view them as linear maps in $\R^2$. 
+
+Consider the complex function $f(z) = (a+b\ib)z$ (since $\C$ is a field, $f$ is linear map). We see that the images of $1$ and $\ib$ are $a+b\ib$ and $-b+a\ib$ respectively. Under the function $\Theta$ (in which case $1$ is mapped to $(1,0)$ while $\ib$ is mapped to $(0,1)$), we seek a matrix in $\Mr{2}$ that maps $(1,0)$ to $\Theta(a+b\ib) = (a,b)$ and $(0,1)$ to $\Theta(-b+a\ib) = (-b,a)$. 
 \\
-\noindent Let this matrix be $F$ = \begin{pmatrix} \alpha & \beta \\ \chi & \delta \end{pmatrix} where $\alpha, \beta, \chi, \text{ and } \delta \in \R$. Then, 
-\begin{equation*}
+\noindent Let this matrix be $F$ = 
+\begin{pmatrix} 
+\alpha & \beta \\ 
+\chi & \delta 
+\end{pmatrix} where $\alpha, \beta, \chi, \text{ and } \delta \in \R$. Then, 
+\begin{align*}
 	\begin{pmatrix} 
 		\alpha & \beta \\ 
 		\chi & \delta 
 	\end{pmatrix} 
 	\begin{pmatrix} 
 		1 \\ 0 
-	\end{pmatrix} = 
+	\end{pmatrix} &= 
 	\begin{pmatrix} a \\ b \end{pmatrix} \implies
 	\begin{pmatrix}
 		\alpha \\ \chi
 	\end{pmatrix} =
 	\begin{pmatrix} a \\ b \end{pmatrix} \implies 
-	\alpha = a; \chi = b \text{ and}
-
+	\alpha = a; \chi = b \text{ and} \\
 	\begin{pmatrix} 
 		\alpha & \beta \\ 
 		\chi & \delta 
 	\end{pmatrix} 
 	\begin{pmatrix} 
 		0 \\ 1 
-	\end{pmatrix} = 
+	\end{pmatrix} &= 
 	\begin{pmatrix} -b \\ a \end{pmatrix} \implies
 	\begin{pmatrix}
 		\beta \\ \delta
 	\end{pmatrix} =
 	\begin{pmatrix} -b \\ a \end{pmatrix} \implies
-	\beta = -b; \delta = a \\
-\end{equation*}
-\\
-\noindent Therefore, $F$ = \begin{pmatrix} \alpha & \beta \\ \chi & \delta \end{pmatrix} = \begin{pmatrix} a & -b \\ b & a \end{pmatrix}. The matrix $F$ can be seen as the matrix representation of the function $f$ which is defined by multiplying a complex number $z$ by $a+b\ib$. We can therefore see the matrix $F$ as the real matrix representation of the complex number $a+b\ib$.
-\fi
-\subsubsection{Homomorphisms from $\Mc{n}$ to $\Mr{2n}$}
+	\beta = -b; \delta = a
+\end{align*}
+\noindent Therefore, $F$ = \begin{pmatrix} \alpha & \beta \\ \chi & \delta \end{pmatrix} = \begin{pmatrix} \label{phismall} a & -b \\ b & a \end{pmatrix}. The matrix $F$ can be seen as the matrix representation of the linear map $f$ which is defined by multiplying a complex number $z$ by $a+b\ib$. We can therefore see the matrix $F$ as the real matrix representation of the complex number $a+b\ib$.
+
+\subsection{Homomorphisms from $\Mc{n}$ to $\Mr{2n}$}
 \iffalse
-In the previous subsection, we saw that we can represent complex numbers as $2\times 2$ real matrices. We can then define a mapping from $\CC$ to $\Mr{2}$. We can also show that this mapping is a homomorphism.
+In the previous subsection, we saw that we can represent complex numbers as $2\times 2$ real matrices. We can then define a mapping from $\C$ to $\Mr{2}$. We can also show that this mapping is a homomorphism.
 
 \begin{theorem}
-	Let $\phi : \CC \rightarrow \Mr{2}$ such that $a+b\ib \mapsto$ \begin{pmatrix} a & -b \\ b & a \end{pmatrix}. Then $\phi$ is an injective homomorphism from $\CC$ to $\Mr{2}.
+	Let $\phi : \C \rightarrow \Mr{2}$ such that $a+b\ib \mapsto$ \begin{pmatrix} a & -b \\ b & a \end{pmatrix}. Then $\phi$ is an injective homomorphism from $\C$ to $\Mr{2}.
 \end{theorem}
 
 %\begin{proof}
-%	Let $z_1 = a+b\ib$ and $z_2 = c+d\ib \in \CC$ . \\
+%	Let $z_1 = a+b\ib$ and $z_2 = c+d\ib \in \C$ . \\
 %	Then $\phi(z_1z_2) = \phi[(a+b\ib)(c+d\ib)] = \phi[(ac-bd)+(ad+bc)\ib] = $\begin{pmatrix} (ac-bd) & -(ad+bc) \\ (ad+bc) & (ac-bd)$ \end{pmatrix}. \\ \\
 %	Now, $\phi(z_1)\phi(z_2) = \phi[(a+b\ib)]\phi[(c+d\ib)] = $\begin{pmatrix} a & -b \\ b & a \end{pmatrix}\begin{pmatrix} c & -d \\ d & c \end{pmatrix}$ = $\begin{pmatrix} (ac-bd) & -(ad+bc) \\ (ad+bc) & (ac-bd)$ \end{pmatrix}. \\
 %	Hence, $\phi(z_1z_2) = \phi(z_1)\phi(z_2)$.
@@ -134,12 +236,21 @@ In the previous subsection, we saw that we can represent complex numbers as $2\t
 \end{remark}
 \fi
 
-In order to represent complex matrices as real matrices, notice that every complex matrix can be represented as the sum of a real matrix and a purely imaginary matrix, i.e., for an $n\times n$ matrix $Z$, $Z = A + B\ib$ where $A,B \in \Mr{n}$ \cite{aslaksen}. We define a mapping \begin{equation*} \phi(A+B\ib) = \begin{pmatrix} A & -B \\ B & A \end{pmatrix}  \cite{aslaksen}\end{equation*} 
+In order to represent complex matrices as real matrices, notice that every complex matrix can be represented as the sum of a real matrix and a purely imaginary matrix, i.e., for an $n\times n$ complex matrix $Z$, $Z = A + B\ib$ where $A,B \in \Mr{n}$ \cite{aslaksen}. We define a mapping 
+\begin{equation*} 
+\phi(A+B\ib) = 
+\begin{pmatrix} 
+A & -B \\ B & A 
+\end{pmatrix}  
+\cite{aslaksen}
+\end{equation*} 
 
-Before we show that this mapping is an injective homomorphism, we first show that the left distributive laws hold for matrices in $\Mc{n}$.
+Notice how this mapping is simply a generalization of the matrix $F$ in \ref{phismall}. If we can show that $\phi$ is an injective homomorphism (i.e., it preserves multiplication and is one-to-one), we can essentially represent any complex matrix as a $2n \times 2n$ real matrix. Also notice how the dimension of the real matrix is necessarily even. This is a direct consequence of theorem \ref{dnc}.
+
+Theorems \ref{distributive} and \ref{bigmatm} will come in handy in proving that $\phi$ is an injective homomorphism.
 
 \begin{theorem}\label{distributive}
-	For matrices $A,B,C \in \Mc{n}$, $A(B+C) = AB + AC$.
+	For matrices $A,B,C \in \Mh{n}$, $A(B+C) = AB + AC$.
 }
 \end{theorem}
 
@@ -151,9 +262,37 @@ Before we show that this mapping is an injective homomorphism, we first show tha
 	\end{align*} \end{equation}
 \end{proof}
 
-\begin{remark}
-	The same method of proof can be used for the right distributive law. Furthermore, this also holds for matrices in $\Mr{n}$ and $\Mh{n}$.
-\end{remark}
+The same method of proof can be used for the right distributive law. Furthermore, since $\R \subseteq \C \subseteq \HH$, theorem \ref{distributive} holds for matrices in $\Mr{n}$ and $\Mc{n}$ (we can show this by seeing that the matrices in $\Mh{n}$ form a ring). 
+
+\begin{theorem} \label{bigmatm}
+	For matrices $A_{ij}, B_{ij} \in \Mh{n}$ where $i,j = 1,2,...,m$, 
+	\begin{equation*}
+		\pgenmat{A}\pgenmat{B} = 
+		\begin{pmatrix}
+			\sum_{k=1}^{m}A_{1k}B_{k1} & \cdots & \sum_{k=1}^{m}A_{1k}B_{km} \\
+			\vdots & \ddots & \vdots \\
+			\sum_{k=1}^{m}A_{mk}B_{k1} & \cdots & \sum_{k=1}^{m}A_{mk}B_{km} 
+		\end{pmatrix}
+	\end{equation*}
+\end{theorem}
+\newcommand{\gengmat}[1]{\pgenmatk{\genmat{#1_{11}}}{\genmat{#1_{1m}}}{\genmat{#1_{m1}}}{\genmat{#1_{mm}}}}
+\newcommand{\ddsumprod}[2]{\sum_{k=1}^m[\sum_{l=1}^na_{#1 il}b_{#2 lj}]}
+\begin{proof}
+	\begin{align*}
+		&\pgenmat{A}\pgenmat{B} \\
+		=&\gengmat{a}\gengmat{b} \\
+	\end{align*}
+	\begin{align*}
+		=&\pgenmatk{\ddsumprod{1k}{k1}}{\ddsumprod{1k}{km}}{\ddsumprod{mk}{k1}}{\ddsumprod{mk}{km}} \\
+		=&\begin{pmatrix}
+			\sum_{k=1}^{m}A_{1k}B_{k1} & \cdots & \sum_{k=1}^{m}A_{1k}B_{km} \\
+			\vdots & \ddots & \vdots \\
+			\sum_{k=1}^{m}A_{mk}B_{k1} & \cdots & \sum_{k=1}^{m}A_{mk}B_{km} 
+		\end{pmatrix}
+	\end{align*}
+\end{proof}
+
+Theorem \ref{bigmatm} will make it convenient for us to multiply square matrices with square matrices as entries. Again, this theorem also holds for matrices in $\Mr{n}$ and $\Mc{n}$ because $\R \subseteq \C \subseteq \HH$. 
 
 \begin{theorem} \label{phimorph}
 	Let $\phi: \Mc{n} \rightarrow \Mr{2n}$ such that $C+D\ib \mapsto $ \begin{pmatrix} C & -D \\ D & C \end{pmatrix} where $C+D\ib \in \Mc{n}$. Then $\phi$ is an injective homomorphism. 
@@ -161,71 +300,183 @@ Before we show that this mapping is an injective homomorphism, we first show tha
 
 \begin{proof}
 	\textbf{\newline1-1:}
-	\begin{equation*}
-		\phi(A+B\ib) = \phi(C+D\ib)
-		&\implies \begin{pmatrix}A & -B \\ B & A \end{pmatrix} = \begin{pmatrix}C & -D \\ D & C \end{pmatrix}
-	\end{equation*}
 	\begin{align*}
-		\implies A = C \text{ and } B = D \text{ by Matrix Equality}
-		\implies A+B\ib = C+D\ib
-		\implies \phi \text{ is injective.}
+		&\phi(A+B\ib) = \phi(C+D\ib) \\
+		&\implies 
+		\begin{pmatrix}
+		A & -B \\ 
+		B & A 
+		\end{pmatrix} = 
+		\begin{pmatrix}
+		C & -D \\ 
+		D & C 
+		\end{pmatrix} \\
+		&\implies A = C \text{ and } B = D \text{ by Matrix Equality} \\
+		&\implies A+B\ib = C+D\ib \\
+		&\implies \phi \text{ is injective.}
 	\end{align*}
 	\textbf{Homomorphism: \newline}
-	Let $A+B\ib$, $C+D\ib \in \Mc{n}$. Then \begin{align*}
+	Let $A+B\ib$, $C+D\ib \in \Mc{n}$. Then 
+	\begin{align*}
 		\phi[(A+B\ib)(C+D\ib)] &= \phi[(A+B\ib)C+(A+B\ib)D\ib] \text{ by Theorem \ref{distributive}} \\
-		&= \phi[AC+BC\ib+AD\ib-BD] = \phi[(AC-BD)+(BC+AD)\ib] \\
-		&= \begin{pmatrix} (AC-BD) & -(BC+AD) \\ (BC+AD) & (AC-BD) \end{pmatrix}
+		&= \phi[AC+BC\ib+AD\ib-BD] \\
+		&= \phi[(AC-BD)+(BC+AD)\ib] \\
+		&= 
+		\begin{pmatrix} 
+		(AC-BD) & -(BC+AD) \\ 
+		(BC+AD) & (AC-BD) 
+		\end{pmatrix}
 	\end{align*}
-		$\phi[(A+B\ib)]\phi[(C+D\ib)]$ = \begin{pmatrix}A & -B \\ B & A \end{pmatrix}\begin{pmatrix}C & -D \\ D & C \end{pmatrix} \newline \\ = \begin{pmatrix} \genmat{a} & \genmat{-b} \\ \genmat{b} & \genmat{a} \end{pmatrix}\begin{pmatrix} \genmat{c} & \genmat{-d} \\ \genmat{d} & \genmat{c} \end{pmatrix} \\  \\
-	= \begin{pmatrix} 
-	\genmatk{\sum_{k=1}^{n}a_{1k}c_{k1} - \sum_{k=1}^{n}b_{1k}d_{k1}}{-\sum_{k=1}^{n}a_{1k}d_{kn} - \sum_{k=1}^{n}b_{1k}c_{kn}}{\sum_{k=1}^{n}b_{nk}c_{k1} + \sum_{k=1}^{n}a_{nk}d_{k1}}{-\sum_{k=1}^{n}b_{nk}d_{kn} + \sum_{k=1}^{n}a_{nk}c_{kn}} 
-	%\genmatk{\sum_{k=1}^{n}a_{1k}c_{k1} - \sum{k=1}^{n}b_{1k}d_{k1}}{\sum_{k=1}^{n}a_{1k}c_{kn} - \sum{k=1}^{n}b_{1k}d_{kn}}{\sum_{k=1}^{n}a_{nk}c_{k1} - \sum{k=1}^{n}b_{nk}d_{k1}}{\sum_{k=1}^{n}a_{nk}c_{kn} - \sum{k=1}^{n}b_{nk}d_{kn}} &
-	%\genmatk{-(\sum_{k=1}^{n}a_{1k}d_{k1} + \sum_{k=1}^{n}b_{1k}c{k1})}{-(\sum_{k=1}^{n}a_{1k}d_{kn} + \sum_{k=1}^{n}b_{1k}c_{kn})}{-(\sum_{k=1}^{n}a_{nk}d_{k1} + \sum_{k=1}^{n}b_{nk}c{k1})}{-(\sum_{k=1}^{n}a_{nk}d_{kn} + \sum_{k=1}^{n}b_{nk}c_{kn})} \\
-	%\genmatk{\sum_{k=1}^{n}a_{1k}d_{k1} + \sum_{k=1}^{n}b_{1k}c{k1}}{\sum_{k=1}^{n}a_{1k}d_{kn} + \sum_{k=1}^{n}b_{1k}c_{kn}}{\sum_{k=1}^{n}a_{nk}d_{k1} + \sum_{k=1}^{n}b_{nk}c{k1}}{\sum_{k=1}^{n}a_{nk}d_{kn} + \sum_{k=1}^{n}b_{nk}c_{kn}} &
-	%\genmatk{\sum_{k=1}^{n}a_{1k}c_{k1} - \sum{k=1}^{n}b_{1k}d_{k1}}{\sum_{k=1}^{n}a_{1k}c_{kn} - \sum{k=1}^{n}b_{1k}d_{kn}}{\sum_{k=1}^{n}a_{nk}c_{k1} - \sum{k=1}^{n}b_{nk}d_{k1}}{\sum_{k=1}^{n}a_{nk}c_{kn} - \sum{k=1}^{n}b_{nk}d_{kn}}
-	\end{pmatrix} \\ \\
-	= \begin{pmatrix} (AC-BD) & -(BC+AD) \\ (BC+AD) & (AC-BD) \end{pmatrix}
+	\begin{align*}
+		\phi[(A+B\ib)]\phi[(C+D\ib)] &= 
+		\begin{pmatrix}
+		A & -B \\ 
+		B & A 
+		\end{pmatrix}
+		\begin{pmatrix}
+		C & -D \\ 
+		D & C 
+		\end{pmatrix} \\
+		&=
+		\begin{pmatrix} 
+		(AC-BD) & -(BC+AD) \\ 
+		(BC+AD) & (AC-BD) 
+		\end{pmatrix} \text{ by Theorem \ref{bigmatm}.}
+	\end{align*}
 \end{proof}
 \newline
 
-We define a matrix \begin{equation*} J = \begin{pmatrix} 0 & -I_n \\ I_n & 0 \end{pmatrix} \end{equation*}. Notice that the matrix $J$ is the image of $iI \in \Mc{n}$ under $\phi$ \cite{aslaksen}. It can be easily shown that $J^2 = -I$. It is obvious that J gives a \emph{complex structure} in $\R^{2n}$. Hence, $\phi(\Mc{n}) = \{P \in \Mr{2n} | JP = PJ\}$, i.e., the real matrix representations of complex matrices are the linear maps in $\Mr{2n}$ that commute with the complex structure \cite{aslaksen}. 
+Alternatively, we can define a matrix 
+\begin{equation*} 
+J = 
+\begin{pmatrix} 
+0 & -I_n \\ 
+I_n & 0 
+\end{pmatrix} 
+\end{equation*}
+ Notice that the matrix $J$ is the image of $iI \in \Mc{n}$ under $\phi$ \cite{aslaksen}. Intuitively, this means that $J$ represents the imaginary number $\ib$ in $\Mr{2n}$. It can be easily shown that $J^2 = -I$. Therefore, $J$ gives a \emph{complex structure} in $\R^{2n}$. Recall in Chapter 2 that in order for a subset of matrices in $\Mr{2n}$ to "mimic" a complex vector space, every linear map in the said subset must commute with the complex structure. We see that the subset of images of complex matrices under $\phi$ satisfy this. We can then write $\phi(\Mc{n}) = \{P \in \Mr{2n} | JP = PJ\}$\cite{aslaksen}. 
 
-%We will extend the definition of $\phi$ to hold for complex matrices in general. To do this, notice that every complex matrix can be represented as the sum of a real matrix and a purely imaginary matrix, i.e., for an $n\times n$ matrix $N$, $N = C + D\ib$ where $C,D \in \Mr{n}$ \cite{aslaksen}. We see that we can intuitively extend the definition of $\phi$ by defining \begin{equation*} \phi(C+D\ib) = \begin{pmatrix} C & -D \\ D & C \end{pmatrix}  \cite{aslaksen}\end{equation*} 
+\subsection{Representing Quaternions as Complex Matrices} \label{qrep}
 
+Recall in Chapter 2 that we can view the quaternions as a 2-dimensional algebra over $\C$ by having $\quat{a}{b}{c}{d} = (a+b\ib)+\jb(c-d\ib)$. In general, we can write any quaternion as $x+\jb y$ where $x, y \in \C$. Because of this, we see that we can define a bijection $\Omega: \HH \rightarrow \C^2$ where a quaternion $q = x+\jb y$ is mapped to $(x, y) \in \C^2$. In order to represent quaternions as complex matrices, we have to find a way to view them as linear maps in $\C^2$.
 
-\iffalse
-\subsection{Representing Quaternions as Complex Matrices}
-
-A quaternion $q = a + b\ib + c\jb + d\kb$ can be written as $q = (a+b\ib) + (c+d\ib)\jb = (a+b\ib)+\jb(c-d\ib) = (a+b\ib)-\jb(-c+d\ib)$ where $a+b\ib,c+d\ib,c-d\ib, -c+d\ib \in \CC$. Note that from the latter, we can easily deduce that $v\jb = \jb\bar{v}$ for $v \in \CC$. 
-
-We can therefore view the set of quaternions as a two-dimensional algebra over $\CC$ \cite{stamaria}, i.e., we can define a mapping $\Omega : \HH \rightarrow \CC^2$ such that $\quat{a}{b}{c}{d} \mapsto (a+b\ib,-c+d\ib)$. We can easily show that $\Omega$ is a bijection.
-
-Let us consider the quaternionic function $g(q) = (\quat{a}{b}{c}{d})q$. 
-
+Let us consider the quaternionic function $s(q) = (x+\jb y)q$. We see that,
+\begin{align*}
+	&s(1) = x+\jb y \\
+	&s(\ib) = (x+\jb y)\ib = x\ib + \jb (y\ib) \\
+	&s(\jb) = (x+\jb y)\jb = x\jb + \jb y\jb = \jb\bar{x}+\jb^2 \bar{y} = -\bar{y}+\jb\bar{x} \\
+	&s(\kb) = (x+\jb y)\kb = x\kb + \jb y\kb = -x\jb\ib + \bar{y}\jb\kb = \bar{y}\ib - \jb(\bar{x}\ib) 
+\end{align*}
 
 \newcommand{\kmat}{\begin{pmatrix} \kappa & \lambda \\ \mu & \nu \end{pmatrix}}
 
 \newcommand{\vectC}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
 
-Let this matrix be $G = $ \kmat, where $\kappa, \lambda, \mu, $ and $\nu \in \CC$. Then, 
+Under the function $\Omega$, we see that the images of 1, $\ib, \jb$ and $\kb$ are $(1,0) , (\ib,0), (0,1)$ and $(0,-\ib)$ respectively and the images of $s(1), s(\ib), s(\jb)$ and $s(\kb)$ are $(x,y), (x\ib,y\ib), (-\bar{y},\bar{x})$ and $(\bar{y}\ib,-\bar{x}\ib)$. We seek a matrix in $\Mc{2}$ such that $(1,0) \mapsto (x,y), (\ib,0) \mapsto (x\ib,y\ib), (0,1) \mapsto (-\bar{y},\bar{x})$, and $(0,-\ib) \mapsto (\bar{y}\ib,-\bar{x}\ib)$.
 
-\kmat \vectC{1}{0} $=$ \vectC{\kappa}{\mu} $=$ \vectC{a+b\ib}{c+d\ib} $\implies$ $\kappa = a+b\ib$ and $\mu = c+d\ib$.
+ Let this matrix be $S = $ \kmat, where $\kappa, \lambda, \mu, $ and $\nu \in \C$. Then, 
 
-\kmat \vectC{\ib}{0} $=$ \vectC{\kappa \ib}{\mu \ib} $=$ \vectC{-b+a\ib}{d-c\ib} $\implies$ $\kappa = a+\ib$ and $\mu = $
-\fi
-\subsubsection{Homomorphisms from $\Mh{n}$ to $\Mc{2n}$}
+\begin{align*}
+	&\kmat \vectC{1}{0} = \vectC{x}{y} \implies \vectC{\kappa}{\mu} = \vectC{x}{y} \implies \kappa = x \text{ and } \mu = y \\
+	&\kmat \vectC{\ib}{0} = \vectC{x\ib}{y\ib} \implies \vectC{\kappa\ib}{\mu\ib} = \vectC{x\ib}{y\ib} \implies \kappa = x \text{ and } \mu = y \\
+	&\kmat \vectC{0}{1} = \vectC{-\bar{y}}{\bar{x}} \implies \vectC{\lambda}{\nu} = \vectC{-\bar{y}}{\bar{x}} \implies \lambda = -\bar{y} \text{ and } \nu = \bar{x} \\
+	&\kmat \vectC{0}{-\ib} = \vectC{\bar{y}\ib}{-\bar{x}\ib} \implies \vectC{-\lambda\ib}{-\nu\ib} = \vectC{\bar{y}\ib}{-\bar{x}\ib} \implies \lambda = -\bar{y} \text{ and } \nu = \bar{x}
+\end{align*}
 
-To represent quaternionic matrices as complex matrices, notice that every quaternionic matrix can be represented as the sum $Y = C + \jb D$ where $C, D \in \Mc{n}$ \cite{aslaksen}. We define a mapping \begin{equation*} \psi(C+\jb D) = \begin{pmatrix} C & -\overline{D} \\ D & \overline{C} \end{pmatrix}  \cite{aslaksen}\end{equation*} 
+Hence, $S = \kmat = $
+\begin{pmatrix}
+	x & -\bar{y} \\
+	y & \bar{x}
+\end{pmatrix}.
+The matrix $S$ can be seen as the complex matrix representation of the quaternionic linear map $s$ which is defined by performing a left-multiplication by a quaternion $x+\jb y$. Notice that we only need to look into the images of 1 and $\jb$ (or $\ib$ and $\kb$) to obtain $S$. This is because their images under the function $\Omega$ form a basis for $\C^2$.
 
-We can show that $\psi$ is an injective homomorphism using the same proof outline in the previous subsection \cite{aslaksen}.
+\subsection{Homomorphisms from $\Mh{n}$ to $\Mc{2n}$}
 
-The non-commutativity of quaternions presents some problems in representing \emph{quaternionic linear maps} as complex linear maps. If we consider a quaternionic linear map say $L(v) = Av$ for $A \in \Mh{n}$ where we take in quaternions as scalars, then, $cAv = c L(v) = L(cv) = Acv$ which is false (considering the base case for $1\times 1$ matrices) \cite{stack}. However, $Avc = L(v)c = L(vc) = Avc$. Hence, we now see that any quaternionic linear map commutes with right scalar multiplication by a quaternion which itself is not a linear map in $\HH$ (in order for it to be a linear map, it in turn, has to commute with other quaternions)\cite{stack} \cite{aslaksen}. This poses a problem because it implies that there is no matrix representation for right scalar multiplication \cite{aslaksen}. However, in \cite{aslaksen}, we see that we can consider a linear map $\widetilde{R_j}$ in $\CC^{2n}$ as the image of right scalar multiplication by $\jb$ under the homomorphism. $\widetilde{R_j}$ corresponds to multiplying $v \in \CC^{2n}$ by the matrix $J$ and then conjugating \cite{aslaksen}. This gives a quaternionic structure in $\CC^{2n}$ and thus, a quaternionic linear map corresponds to a complex linear map $Q$ that commutes with $\widetilde{R_j}$, i.e., $Q \overline{Jv} = \overline{JQv}$ for $v \in \CC^{2n}$. It can be easily shown that the latter holds if and only if $\overline{Q}J = JQ$ using the fact that $Q\overline{Jv} = \overline{QJv}$. Thus, $\psi(\Mh{n}) = \{Q \in \Mc{2n} |\overline{Q}J = JQ\}.
+To represent quaternionic matrices as complex matrices, notice that every quaternionic matrix can be represented as the sum $Q = X + \jb Y$ where $X, Y \in \Mc{n}$ \cite{aslaksen}. We define a mapping \begin{equation*} \psi(X+\jb Y) = 
+\begin{pmatrix} 
+X & -\overline{Y} \\ 
+Y & \overline{X} 
+\end{pmatrix}  
+\cite{aslaksen}
+\end{equation*} 
 
-\subsection{Study Determinant}
+Notice that $\psi$ is simply a generalization of the matrix $S$ in \ref{qrep}. Again, if we can show that $\psi$ is an injective homomorphism, we can essentially represent any quaternionic matrix as a $2n \times 2n$ complex matrix.
+
+\begin{theorem} \label{psimorph}
+ 	Let $\psi: \Mh{n} \rightarrow \Mc{2n}$ such that $X+\jb Y \mapsto $ 
+ 	\begin{pmatrix} 
+ 	X & -\overline{Y} \\ 
+ 	Y & \overline{X} 
+ 	\end{pmatrix} 
+ 	where $X+\jb Y \in \Mh{n}$. Then $\psi$ is an injective homomorphism. 
+\end{theorem}
+
+\begin{proof}
+	\textbf{\newline1-1:}
+	\begin{align*}
+		&\psi(X+\jb Y) = \psi(V+\jb W) \\
+		&\implies 
+		\begin{pmatrix}
+		X & -\overline{Y} \\ 
+ 		Y & \overline{X} 		
+ 		\end{pmatrix} = 
+		\begin{pmatrix}
+		V & -\overline{W} \\ 
+ 		W & \overline{V} 
+		\end{pmatrix} \\
+		&\implies X = V \text{ and } Y = W \text{ by Matrix Equality} \\
+		&\implies X+\jb Y = V+\jb W \\
+		&\implies \psi \text{ is injective.}
+	\end{align*}
+	\textbf{Homomorphism: \newline}
+	Let $X+\jb Y$, $V+\jb W \in \Mh{n}$. Then 
+	\begin{align*}
+		\psi[(X+\jb Y)(V+\jb W)] &= \psi[X(V+\jb W)+\jb Y(V+\jb W)] \text{ by Theorem \ref{distributive}} \\
+		&= \psi[XV+X\jb W + \jb YV+ \jb Y\jb W] \\
+		&= \psi[XV+\jb \overline{X}W + \jb YV + \jb^2\overline{Y}W] \\
+		&= \psi[(XV-\overline{Y}W)+\jb(\overline{X}W+YV)] \\
+		&=
+		\begin{pmatrix} 
+		XV-\overline{Y}W & -\overline{(\overline{X}W+YV)} \\ 
+		\overline{X}W+YV & \overline{XV-\overline{Y}W} 
+		\end{pmatrix} \\
+		&=
+		\begin{pmatrix} 
+		XV-\overline{Y}W & -X\overline{W}-\overline{Y}\overline{V} \\ 
+		\overline{X}W+YV & \overline{X}\overline{V}-Y\overline{W} 
+		\end{pmatrix}
+		\end{align*}
+		\begin{align*}
+		\psi[(X+\jb Y)]\psi[(V+\jb W)] &= 
+		\begin{pmatrix}
+		X & -\overline{Y} \\ 
+		Y & \overline{X} 
+		\end{pmatrix}
+		\begin{pmatrix}
+		V & -\overline{W} \\ 
+		W & \overline{V} 
+		\end{pmatrix} \\
+		&=
+		\begin{pmatrix} 
+		XV-\overline{Y}W & -X\overline{W}-\overline{Y}\overline{V} \\ 
+		\overline{X}W+YV & \overline{X}\overline{V}-Y\overline{W} 
+		\end{pmatrix} \text{ by Theorem \ref{bigmatm}.}
+	\end{align*}
+\end{proof}
+
+The non-commutativity of quaternions presents some problems in representing \emph{quaternionic linear maps} as complex linear maps. If we consider a quaternionic linear map say $L(v) = Av$ for $A \in \Mh{n}$ where we take in quaternions as scalars, then, $cAv = c L(v) = L(cv) = Acv$ which is false \cite{stack}. However, $Avc = L(v)c = L(vc) = Avc$. Hence, we now see that any quaternionic linear map commutes with right scalar multiplication by a quaternion (in fact, this is the reason why we choose $\jb$ to be in the left in writing the sum $x+\jb y$). However, right scalar multiplication itself is not a linear map in $\HH$ (in order for it to be a linear map, it in turn, has to commute with other quaternions)\cite{stack} \cite{aslaksen}. This poses a problem because it implies that there is no matrix representation for right scalar multiplication \cite{aslaksen}. However, in \cite{aslaksen}, we see that we can consider a linear map $\widetilde{R_j}$ in $\C^{2n}$ as the image of right scalar multiplication by $\jb$ under the homomorphism. $\widetilde{R_j}$ corresponds to multiplying $v \in \C^{2n}$ by the matrix $J$ and then conjugating \cite{aslaksen}. This gives a quaternionic structure in $\C^{2n}$ and thus, a quaternionic linear map corresponds to a complex linear map $Q$ that commutes with $\widetilde{R_j}$, i.e., $Q \overline{Jv} = \overline{JQv}$ for $v \in \C^{2n}$. It can be easily shown that the latter holds if and only if $\overline{Q}J = JQ$ using the fact that $Q\overline{Jv} = \overline{QJv}$. Thus, $\psi(\Mh{n}) = \{Q \in \Mc{2n} |\overline{Q}J = JQ\}.
+
+\section{The Study Determinant}
+
+We are now ready to define the Study determinant.
 
 \begin{definition}
 	The Study Determinant is defined by $Sdet M = \cdet{\psi{M}} = \sqrt{\rdet{\phi(\psi(M))}}.
 \end{definition}
+
+\begin{ex}
+
+\end{ex}
 
 It can be shown that the Study Determinant satisfies all of Aslaksen's axioms \cite{aslaksen}.
 

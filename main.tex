@@ -63,6 +63,16 @@
 \newcommand{\genmat}[1]{
 	\genmatk{#1_{11}}{#1_{1n}}{#1_{n1}}{#1_{nn}}
 }
+\newcommand{\pgenmatk}[4]{
+	\begin{pmatrix}
+	 #1 & \ldots & #2 \\
+	 \vdots & \ddots & \vdots \\
+	 #3 & \ldots & #4
+	 \end{pmatrix}
+}
+\newcommand{\pgenmat}[1]{
+	\pgenmatk{#1_{11}}{#1_{1m}}{#1_{m1}}{#1_{mm}}
+}
 
 % MATH ENVIRONMENT SETUP
 %\setlength\arraycolsep{6pt}
