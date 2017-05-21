@@ -1,4 +1,6 @@
-\section{The Cayley Determinant and Aslaksen's Axioms}
+In this chapter, we discuss how the theory behind quaternionic determinants - specifically, the Study Determinant - is built. With this, we extend theorem \ref{dnc} by showing that there are essentially no skew-coninvolutory quaternionic matrices of odd dimensions.  
+
+\section{The Cayley Determinant and Aslaksen's Axioms} \label{cayley}
 
 In 1845, 2 years after William Rowan Hamilton discovered quaternions, Arthur Cayley attempted to define the determinant of a quaternionic matrix using the usual formula (we denote the Cayley determinant by $Cdet$). Note that the following definition can be extended for $n\times n$ quaternionic matrices.
 
@@ -32,7 +34,7 @@ g & h & i
  	\end{pmatrix}.
  	Then $Cdet(M^T) = \kb-(\jb\ib) = \kb - (-\kb) = 2\kb$. Hence, we can say that by the Cayley determinant, $M^T$ is invertible.
  \end{ex}
-  Taking into account the fact that the quaternions are non-commutative, we might ask whether or not this determinant behaves the way we expect - Will it really determine whether or not a quaternionic matrix is singular or not? Will the properties of the determinant still hold? Will the determinant still be a map from $M_{n}(G) \rightarrow G$ (in this case, $G = \HH$)? The last question comes from the fact that the determinants of complex matrices is a map from $\Mc{n} \rightarrow \C$.  
+  Taking into account the fact that the quaternions are non-commutative, one might ask whether or not this determinant behaves the way we expect - Will it really determine whether or not a quaternionic matrix is singular or not? Will the properties of the determinant still hold? Will the determinant still be a map from $M_{n}(G) \rightarrow G$ (in this case, $G = \HH$)? The last question comes from the fact that the determinants of complex matrices is a map from $\Mc{n} \rightarrow \CC$.  
 }
 
 \iffalse
@@ -167,7 +169,7 @@ Also notice that,
 	M^T \text{ is singular. This contradicts with the fact that $Cdet(M^T) = 2\kb$.}
 \end{align*}
 
-We now see that the Cayley determinant doesn't satisfy Axiom 1. Aslaksen provides counterexamples that show how the Cayley determinant fails to satisfy the other two axioms \cite{aslaksen}.
+ Aslaksen provides counterexamples that show how the Cayley determinant fails to satisfy the other two axioms \cite{aslaksen}.
 
 \section{Matrix Homomorphisms}
 
@@ -177,11 +179,11 @@ We now see that the Cayley determinant doesn't satisfy Axiom 1. Aslaksen provide
 
 \subsection{Representing Complex Numbers as Real Matrices}
 
-In abstract algebra, we saw that we can define a bijection from the field of complex numbers to the 2D-plane ($\R^2$) - a mapping $\Theta : \C \rightarrow \R^2$ where a complex number $a+b\ib$ is mapped to a vector/point $(a,b)$ in the 2D-plane. Therefore, in order to represent complex numbers as real matrices, we have to find a way to view them as linear maps in $\R^2$. 
+In abstract algebra, we saw that we can define a bijection from the field of complex numbers to the 2D-plane ($\R^2$) - a mapping $\Theta : \CC \rightarrow \R^2$ where a complex number $a+b\ib$ is mapped to a vector/point $(a,b)$ in the 2D-plane. Therefore, in order to represent complex numbers as real matrices, we have to find a way to view them as linear maps in $\R^2$. 
 
-Consider the complex function $f(z) = (a+b\ib)z$ (since $\C$ is a field, $f$ is linear map). We see that the images of $1$ and $\ib$ are $a+b\ib$ and $-b+a\ib$ respectively. Under the function $\Theta$ (in which case $1$ is mapped to $(1,0)$ while $\ib$ is mapped to $(0,1)$), we seek a matrix in $\Mr{2}$ that maps $(1,0)$ to $\Theta(a+b\ib) = (a,b)$ and $(0,1)$ to $\Theta(-b+a\ib) = (-b,a)$. 
+Consider the complex function $f(z) = (a+b\ib)z$ (since $\CC$ is a field, $f$ is linear map). We see that the images of $1$ and $\ib$ are $a+b\ib$ and $-b+a\ib$ respectively. Under the function $\Theta$ (in which case $1$ is mapped to $(1,0)$ while $\ib$ is mapped to $(0,1)$), we seek a matrix in $\Mr{2}$ that maps $(1,0)$ to $\Theta(a+b\ib) = (a,b)$ and $(0,1)$ to $\Theta(-b+a\ib) = (-b,a)$. 
 \\
-\noindent Let this matrix be $F$ = 
+\noindent Let this matrix be $F =$ 
 \begin{pmatrix} 
 \alpha & \beta \\ 
 \chi & \delta 
@@ -214,27 +216,33 @@ Consider the complex function $f(z) = (a+b\ib)z$ (since $\C$ is a field, $f$ is 
 	\begin{pmatrix} -b \\ a \end{pmatrix} \implies
 	\beta = -b; \delta = a
 \end{align*}
-\noindent Therefore, $F$ = \begin{pmatrix} \alpha & \beta \\ \chi & \delta \end{pmatrix} = \begin{pmatrix} \label{phismall} a & -b \\ b & a \end{pmatrix}. The matrix $F$ can be seen as the matrix representation of the linear map $f$ which is defined by multiplying a complex number $z$ by $a+b\ib$. We can therefore see the matrix $F$ as the real matrix representation of the complex number $a+b\ib$.
+\noindent Therefore, $F$ = \begin{pmatrix} \alpha & \beta \\ \chi & \delta \end{pmatrix} = \begin{pmatrix} \label{phismall} a & -b \\ b & a \end{pmatrix}. The matrix $F$ can be seen as the matrix representation of the linear map $f$ which is defined by multiplying a complex number $z$ by $a+b\ib$. 
+
+\begin{ex}
+	Take the complex number $z = -3+2\ib$. Then its real matrix representation is
+	\begin{pmatrix}
+		-3 & -2 \\
+		2 & -3
+	\end{pmatrix}. 
+	We can use this real matrix representation to multiply $z$ with another complex number, say $1+2\ib$. 
+	\begin{pmatrix}
+		-3 & -2 \\
+		2 & -3
+	\end{pmatrix}
+	\begin{pmatrix}
+		1 \\ 2
+	\end{pmatrix}
+	$ = $
+	\begin{pmatrix}
+		-7 \\
+		-4
+	\end{pmatrix}
+	which corresponds to the complex number obtained by multiplying $z(1+2\ib) = (1+2\ib)z = -7-4\ib$.
+\end{ex}
+
+It is important to note that $F$ in general, doesn't represent the complex number $a+b\ib$ itself but the function associated with multiplying a complex number by $a+b\ib$. In this case, $F$ can represent both left and right multiplication because complex numbers are commutative under multiplication.
 
 \subsection{Homomorphisms from $\Mc{n}$ to $\Mr{2n}$}
-\iffalse
-In the previous subsection, we saw that we can represent complex numbers as $2\times 2$ real matrices. We can then define a mapping from $\C$ to $\Mr{2}$. We can also show that this mapping is a homomorphism.
-
-\begin{theorem}
-	Let $\phi : \C \rightarrow \Mr{2}$ such that $a+b\ib \mapsto$ \begin{pmatrix} a & -b \\ b & a \end{pmatrix}. Then $\phi$ is an injective homomorphism from $\C$ to $\Mr{2}.
-\end{theorem}
-
-%\begin{proof}
-%	Let $z_1 = a+b\ib$ and $z_2 = c+d\ib \in \C$ . \\
-%	Then $\phi(z_1z_2) = \phi[(a+b\ib)(c+d\ib)] = \phi[(ac-bd)+(ad+bc)\ib] = $\begin{pmatrix} (ac-bd) & -(ad+bc) \\ (ad+bc) & (ac-bd)$ \end{pmatrix}. \\ \\
-%	Now, $\phi(z_1)\phi(z_2) = \phi[(a+b\ib)]\phi[(c+d\ib)] = $\begin{pmatrix} a & -b \\ b & a \end{pmatrix}\begin{pmatrix} c & -d \\ d & c \end{pmatrix}$ = $\begin{pmatrix} (ac-bd) & -(ad+bc) \\ (ad+bc) & (ac-bd)$ \end{pmatrix}. \\
-%	Hence, $\phi(z_1z_2) = \phi(z_1)\phi(z_2)$.
-%\end{proof}
-
-\begin{remark}
-	We will not include the proof for this theorem as this is merely a special case of Theorem \ref{phimorph} (when $n = 1$). 
-\end{remark}
-\fi
 
 In order to represent complex matrices as real matrices, notice that every complex matrix can be represented as the sum of a real matrix and a purely imaginary matrix, i.e., for an $n\times n$ complex matrix $Z$, $Z = A + B\ib$ where $A,B \in \Mr{n}$ \cite{aslaksen}. We define a mapping 
 \begin{equation*} 
@@ -262,7 +270,7 @@ Theorems \ref{distributive} and \ref{bigmatm} will come in handy in proving that
 	\end{align*} \end{equation}
 \end{proof}
 
-The same method of proof can be used for the right distributive law. Furthermore, since $\R \subseteq \C \subseteq \HH$, theorem \ref{distributive} holds for matrices in $\Mr{n}$ and $\Mc{n}$ (we can show this by seeing that the matrices in $\Mh{n}$ form a ring). 
+The same method of proof can be used for the right distributive law. Furthermore, since $\R \subseteq \CC \subseteq \HH$, theorem \ref{distributive} holds for matrices in $\Mr{n}$ and $\Mc{n}$ (we can show this by seeing that the matrices in $\Mh{n}$ form a ring). 
 
 \begin{theorem} \label{bigmatm}
 	For matrices $A_{ij}, B_{ij} \in \Mh{n}$ where $i,j = 1,2,...,m$, 
@@ -281,8 +289,8 @@ The same method of proof can be used for the right distributive law. Furthermore
 	\begin{align*}
 		&\pgenmat{A}\pgenmat{B} \\
 		=&\gengmat{a}\gengmat{b} \\
-	\end{align*}
-	\begin{align*}
+	%\end{align*}
+	%\begin{align*}
 		=&\pgenmatk{\ddsumprod{1k}{k1}}{\ddsumprod{1k}{km}}{\ddsumprod{mk}{k1}}{\ddsumprod{mk}{km}} \\
 		=&\begin{pmatrix}
 			\sum_{k=1}^{m}A_{1k}B_{k1} & \cdots & \sum_{k=1}^{m}A_{1k}B_{km} \\
@@ -292,12 +300,12 @@ The same method of proof can be used for the right distributive law. Furthermore
 	\end{align*}
 \end{proof}
 
-Theorem \ref{bigmatm} will make it convenient for us to multiply square matrices with square matrices as entries. Again, this theorem also holds for matrices in $\Mr{n}$ and $\Mc{n}$ because $\R \subseteq \C \subseteq \HH$. 
+Theorem \ref{bigmatm} will make it convenient for us to multiply square matrices with square matrices as entries. Again, this theorem also holds for matrices in $\Mr{n}$ and $\Mc{n}$ because $\R \subseteq \CC \subseteq \HH$. 
 
 \begin{theorem} \label{phimorph}
 	Let $\phi: \Mc{n} \rightarrow \Mr{2n}$ such that $C+D\ib \mapsto $ \begin{pmatrix} C & -D \\ D & C \end{pmatrix} where $C+D\ib \in \Mc{n}$. Then $\phi$ is an injective homomorphism. 
 \end{theorem}
-
+\newpage
 \begin{proof}
 	\textbf{\newline1-1:}
 	\begin{align*}
@@ -323,8 +331,8 @@ Theorem \ref{bigmatm} will make it convenient for us to multiply square matrices
 		&= \phi[(AC-BD)+(BC+AD)\ib] \\
 		&= 
 		\begin{pmatrix} 
-		(AC-BD) & -(BC+AD) \\ 
-		(BC+AD) & (AC-BD) 
+		AC-BD & -(BC+AD) \\ 
+		BC+AD & AC-BD 
 		\end{pmatrix}
 	\end{align*}
 	\begin{align*}
@@ -339,8 +347,8 @@ Theorem \ref{bigmatm} will make it convenient for us to multiply square matrices
 		\end{pmatrix} \\
 		&=
 		\begin{pmatrix} 
-		(AC-BD) & -(BC+AD) \\ 
-		(BC+AD) & (AC-BD) 
+		AC-BD & -(BC+AD) \\ 
+		BC+AD & ac-bd 
 		\end{pmatrix} \text{ by Theorem \ref{bigmatm}.}
 	\end{align*}
 \end{proof}
@@ -356,9 +364,46 @@ I_n & 0
 \end{equation*}
  Notice that the matrix $J$ is the image of $iI \in \Mc{n}$ under $\phi$ \cite{aslaksen}. Intuitively, this means that $J$ represents the imaginary number $\ib$ in $\Mr{2n}$. It can be easily shown that $J^2 = -I$. Therefore, $J$ gives a \emph{complex structure} in $\R^{2n}$. Recall in Chapter 2 that in order for a subset of matrices in $\Mr{2n}$ to "mimic" a complex vector space, every linear map in the said subset must commute with the complex structure. We see that the subset of images of complex matrices under $\phi$ satisfy this. We can then write $\phi(\Mc{n}) = \{P \in \Mr{2n} | JP = PJ\}$\cite{aslaksen}. 
 
+ \begin{ex}
+ 	Take the complex matrix 
+
+ 	$Z = $
+ 	\begin{pmatrix}
+ 		1+2\ib & 3\ib \\
+ 		1 & -2+\ib
+ 	\end{pmatrix} $ = $
+ 	\begin{pmatrix}
+ 		1 & 0 \\
+ 		1 & -2
+ 	\end{pmatrix} $+$
+ 	\begin{pmatrix}
+ 		2 & 3 \\
+ 		0 & 1
+ 	\end{pmatrix} $\ib$.
+ 	Then, $\phi(Z) = $
+ 	\begin{pmatrix}
+ 		\begin{matrix}
+ 		1 & 0 \\
+ 		1 & -2
+ 		\end{matrix} & 
+ 		\begin{matrix}
+ 		-2 & -3 \\
+ 		1 & -1
+ 		\end{matrix} \\
+ 		\begin{matrix}
+ 		2 & 3 \\
+ 		0 & 1
+ 		\end{matrix} &
+ 		\begin{matrix}
+ 		1 & 0 \\
+ 		1 & -2
+ 		\end{matrix}
+ 	\end{pmatrix}
+ \end{ex}
+
 \subsection{Representing Quaternions as Complex Matrices} \label{qrep}
 
-Recall in Chapter 2 that we can view the quaternions as a 2-dimensional algebra over $\C$ by having $\quat{a}{b}{c}{d} = (a+b\ib)+\jb(c-d\ib)$. In general, we can write any quaternion as $x+\jb y$ where $x, y \in \C$. Because of this, we see that we can define a bijection $\Omega: \HH \rightarrow \C^2$ where a quaternion $q = x+\jb y$ is mapped to $(x, y) \in \C^2$. In order to represent quaternions as complex matrices, we have to find a way to view them as linear maps in $\C^2$.
+Recall in Chapter 2 that we can view the quaternions as a 2-dimensional algebra over $\CC$ by having $\quat{a}{b}{c}{d} = (a+b\ib)+\jb(c-d\ib)$. In general, we can write any quaternion as $x+\jb y$ where $x, y \in \CC$. Because of this, we see that we can define a bijection $\Omega: \HH \rightarrow \CC^2$ where a quaternion $q = x+\jb y$ is mapped to $(x, y) \in \CC^2$. In order to represent quaternions as complex matrices, we have to find a way to view them as linear maps in $\CC^2$.
 
 Let us consider the quaternionic function $s(q) = (x+\jb y)q$. We see that,
 \begin{align*}
@@ -369,12 +414,12 @@ Let us consider the quaternionic function $s(q) = (x+\jb y)q$. We see that,
 \end{align*}
 
 \newcommand{\kmat}{\begin{pmatrix} \kappa & \lambda \\ \mu & \nu \end{pmatrix}}
-
+\newcommand{\krmat}{\begin{pmatrix} \kappa_R & \lambda_R \\ \mu_R & \nu_R \end{pmatrix}}
 \newcommand{\vectC}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
 
 Under the function $\Omega$, we see that the images of 1, $\ib, \jb$ and $\kb$ are $(1,0) , (\ib,0), (0,1)$ and $(0,-\ib)$ respectively and the images of $s(1), s(\ib), s(\jb)$ and $s(\kb)$ are $(x,y), (x\ib,y\ib), (-\bar{y},\bar{x})$ and $(\bar{y}\ib,-\bar{x}\ib)$. We seek a matrix in $\Mc{2}$ such that $(1,0) \mapsto (x,y), (\ib,0) \mapsto (x\ib,y\ib), (0,1) \mapsto (-\bar{y},\bar{x})$, and $(0,-\ib) \mapsto (\bar{y}\ib,-\bar{x}\ib)$.
 
- Let this matrix be $S = $ \kmat, where $\kappa, \lambda, \mu, $ and $\nu \in \C$. Then, 
+ Let this matrix be $S = \kmat$ , where $\kappa, \lambda, \mu, $ and $\nu \in \CC$. Then, 
 
 \begin{align*}
 	&\kmat \vectC{1}{0} = \vectC{x}{y} \implies \vectC{\kappa}{\mu} = \vectC{x}{y} \implies \kappa = x \text{ and } \mu = y \\
@@ -388,11 +433,71 @@ Hence, $S = \kmat = $
 	x & -\bar{y} \\
 	y & \bar{x}
 \end{pmatrix}.
-The matrix $S$ can be seen as the complex matrix representation of the quaternionic linear map $s$ which is defined by performing a left-multiplication by a quaternion $x+\jb y$. Notice that we only need to look into the images of 1 and $\jb$ (or $\ib$ and $\kb$) to obtain $S$. This is because their images under the function $\Omega$ form a basis for $\C^2$.
+The matrix $S$ can be seen as the complex matrix representation of the quaternionic linear map $s$ which is defined by performing a left-multiplication by a quaternion $x+\jb y$. Notice that we only need to look into the images of 1 and $\jb$ (or $\ib$ and $\kb$) to obtain $S$. This is because their images under the function $\Omega$ form a basis for $\CC^2$. Also notice that $s$ is a linear transform. This is why we can obtain a matrix representation of $s$ in $\CC$.
+
+\begin{ex}
+	Take the quaternion $q = -2+\ib-5\jb+2\kb = -2+\ib + \jb(-5-2\ib)$. Then its complex matrix representation is 
+	\begin{pmatrix}
+		-2+\ib & 5-2\ib \\
+		-5-2\ib & -2-\ib
+	\end{pmatrix}.
+	We can use this matrix to multiply $q$ with another quaternion, say $1+\ib+3\jb-4\kb = 1+\ib + \jb(3+4\ib)$. We have, 
+	\begin{pmatrix}
+		-2+\ib & 5-2\ib \\
+		-5-2\ib & -2-\ib
+	\end{pmatrix}
+	$\vectC{1+\ib}{3+4\ib} = \vectC{20+13\ib}{-5-18\ib}$ which corresponds to the quaternion obtained by multiplying $q(1+\ib+3\jb-4\kb) = 20+13\ib-5\jb+18\kb = 20+13\ib+\jb(-5-18\ib)$ on the left.
+\end{ex}
+Notice that $S$ only represents left multiplication in the quaternions. One would probably ask whether or not we can have a complex matrix representation for right multiplication.
+\newline
+Consider the quaternionic function defined by multiplying a quaternion $q$ by some quaternion $x+\jb y$ on the right, $s_R(q) = q(x+\jb y)$ such that $y\neq 0$. We see that,
+\begin{align*}
+	s_R(1) &= x+\jb y \\
+	s_R(\ib) &= \ib x - \jb\ib y \\
+	s_R(\jb) &= -y + \jb x \\
+	s_R(\kb) &= -\ib y -\jb\ib x 
+\end{align*}
+
+We use the same method in obtaining the complex matrix representation. We let $S_R = $ \krmat be the complex matrix representation of this function. 
+
+\begin{align*}
+	&\krmat \vectC{1}{0} = \vectC{x}{y} \implies \vectC{\kappa_R}{\mu_R} = \vectC{x}{y} \implies \kappa_R = x \text{ and } \mu_R = y \\
+	&\krmat \vectC{\ib}{0} = \vectC{\ib x}{-\ib y} \implies \vectC{\kappa_R\ib}{\mu_R\ib} = \vectC{\ib x}{-\ib y} \implies \kappa_R = x \text{ and } \mu_R = -y \\ 
+	&\krmat \vectC{0}{1} = \vectC{-y}{x} \implies \vectC{\lambda_R}{\nu_R} = \vectC{-y}{x} \implies \lambda_R = -y \text{ and } \nu_R = x \\
+	&\krmat \vectC{0}{-\ib} = \vectC{-\ib y}{-\ib x} \implies \vectC{-\lambda_R\ib}{-\nu_R\ib} = \vectC{-\ib y}{-\ib x} \implies \lambda_R = y \text{ and } \nu_R = x 
+\end{align*}
+
+This implies that $\mu_R = \lambda_R = 0$. Hence, the complex matrix representation of right multiplication by a quaternion is 
+\begin{pmatrix}
+	x & 0 \\
+	0 & x
+\end{pmatrix}.
+However, we see that, 
+\begin{pmatrix}
+	x & 0 \\
+	0 & x
+\end{pmatrix}
+\vectC{1}{0} $ = $ \vectC{x}{0} which doesn't correspond to $s_R(1) &= x+\jb y$. We will later see that there is no matrix representation for right multiplication by a quaternion because it is not a linear transform in $\HH$. However, notice that every linear transform in $\HH$ commutes with right multiplication, i.e., 
+\begin{pmatrix}
+	x & -\bar{y} \\
+	y & \bar{x}
+\end{pmatrix} 
+\begin{pmatrix}
+	x & 0 \\
+	0 & x
+\end{pmatrix} $ = $
+\begin{pmatrix}
+	x & 0 \\
+	0 & x
+\end{pmatrix}
+\begin{pmatrix}
+	x & -\bar{y} \\
+	y & \bar{x}
+\end{pmatrix}. We will discuss this matter further in the next subsection.
 
 \subsection{Homomorphisms from $\Mh{n}$ to $\Mc{2n}$}
 
-To represent quaternionic matrices as complex matrices, notice that every quaternionic matrix can be represented as the sum $Q = X + \jb Y$ where $X, Y \in \Mc{n}$ \cite{aslaksen}. We define a mapping \begin{equation*} \psi(X+\jb Y) = 
+Before proceeding, let's first generalize the matrix $S$ and define a mapping from $\Mh{n}$ to $\Mc{2n}$. In order to represent quaternionic matrices as complex matrices, notice that every quaternionic matrix can be represented as the sum $Q = X + \jb Y$ where $X, Y \in \Mc{n}$ \cite{aslaksen}. We define a mapping \begin{equation*} \psi(X+\jb Y) = 
 \begin{pmatrix} 
 X & -\overline{Y} \\ 
 Y & \overline{X} 
@@ -400,7 +505,7 @@ Y & \overline{X}
 \cite{aslaksen}
 \end{equation*} 
 
-Notice that $\psi$ is simply a generalization of the matrix $S$ in \ref{qrep}. Again, if we can show that $\psi$ is an injective homomorphism, we can essentially represent any quaternionic matrix as a $2n \times 2n$ complex matrix.
+Again, if we can show that $\psi$ is an injective homomorphism, we can essentially represent any quaternionic matrix as a $2n \times 2n$ complex matrix.
 
 \begin{theorem} \label{psimorph}
  	Let $\psi: \Mh{n} \rightarrow \Mc{2n}$ such that $X+\jb Y \mapsto $ 
@@ -428,7 +533,7 @@ Notice that $\psi$ is simply a generalization of the matrix $S$ in \ref{qrep}. A
 		&\implies X+\jb Y = V+\jb W \\
 		&\implies \psi \text{ is injective.}
 	\end{align*}
-	\textbf{Homomorphism: \newline}
+	\textbf{\newpage Homomorphism: \newline}
 	Let $X+\jb Y$, $V+\jb W \in \Mh{n}$. Then 
 	\begin{align*}
 		\psi[(X+\jb Y)(V+\jb W)] &= \psi[X(V+\jb W)+\jb Y(V+\jb W)] \text{ by Theorem \ref{distributive}} \\
@@ -464,24 +569,137 @@ Notice that $\psi$ is simply a generalization of the matrix $S$ in \ref{qrep}. A
 	\end{align*}
 \end{proof}
 
-The non-commutativity of quaternions presents some problems in representing \emph{quaternionic linear maps} as complex linear maps. If we consider a quaternionic linear map say $L(v) = Av$ for $A \in \Mh{n}$ where we take in quaternions as scalars, then, $cAv = c L(v) = L(cv) = Acv$ which is false \cite{stack}. However, $Avc = L(v)c = L(vc) = Avc$. Hence, we now see that any quaternionic linear map commutes with right scalar multiplication by a quaternion (in fact, this is the reason why we choose $\jb$ to be in the left in writing the sum $x+\jb y$). However, right scalar multiplication itself is not a linear map in $\HH$ (in order for it to be a linear map, it in turn, has to commute with other quaternions)\cite{stack} \cite{aslaksen}. This poses a problem because it implies that there is no matrix representation for right scalar multiplication \cite{aslaksen}. However, in \cite{aslaksen}, we see that we can consider a linear map $\widetilde{R_j}$ in $\C^{2n}$ as the image of right scalar multiplication by $\jb$ under the homomorphism. $\widetilde{R_j}$ corresponds to multiplying $v \in \C^{2n}$ by the matrix $J$ and then conjugating \cite{aslaksen}. This gives a quaternionic structure in $\C^{2n}$ and thus, a quaternionic linear map corresponds to a complex linear map $Q$ that commutes with $\widetilde{R_j}$, i.e., $Q \overline{Jv} = \overline{JQv}$ for $v \in \C^{2n}$. It can be easily shown that the latter holds if and only if $\overline{Q}J = JQ$ using the fact that $Q\overline{Jv} = \overline{QJv}$. Thus, $\psi(\Mh{n}) = \{Q \in \Mc{2n} |\overline{Q}J = JQ\}.
+The non-commutativity of quaternions presents some problems in representing \emph{quaternionic linear maps} as complex linear maps. If we consider a quaternionic linear map say $L(v) = Av$ for $A \in \Mh{n}$ where we take in quaternions as scalars, then, $cAv = c L(v) = L(cv) = Acv$ which is false \cite{stack}. However, $Avc = L(v)c = L(vc) = Avc$. Hence, we now see that any quaternionic linear map commutes with right scalar multiplication by a quaternion (as was seen in subsection \ref{qrep}). However, right scalar multiplication itself is not a linear map in $\HH$ (in order for it to be a linear map, it in turn, has to commute with other quaternions)\cite{stack} \cite{aslaksen}. This poses a problem because it implies that there is no matrix representation for right scalar multiplication \cite{aslaksen}. 
+
+However, in \cite{aslaksen}, we see that we can consider a linear map $\widetilde{R_j}$ in $\CC^{2n}$ as the image of right scalar multiplication by $\jb$ under the homomorphism. $\widetilde{R_j}$ corresponds to multiplying $v \in \CC^{2n}$ by the matrix $J$ and then conjugating \cite{aslaksen}. This gives a quaternionic structure in $\CC^{2n}$ and thus, a quaternionic linear map corresponds to a complex linear map $Q$ that commutes with $\widetilde{R_j}$, i.e., $Q \overline{Jv} = \overline{JQv}$ for $v \in \CC^{2n}$. It can be easily shown that the latter holds if and only if $\overline{Q}J = JQ$ using the fact that $Q\overline{Jv} = \overline{QJv}$. Thus, $\psi(\Mh{n}) = \{Q \in \Mc{2n} |\overline{Q}J = JQ\}.
+
+\begin{ex}
+	Take the quaternionic matrix 
+
+	$Q = $
+	\begin{pmatrix}
+		1+2\ib-3\jb+\kb & 2\ib+5\kb \\
+		1-\ib & 3+\jb+\kb
+	\end{pmatrix} $ = $
+	\begin{pmatrix}
+		1+2\ib & 2\ib \\
+		1-\ib & 3
+	\end{pmatrix} $+\jb$
+	\begin{pmatrix}
+		-3-\ib & -5\ib \\
+		0 & 1-\ib
+	\end{pmatrix}.
+
+	Hence, $\psi(Q) = $
+	\begin{pmatrix}
+		\begin{matrix}
+			1+2\ib & 2\ib \\
+			1-\ib & 3
+		\end{matrix} &
+		\begin{matrix}
+			3-\ib & -5\ib \\
+			0 & -1-\ib
+		\end{matrix} \\
+		\begin{matrix}
+			-3-\ib & -5\ib \\
+			0 & 1-\ib
+		\end{matrix} &
+		\begin{matrix}
+			1-2\ib & -2\ib \\
+			1+\ib & 3
+		\end{matrix} 
+	\end{pmatrix}.
+\end{ex}
 
 \section{The Study Determinant}
 
-We are now ready to define the Study determinant.
-
-\begin{definition}
-	The Study Determinant is defined by $Sdet M = \cdet{\psi{M}} = \sqrt{\rdet{\phi(\psi(M))}}.
+\begin{definition}[Study Determinant]
+	For $M \in \Mh{n}$, the \emph{Study Determinant} is defined by $Sdet M = \cdet{\psi(M)} = \sqrt{\rdet{\phi(\psi(M))}}.
 \end{definition}
 
+Notice that we can compute for the Study determinant in two different ways: 
+\begin{enumerate}
+	\item Simply getting the complex matrix representation of the quaternionic matrix and proceeding to take its complex determinant or;
+	\item Getting the real matrix representation of the quaternionic matrix by composing $\phi$ and $\psi$, and then taking the square root of the real determinant.
+\end{enumerate}
+
+In the following example, we take the Study determinant of the quaternionic matrix in Example \ref{singbutnot} for which the Cayley determinant failed to identify as non-singular. 
+
 \begin{ex}
+	Let $M = $ 
+	\begin{pmatrix}
+ 		\kb & \jb \\
+ 		\ib & 1
+ 	\end{pmatrix} $ = $
+ 	\begin{pmatrix}
+ 		0 & 0 \\
+ 		\ib & 1
+ 	\end{pmatrix} $+\jb$
+ 	\begin{pmatrix}
+ 		-\ib & 1 \\
+ 		0 & 0
+ 	\end{pmatrix}.
+ 	Then,
+
+ 	\begin{enumerate}
+ 		\item $Sdet(M) = \ccdet(\psi(M)) = \ccdet$
+		\begin{pmatrix}
+			\begin{matrix}
+				0 & 0 \\
+				\ib & 1
+			\end{matrix} &
+			\begin{matrix}
+				-\ib & -1 \\
+				0 & 0
+			\end{matrix} \\
+			\begin{matrix}
+ 				-\ib & 1 \\
+ 				0 & 0
+ 			\end{matrix} &
+ 			\begin{matrix}
+				0 & 0 \\
+				-\ib & 1
+			\end{matrix}
+ 		\end{pmatrix} $ = 4$. 
+ 		\item We see that $\psi(M) = $
+ 		\begin{pmatrix}
+ 			0 & 0 & 0 & -1 \\
+ 			0 & 1 & 0 & 0 \\
+ 			0 & 1 & 0 & 0 \\
+ 			0 & 0 & 0 & 1
+ 		\end{pmatrix} $+$
+ 		\begin{pmatrix}
+ 			0 & 0 & -1 & 0 \\
+ 			1 & 0 & 0 & 0 \\
+ 			-1 & 0 & 0 & 0 \\
+ 			0 & 0 & -1 & 0
+ 		\end{pmatrix} $\ib$.
+
+ 		$\sqrt{\rrdet(\phi(\psi(M)))} =$
+ 		$\begin{pmatrix}
+ 		\rrdet
+ 		\begin{pmatrix}
+ 			0 & 0 & 0  & -1 &  0 & 0 & 1 &  0 \\
+ 			0 & 1 & 0  &  0 & -1 & 0 & 0 &  0 \\
+ 			0 & 1 & 0  &  0 &  1 & 0 & 0 &  0 \\
+ 			0 & 0 & 0  &  1 &  0 & 0 & 1 &  0 \\
+ 			0 & 0 & -1 &  0 &  0 & 0 & 0 & -1 \\
+ 			1 & 0 & 0  &  0 &  0 & 1 & 0 &  0 \\
+ 		   -1 & 0 & 0  &  0 &  0 & 1 & 0 &  0 \\
+ 		    0 & 0 & -1 &  0 &  0 & 0 & 0 &  1 \\
+ 		\end{pmatrix}
+ 		\end{pmatrix}^{1/2} = \sqrt{16} = 4$
+ 	\end{enumerate}
+
 
 \end{ex}
 
-It can be shown that the Study Determinant satisfies all of Aslaksen's axioms \cite{aslaksen}.
+Hence, we can see that by the Study determinant, the matrix $M$ is invertible which it really is as shown in section \ref{cayley}. 
 
-\section{Main Result}
-\begin{prop}
+Aslaksen has shown that the Study Determinant satisfies all of his axioms \cite{aslaksen}. Furthermore, he also showed that $Sdet(M) \geq 0$ \cite{aslaksen}.
+
+\section{Skew-Coninvolutory Quaternionic Matrices of Odd Dimensions}
+\begin{prop}[Main Result]
  $\mathscr{D}_n(\HH)$ is empty when $n$ is odd.
 \end{prop}
 \begin{proof}
@@ -495,6 +713,24 @@ It can be shown that the Study Determinant satisfies all of Aslaksen's axioms \c
 	Since $|Sdet(E)|^2 > 0$, $(-1)^n > 0$. Hence, $n$ must be even.
 \end{proof}
 
-\begin{remark}
-	Theorem \ref{detbar} holds because the Study determinant is a complex determinant.
-\end{remark}
+	Theorem \ref{detbar} applies because the Study determinant can be viewed as a complex determinant.
+
+\begin{ex}
+	Again consider the $1 \times 1$ case where, $\jb\bar{\jb} = -\jb^2 = 1 \neq -1$. Whereas in the $2 \times 2$ case, consider $E = $ 
+	\begin{pmatrix}
+		0 & \jb \\
+		-\jb & 0
+	\end{pmatrix}. Then, $E\overline{E} = $
+	 \begin{pmatrix}
+		0 & \jb \\
+		-\jb & 0
+	\end{pmatrix}
+	\begin{pmatrix}
+		0 & -\jb \\
+		\jb & 0
+	\end{pmatrix} $ = $
+	\begin{pmatrix}
+		-1 &  0 \\
+		 0 & -1
+	\end{pmatrix}.
+\end{ex}

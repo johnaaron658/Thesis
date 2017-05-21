@@ -1,23 +1,21 @@
-\BOOKMARK [0][-]{chapter*.2}{Acknowledgments}{}% 1
-\BOOKMARK [0][-]{chapter*.3}{Abstract}{}% 2
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 3
-\BOOKMARK [1][-]{section.1.1}{List of Symbols}{chapter.1}% 4
-\BOOKMARK [0][-]{chapter.2}{Preliminaries}{}% 5
-\BOOKMARK [1][-]{section.2.1}{A Review on Linear Maps}{chapter.2}% 6
-\BOOKMARK [1][-]{section.2.2}{Complex Matrices}{chapter.2}% 7
-\BOOKMARK [2][-]{subsection.2.2.1}{Skew-Coninvolutory Complex Matrices}{section.2.2}% 8
-\BOOKMARK [1][-]{section.2.3}{Quaternion Basics}{chapter.2}% 9
-\BOOKMARK [2][-]{subsection.2.3.1}{Multiplication and Addition}{section.2.3}% 10
-\BOOKMARK [2][-]{subsection.2.3.2}{Other Operations and Properties}{section.2.3}% 11
-\BOOKMARK [2][-]{subsection.2.3.3}{Quaternionic Matrices}{section.2.3}% 12
-\BOOKMARK [0][-]{chapter.3}{Results and Discussion}{}% 13
-\BOOKMARK [1][-]{section.3.1}{The Cayley Determinant and Aslaksen's Axioms}{chapter.3}% 14
-\BOOKMARK [2][-]{subsection.3.1.1}{Brenner's Determinant Function and Aslaksen's Axioms}{section.3.1}% 15
-\BOOKMARK [1][-]{section.3.2}{Matrix Homomorphisms}{chapter.3}% 16
-\BOOKMARK [2][-]{subsection.3.2.1}{Representing Complex Numbers as Real Matrices}{section.3.2}% 17
-\BOOKMARK [2][-]{subsection.3.2.2}{Homomorphisms from Mn\(`39`42`"613A``45`47`"603AC\) to M2n\(lR\)}{section.3.2}% 18
-\BOOKMARK [2][-]{subsection.3.2.3}{Representing Quaternions as Complex Matrices}{section.3.2}% 19
-\BOOKMARK [2][-]{subsection.3.2.4}{Homomorphisms from Mn\(`39`42`"613A``45`47`"603AH\) to M2n\(`39`42`"613A``45`47`"603AC\)}{section.3.2}% 20
-\BOOKMARK [1][-]{section.3.3}{The Study Determinant}{chapter.3}% 21
-\BOOKMARK [1][-]{section.3.4}{Main Result}{chapter.3}% 22
-\BOOKMARK [0][-]{appendix*.4}{List of References}{}% 23
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{List of Symbols}{chapter.1}% 2
+\BOOKMARK [0][-]{chapter.2}{Preliminaries}{}% 3
+\BOOKMARK [1][-]{section.2.1}{A Review on Linear Maps}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.2}{Complex Matrices}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.2.1}{Skew-Coninvolutory Complex Matrices}{section.2.2}% 6
+\BOOKMARK [1][-]{section.2.3}{Quaternion Basics}{chapter.2}% 7
+\BOOKMARK [2][-]{subsection.2.3.1}{Multiplication and Addition}{section.2.3}% 8
+\BOOKMARK [2][-]{subsection.2.3.2}{Other Operations and Properties}{section.2.3}% 9
+\BOOKMARK [2][-]{subsection.2.3.3}{Quaternionic Matrices}{section.2.3}% 10
+\BOOKMARK [0][-]{chapter.3}{Results and Discussion}{}% 11
+\BOOKMARK [1][-]{section.3.1}{The Cayley Determinant and Aslaksen's Axioms}{chapter.3}% 12
+\BOOKMARK [2][-]{subsection.3.1.1}{Brenner's Determinant Function and Aslaksen's Axioms}{section.3.1}% 13
+\BOOKMARK [1][-]{section.3.2}{Matrix Homomorphisms}{chapter.3}% 14
+\BOOKMARK [2][-]{subsection.3.2.1}{Representing Complex Numbers as Real Matrices}{section.3.2}% 15
+\BOOKMARK [2][-]{subsection.3.2.2}{Homomorphisms from Mn\(`39`42`"613A``45`47`"603AC\) to M2n\(lR\)}{section.3.2}% 16
+\BOOKMARK [2][-]{subsection.3.2.3}{Representing Quaternions as Complex Matrices}{section.3.2}% 17
+\BOOKMARK [2][-]{subsection.3.2.4}{Homomorphisms from Mn\(`39`42`"613A``45`47`"603AH\) to M2n\(`39`42`"613A``45`47`"603AC\)}{section.3.2}% 18
+\BOOKMARK [1][-]{section.3.3}{The Study Determinant}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.4}{Skew-Coninvolutory Quaternionic Matrices of Odd Dimensions}{chapter.3}% 20
+\BOOKMARK [0][-]{appendix*.1}{List of References}{}% 21
