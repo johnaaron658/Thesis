@@ -11,12 +11,14 @@
 \usepackage{subfig}
 \usepackage{comment}
 \usepackage{graphicx}
-%\usepackage{epsfig}
+\usepackage{varwidth}
 \usepackage{upcebumath}  
 \usepackage{UPnotations}
 \usepackage{hyperref}
 \usepackage{rotating}
 \usepackage{float}
+\usepackage{gensymb}
+\usepackage{mathabx}
 %\usepackage{layout}
 %\usepackage[hmargin={1.5in,1in},vmargin=1in,includehead,includefoot]{geometry}
 \graphicspath{{images/}}
@@ -35,6 +37,11 @@
 %\renewcommand\qedsymbol{$\blacksquare$}
 
 % MATH SHORTCUTS
+\makeatletter
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+\newcommand{\pvec}[1]{\vec{#1}\mkern2mu\vphantom{#1}}
 \DeclareMathOperator{\R}{\mathbb{R}}
 \DeclareMathOperator{\CC}{\mathbb{C}}
 \DeclareMathOperator{\HH}{\mathbb{H}}
@@ -75,6 +82,7 @@
 \newcommand{\pgenmat}[1]{
 	\pgenmatk{#1_{11}}{#1_{1m}}{#1_{m1}}{#1_{mm}}
 }
+\newcommand{\vectC}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
 
 % MATH ENVIRONMENT SETUP
 
@@ -111,35 +119,36 @@
 % MAIN DOCUMENT
 \begin{document}
 	% DETAILS
-	\iffalse
-	\title{An Application of the Study Determinant on Skew-Coninvolutory Quaternionic Matrices}
+	\title{On Quaternionic Linear Maps}
 
 	\authorfirst{John Aaron Q.}
 	\authorlast{Alcoseba}
 
-	\degree{Bachelor of Science in Mathematics}
+	\degreemath{Bachelor of Science in Mathematics}
 	\thesistype{Undergraduate Thesis}
 	\thesisdocument{Thesis}
 	\defensedate{May 29, 2017}
 	\submitmonth{June}
 	\submityear{2017}
 	\adviser{Dr. Lorna S. Almocera}
-	\reader{Someone}
+	\reader{Dr. Natividad Estillore}
 
 	\bothabsenttrue
 
-	\coadviser{co-Adviser, Ph.D.}
+	%\coadviser{co-Adviser, Ph.D.}
 
 	\chairman{Jonnifer R. Sinogaya, Ph.D.} 
-	\abs{Type your abstract here.  Your abstract should have a minimum
-	of 150 words and a maximum of 300 words.}
-
-	\acknowledge{Type your acknowledgements here. It is customary to acknowledge special assistance from
+	\abs{This paper is an expository on quaternionic matrices and their implications on concepts in Linear Algebra such as the notion of vector spaces, linear maps, and determinants. We see that different definitions have been given for the latter. We choose to look into one such definition - the Study Determinant - which uses homomorphisms that represent $n\times n$ \emph{Complex Matrices} as $2n \times 2n$ real matrices, and representing $n\times n$ \emph{Quaternionic Matrices} as $2n \times 2n$ complex matrices. }
+	\iffalse
+	\acknowledge{
+	Type your acknowledgements here. It is customary to acknowledge special assistance from
 	extramural agencies. There is no obligation that assistance received from members of the dissertation or
 	thesis committee be acknowledged. \medskip
 
 	Acknowledgments should be couched in terms consistent with the
-	scholarly nature of the work. Your name and the date should not appear on this page.}
+	scholarly nature of the work. Your name and the date should not appear on this page.
+	}
+	\fi
 
 	\beforepreface
 	\tableofcontents
@@ -154,19 +163,18 @@
 	%\listoffigures
 
 	\afterpreface
-	\fi
 	%main body
 	\chapter{Introduction} 
 	\input{chapters/chapter01}
 
-	%\chapter{Preliminaries}
-	%\input{chapters/chapter02}
+	\chapter{Preliminaries}
+	\input{chapters/chapter02}
 
-	%\chapter{Results and Discussion}
-	%\input{chapters/chapter03}
+	\chapter{Results and Discussions}
+	\input{chapters/chapter03}
 
-	%\chapter{Summary and Recommendations}
-	%\input{chapters/chapter04}
+	\chapter{Summary and Recommendations}
+	\input{chapters/chapter04}
 
 	\appendix
 	%\input{newfile}

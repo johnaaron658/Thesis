@@ -1,0 +1,28 @@
+In this chapter, we present a summary of what we've discussed in Chapters 2 and 3. We also present some recommendations for further study.
+
+In Chapter 2, we introduced the notion of a complex vector space. We saw that the concept of a complex linear map and the concept of a complex determinant still hold. We also saw the concept of a \emph{complex structure} in a real vector space which allows us to mimic a complex vector space in a real vector space. We saw that the complex structure $J =
+\begin{pmatrix}
+ 		0 & -1 \\
+ 		1 & 0
+ \end{pmatrix}$ in $\R^2$
+ corresponds to multiplication by $\ib$ in the complex vector space $\CC$.
+ We saw that in order for a real linear map to correspond to a complex linear map, the said  real linear map has to commute with the complex structure defined in its corresponding real space. We also saw that we can only define complex structures for real vector spaces of even dimensions since the set of all $n \times n$ skew-coninvolutory matrices is empty when $n$ is odd.
+
+ We also introduced the notion of a right quaternionic vector space. We deal with right quaternionic vector spaces because we saw that we cannot define a quaternionic linear map for left quaternionic vector spaces. We introduced the concept of a \emph{quaternionic structure} in a complex vector space which allows us to mimic a right quaternionic vector space in a complex vector space. We saw that a quaternionic structure $\Psi(v) = \overline{Jv}$ in $\CC^2$ where $J = 
+\begin{pmatrix}
+ 		0 & -1 \\
+ 		1 & 0
+ \end{pmatrix}$
+ corresponds to right multiplication by $\jb$ in the right quaternionic vector space $\HH$. We saw that in order for a complex linear map correspond to a quaternionic linear map, the said complex linear map has to commute with the quaternionic structure defined in its corresponding complex space. 
+
+In Chapter 3, we saw a problem in defining a determinant for quaternionic matrices. We saw that in order for a determinant to behave as expected, it must satisfy all three of Aslaksen's axioms and the consequence of which is that the determinant should map onto a commutative subset of $\HH$. We also saw that the Cayley determinant did not satisfy any of Aslaksen's axioms especially on the axiom concerning the determinant to be 0 for singular quaternionic matrices and that another approach was to be considered. The Study Determinant was one such approach that was shown in \cite{aslaksen} to satisfy all of the three axioms. 
+
+In Chapter 3, we also introduced the matrix homomorphisms $\phi$ which allows us to represent $n \times n$ complex matrices as $2n\times 2n$ real matrices and $\psi$ which allows us to represent $n \times n$ quaternionic matrices as $2n\times 2n$ complex matrices. We also saw how $\phi$ and $\psi$ are used to define the Study Determinant. 
+
+For further study, we recommend the following:
+
+\begin{itemize}
+	\item Expose the other quaternionic determinants, e.g., the Dieudonne determinant and Moore's determinant. There are other quaternionic determinants recommended in \cite{aslaksen}.
+	\item Show that the set of all $n\times n$ skew-coninvolutory matrices is empty when $n$ is odd. Since the Study Determinant implies that $Sdet(-I_n) = (-1)^{2n} = 1^n$, we cannot use it to prove the latter. Use another quaternionic determinant instead.
+	\item See if we can define a quaternionic structure in a complex vector space with odd dimensions. If we cannot, show that a quaternionic structure can only be defined on vector spaces with even dimensions.
+\end{itemize}

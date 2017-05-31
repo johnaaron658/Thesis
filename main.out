@@ -1,3 +1,24 @@
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.1.1}{List of Symbols}{chapter.1}% 2
-\BOOKMARK [0][-]{appendix*.5}{List of References}{}% 3
+\BOOKMARK [0][-]{chapter*.2}{Acknowledgments}{}% 1
+\BOOKMARK [0][-]{chapter*.3}{Abstract}{}% 2
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 3
+\BOOKMARK [1][-]{section.1.1}{List of Symbols}{chapter.1}% 4
+\BOOKMARK [0][-]{chapter.2}{Preliminaries}{}% 5
+\BOOKMARK [1][-]{section.2.1}{Rings, Fields, and Homomorphisms}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.2}{Vector Spaces and Linear Maps}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.3}{Complex Matrices}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.4}{Basics of Quaternion Algebra}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.4.1}{Addition and Multiplication}{section.2.4}% 10
+\BOOKMARK [2][-]{subsection.2.4.2}{Other Operations and Properties}{section.2.4}% 11
+\BOOKMARK [1][-]{section.2.5}{Quaternionic Linear Maps}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.5.1}{Quaternionic Matrices}{section.2.5}% 13
+\BOOKMARK [0][-]{chapter.3}{Results and Discussions}{}% 14
+\BOOKMARK [1][-]{section.3.1}{The Cayley Determinant and Aslaksen's Axioms}{chapter.3}% 15
+\BOOKMARK [2][-]{subsection.3.1.1}{Brenner's Determinant Function and Aslaksen's Axioms}{section.3.1}% 16
+\BOOKMARK [1][-]{section.3.2}{Matrix Homomorphisms}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.2.1}{Representing Complex Numbers as Real Matrices}{section.3.2}% 18
+\BOOKMARK [2][-]{subsection.3.2.2}{Homomorphisms from Mn\(`39`42`"613A``45`47`"603AC\) to M2n\(lR\)}{section.3.2}% 19
+\BOOKMARK [2][-]{subsection.3.2.3}{Representing Quaternions as Complex Matrices}{section.3.2}% 20
+\BOOKMARK [2][-]{subsection.3.2.4}{Homomorphisms from Mn\(`39`42`"613A``45`47`"603AH\) to M2n\(`39`42`"613A``45`47`"603AC\)}{section.3.2}% 21
+\BOOKMARK [1][-]{section.3.3}{The Study Determinant}{chapter.3}% 22
+\BOOKMARK [0][-]{chapter.4}{Summary and Recommendations}{}% 23
+\BOOKMARK [0][-]{appendix*.11}{List of References}{}% 24
