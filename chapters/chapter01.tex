@@ -18,7 +18,7 @@
  \begin{figure}[H]
  	\centering
 	\includegraphics[scale=0.5]{gyro}
- 	\caption{Gyroscope}
+ 	\caption{\cite{hernandez} Gyroscope}
  	\label{gyroscope}
  \end{figure}
 
@@ -62,7 +62,7 @@
 
 We can rotate any vector/point $\vec{v} \in \R^3$ by matrix multiplication $\pvec{v}' = \Rx{R}{x}{\alpha}\Rx{R}{y}{\beta}\Rx{R}{z}{\gamma}\vec{v}$. However, these computations are a bit tedious and require more elementary arithmetic operations \cite{lerios}. It's also more difficult to determine the axis and angle of rotation \cite{lerios}. Furthermore, this method is susceptible to a problem in mechanics known as the \emph{Gimbal Lock} \cite{jia}.
 
-The gimbal lock is a phenomenon that occurs when two successive rotations are about the same axis as seen in \ref{fig:phigimbal} \cite{goldstein}. This means that a rotation described by $\phi$ can be described by $\psi$ too. We, therefore, have a variable that depends on another, i.e., a variable that can no longer vary independently. This indicates a loss of one degree of freedom. 
+The gimbal lock is a phenomenon that occurs when two successive rotations are about the same axis as seen in \ref{fig:phigimbal} \cite{goldstein}. This means that a rotation described by $\phi$ can also be described by $\psi$. We, therefore, have a variable that depends on another, i.e., a variable that can no longer vary independently. This indicates a loss of one degree of freedom. 
 
 \begin{figure}[H]
 \centering
@@ -90,13 +90,11 @@ One can write a quaternion as an ordered pair $(a,\vec{v})$ where $a$ is a scala
 
 Because quaternions do not require rotations about principal axes to describe three-dimensional rotation, quaternions do not suffer from the gimbal lock. They are also found to be more compact - requiring less elementary arithmetic operations to perform rotation composition than rotation matrices \cite{lerios}. 
 
-Quaternions are used today in robotics, three-dimensional computer graphics, computer vision, crystallographic texture analysis, navigation, and molecular dynamics. 
+Because of these advantages, quaternions are used today in robotics, three-dimensional computer graphics, computer vision, crystallographic texture analysis, navigation, and molecular dynamics. 
 
-Mathematicians have made advancements in developing the theory of Quaternions. Notably, as one of the central points of this topic, we look into the concept of a \emph{Quaternionic Matrix} and the implications it has on certain definitions that were already established in Linear Algebra. 
+Mathematicians have made advancements in developing the theory of Quaternions especially in extending concepts in linear algebra that already hold or are already defined in the context of real and complex numbers (such as vector spaces, linear maps, matrices, and determinants) to also hold in the context of quaternions (\emph{quaternionic vector spaces}, \emph{quaternionic linear maps}, \emph{quaternionic matrices} and \emph{quaternionic determinants}). We will see that there are many implications in doing so.
 
-One such implication is the concept of a determinant in the context of quaternionic matrices. In linear algebra, we saw that we can extend the definition of the determinant to matrices with complex entries \cite{stamaria}. This is possible because the complex numbers are commutative under complex multiplication \cite{aslaksen}. 
-
-Certain problems arise if we attempt to extend the classical definition to the quaternions because quaternions are not commutative under quaternion multiplication \cite{aslaksen}. In \cite{aslaksen}, the following properties we associate with determinants are revisited and three conditions called \emph{axioms} are given that should be satisfied in order for a definition of a determinant to be valid and useful:
+One such implication is the concept of a determinant in the context of quaternionic matrices. Certain problems arise if we attempt to extend the Definition of the determinant for real matrices in the context of quaternionic matrices because quaternions are not commutative under quaternion multiplication \cite{aslaksen}. In \cite{aslaksen}, the following properties we associate with determinants are revisited and three conditions called \emph{axioms} are given that should be satisfied in order for a definition of a determinant to be valid and useful:
 \begin{itemize}
 	\item \textbf{Axiom 1} $det(A) = 0$ if and only if $A$ is singular.
 	\item \textbf{Axiom 2} $det(AB) = det(A)det(B)$ for all quaternionic matrices $A$ and $B$.
@@ -105,7 +103,7 @@ Certain problems arise if we attempt to extend the classical definition to the q
 
 Over the years, several mathematicians have come up with different ways to define a determinant for quaternionic matrices - the Cayley determinant (by Arthur Cayley in 1845), the Study determinant (by Eduard Study in 1920), the Dieudonne determinant, and Moore's determinant. Aslaksen showed whether or not the Cayley, Study, Dieudonne, and Moore's determinant satisfy the axioms \cite{aslaksen}.
 
-In this paper, we will discuss the theory behind quaternionic linear maps and quaternionic determinants - particularly, the Study determinant. 
+In this paper, we will discuss \emph{Quaternionic Linear Maps} and their implications in defining \emph{Quaternionic Vector Spaces} and \emph{Quaternionic Matrices} and their implications in defining \emph{Quaternionic Determinants}. This paper will only look into one particular definition of a quaternionic determinant - the \emph{Study Determinant}.
 \iffalse
 We will then use the Study determinant to extend a result in \cite{stamaria} to the set of all skew-coninvolutory quaternionic matrices, i.e., we will show that the set of all $n \times n$ skew-coninvolutory quaternionic matrices is empty when $n$ is odd. 
 \fi
@@ -116,8 +114,6 @@ We will then use the Study determinant to extend a result in \cite{stamaria} to 
 	\item $\Mr{n}$ - set of all $n\times n$ matrices with real entries.
 	\item $\Mc{n}$ - set of all $n\times n$ matrices with complex entries.
 	\item $\Mh{n}$ - set of all $n\times n$ matrices with quaternion entries.
-	\item $\mathscr{D}_n(\CC)$ - set of all $n\times n$ skew-coninvolutory matrices with complex entries.
-	\item $\mathscr{D}_n(\HH)$ - set of all $n\times n$ skew-coninvolutory matrices with quaternion entries.
-	\item $\cdet{ }$ - determinant of a matrix in $\Mc{n}$.
-	\item $\rdet{ }$ - determinant of a matrix in $\Mr{n}$.
+	\item $\ccdet$ - determinant of a matrix in $\Mc{n}$.
+	\item $\rrdet$ - determinant of a matrix in $\Mr{n}$.
 \end{itemize}

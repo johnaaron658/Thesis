@@ -1,11 +1,11 @@
-In this chapter, we discuss the theory behind quaternionic determinants - specifically, the Study Determinant - and the homomorphisms involved. 
+In this Chapter, we discuss the implications of quaternionic matrices on defining \emph{quaternionic determinants}. We then look into one Definition of a quaternionic determinant - the \emph{Study Determinant} - which uses matrix homomorphisms that allow us to represent complex matrices as real matrices and quaternionic matrices as complex matrices. 
 
 \section{The Cayley Determinant and Aslaksen's Axioms} \label{cayley}
 
 In 1845, 2 years after William Rowan Hamilton discovered quaternions, Arthur Cayley attempted to define the determinant of a quaternionic matrix using the usual formula (we denote the Cayley determinant by $Cdet$). Note that the following definition can be extended for $n\times n$ quaternionic matrices.
 
 \begin{definition}[$2\times 2$ Cayley Determinant]
- \cite{aslaksen} For a $2 \times 2$ quaternionic matrix \newline $A =  \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, $Cdet(A) = ad - cb$ for $a,b,c,d \in \HH$. 
+ \emph{\cite{aslaksen}} For a $2 \times 2$ quaternionic matrix \newline $A =  \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, $Cdet(A) = ad - cb$ for $a,b,c,d \in \HH$. 
 \end{definition}
  
  Notice that the order in which the entries are multiplied matters. We can see that for a $3\times 3$ quaternionic matrix 
@@ -42,7 +42,7 @@ g & h & i
 We take a step back and revisit what it means for a mapping to be 	a determinant. J.L. Brenner \cite{brenner} and Helmer Aslaksen \cite{aslaksen} offer different approaches to this, however, we will see how we can both arrive at the same conclusions. The following definition is taken from \cite{brenner}.
 
 \begin{definition}[Determinant Function] \label{detfn}
-	For a field $F$, a determinant over the matrices of $\Mf{n}$ is a function $det$ from $\Mf{n}$ into $F$ such that 
+	\emph{\cite{brenner}} For a field $F$, a determinant over the matrices of $\Mf{n}$ is a function $det$ from $\Mf{n}$ into $F$ such that 
 	\begin{equation}
 	det(AB) = det(A)det(B) = det(B)det(A)
 	\end{equation} 
@@ -72,13 +72,13 @@ Also notice that Alaksen's second axiom is the first condition in Brenner's dete
 We can define the determinant simply as a function that constantly maps to 0 for all singular matrices and 1 for all non-singular matrices \cite{brenner}. This will satisfy the above axioms \cite{brenner} \cite{aslaksen}, however, we will mostly deal with determinants that are non-trivial (for instance the $\rrdet$, $\ccdet$, and $Cdet$). 
 
 \begin{theorem} \label{nontrivdetfn}
-\cite{brenner} If $det$ is not constantly equal to 1 or 0 (i.e., $det$ is not a mapping $det: \Mf{n} \rightarrow F$ where $F$ is a field with two elements), then $det(B) = 0$ for all singular matrices. 
+\emph{\cite{brenner}} If $det$ is not constantly equal to 1 or 0 (i.e., $det$ is not a mapping $det: \Mf{n} \rightarrow F$ where $F$ is a field with two elements), then $det(B) = 0$ for all singular matrices. 
 \end{theorem}
 
 Theorem \ref{nontrivdetfn} not only shows how the determinant function in \ref{detfn} holds for the non-trivial case, it also shows that conditions (1) and (2) of Definition \ref{detfn} are essentially equivalent \cite{brenner}. This means that a determinant should map all singular matrices to 0. 
 
 \begin{theorem} \label{comh}
-	\cite{aslaksen} Let $\Mh{n}$ be the set of all $n\times n$ quaternionic matrices. If $det$ satisfies all of Aslaksen's axioms, then $det(\Mh{n})$ is a commutative subset of $\HH$. 
+	\emph{\cite{aslaksen}} Let $\Mh{n}$ be the set of all $n\times n$ quaternionic matrices. If $det$ satisfies all of Aslaksen's axioms, then $det(\Mh{n})$ is a commutative subset of $\HH$. 
 \end{theorem}
 
 Notice how Theorem \ref{comh} is already implied in Brenner's determinant function in which it is already deemed necessary for the images to commute. By Theorem \ref{comh}, we see that $det$ satisfying Aslaksen's axioms must only map to a commutative subset of $\HH$, which is the complex numbers. Therefore, $det$ cannot be a mapping onto $\HH$. Since $Cdet$ is onto $\HH$, by contrapositive of theorem \ref{comh}, $Cdet$ does not satisfy at least one of the axioms \cite{aslaksen}. 
@@ -274,7 +274,7 @@ We see that,
 
 The question now is which $2n \times 2n$ real matrices matrices commute with the complex structure in $\R^2$. Notice that every complex matrix can be represented as the sum of a real matrix and a purely imaginary matrix, i.e., for an $n\times n$ complex matrix $Z$, $Z = A + B\ib$ where $A,B \in \Mr{n}$ \cite{aslaksen}. We define a mapping 
 \begin{equation} 
-\cite{aslaksen} \label{eq:phimap}
+\label{eq:phimap}
 	\phi(A+B\ib) = 
 	\begin{pmatrix} 
 	A & -B \\ B & A 
@@ -489,8 +489,7 @@ However, we see that,
 	x & 0 \\
 	0 & x
 \end{pmatrix}
-\vectC{1}{0} $ = $ \vectC{x}{0} which doesn't correspond to $s_R(1) &= x+\jb y$. Thus, we see that there is no matrix representation for right multiplication \cite{aslaksen}. This is because right scalar multiplication itself, if expressed as a mapping $L_R$, does not satisfy Property 2 of Definition \ref{linmapdef}, i.e., $L_R(cv) \neq cL_R(v)$ since quaternion multiplication is not commutative. 
-In representing a quaternion $x+\jb y$ as a complex matrix, we associate it with the complex matrix $S$, i.e., we define a map $\psi: \HH \rightarrow \Mc{2}$ where $\Mc{2}$ is the set of all $2 \times 2$ complex matrices, such that $x+\jb y \mapsto
+\vectC{1}{0} $ = $ \vectC{x}{0} which doesn't correspond to $s_R(1) &= x+\jb y$. Thus, we see that there is no matrix representation for right multiplication \cite{aslaksen}. This is because right scalar multiplication itself, if expressed as a mapping $L_R$ such that $L_R(v) = vq$ for $q \in \HH$, does not satisfy Property 2 of Definition \ref{linmapdef} between right vector spaces, i.e., $L_R(v)c = vrc \neq L_R(vc) = vcr$. In representing a quaternion $x+\jb y$ as a complex matrix, we associate it with the complex matrix $S$, i.e., we define a map $\psi: \HH \rightarrow \Mc{2}$ where $\Mc{2}$ is the set of all $2 \times 2$ complex matrices, such that $x+\jb y \mapsto
 		\begin{pmatrix}
 			x & -\bar{y} \\
 			y & \bar{x}
@@ -538,16 +537,16 @@ Let $\psi: \Mh{n} \rightarrow \Mc{2n}$ such that the image of a quaternionic und
 	N\overline{Jv} = \overline{JNv}.
 	\label{eq:bigquatstruct}
 \end{equation}
-We can simplify Equation \ref{eq:bigquatstruct}. We know that a complex matrix commutes with conjugation, i.e., $N\overline{v} = \overline{Nv}$. In other words, conjugating before multiplying by a complex matrix $N$ is the same as first multiplying by the complex matrix $N$ and then conjugating. Thus, $N\overline{Jv} = \overline{NJv}$. Hence, $N\overline{Jv} = \overline{JNv}$ if and only if $\overline{NJv} = J\overline{Nv}$, which means that $NJ = J\overline{N}$. Notice that Theorem \ref{jx} in Chapter 2 (i.e. for $z \in \CC$, $z\jb = \jb\bar{z}$) is a special case of $NJ = J\overline{N}$ where $n = 1$. Hence, the complex matrices that commute with the quaternionic structure are those $2n \times 2n$ complex matrices $N$, such that $NJ = J\overline{N}$, i.e., $\psi(\Mh{n}) = \{N \in \Mc{2n} | NJ = J\overline{N}\}$. 
+We can simplify Equation \ref{eq:bigquatstruct}. We have $N\overline{Jv} = \overline{JNv}$ if and only if $\overline{\overline{N}Jv} = \overline{JNv}$ which means that $\overline{N}J = JN$ or $NJ = J\overline{N}$. Notice that Theorem \ref{jx} in Chapter 2 (i.e. for $z \in \CC$, $z\jb = \jb\bar{z}$) is a special case of $NJ = J\overline{N}$ where $n = 1$. Hence, the complex matrices that commute with the quaternionic structure are those $2n \times 2n$ complex matrices $N$, such that $NJ = J\overline{N}$, i.e., $\psi(\Mh{n}) = \{N \in \Mc{2n} | NJ = J\overline{N}\}$. 
 
-The question now is which $2n \times 2n$ complex matrices $N$ satisfy $NJ = J\overline{N}$. Notice that every quaternionic matrix can be represented as the sum $Q = X + \jb Y$ where $X, Y \in \Mc{n}$ \cite{aslaksen}. We define a mapping \begin{equation} 
-\cite{aslaksen}
-\psi(X+\jb Y) = 
-\begin{pmatrix} 
-X & -\overline{Y} \\ 
-Y & \overline{X} 
-\end{pmatrix}  
-\label{eq:psimap}
+The question now is which $2n \times 2n$ complex matrices $N$ satisfy $NJ = J\overline{N}$. Notice that every quaternionic matrix can be represented as the sum $Q = X + \jb Y$ where $X, Y \in \Mc{n}$ \cite{aslaksen}. We define a mapping 
+	\begin{equation} 
+	\psi(X+\jb Y) = 
+	\begin{pmatrix} 
+	X & -\overline{Y} \\ 
+	Y & \overline{X} 
+	\end{pmatrix}  
+	\label{eq:psimap}
 \end{equation} 
 
 Notice that the matrix $S$ is a special case of \ref{eq:psimap}. Again, if we can show that $\psi$ is an injective homomorphism, we can essentially represent any quaternionic matrix as a $2n \times 2n$ complex matrix.
@@ -595,6 +594,7 @@ Notice that the matrix $S$ is a special case of \ref{eq:psimap}. Again, if we ca
 		\overline{X}W+YV & \overline{X}\overline{V}-Y\overline{W} 
 		\end{pmatrix}
 		\end{align*}
+		
 		\begin{align*}
 		\psi[(X+\jb Y)]\psi[(V+\jb W)] &= 
 		\begin{pmatrix}
@@ -652,13 +652,13 @@ Notice that the matrix $S$ is a special case of \ref{eq:psimap}. Again, if we ca
 	\end{pmatrix}$.
 We know that $\psi(Q)$ is the only complex matrix representation of $Q$ and that $\psi(Q)$ corresponds to the quaternionic map $Q$ in the right quaternionic vector space $\HH^2$ since $\psi$ is an injective homomorphism.
 \end{ex}
-
+\newpage
 \section{The Study Determinant}
 
 The \emph{Study Determinant} uses the homomorphisms $\phi$ and $\psi$ to transform quaternionic matrices into complex or real matrices. We can then compute for the determinant of the complex or real matrix obtained by applying $\phi$ and $\psi$.
 
 \begin{definition}[Study Determinant]
-	For $M \in \Mh{n}$, the \emph{Study Determinant} is defined by $Sdet(M) = \cdet{\psi(M)} = \sqrt{\rdet{\phi(\psi(M))}}$.
+	\emph{\cite{aslaksen}} For $M \in \Mh{n}$, the \emph{Study Determinant} is defined by $Sdet(M) = \cdet{\psi(M)} = \sqrt{\rdet{\phi(\psi(M))}}$.
 \end{definition}
 
 Notice that we can compute for the Study determinant in two different ways: 
@@ -740,7 +740,76 @@ In the following example, we take the Study determinant of the quaternionic matr
 
 Hence, we can see that by the Study determinant, the matrix $M$ is invertible which it really is as shown in section \ref{cayley}. 
 
-In \cite{aslaksen}, it's been shown that the Study Determinant satisfies all of Aslaksen's axioms. For instance, Axiom 2 which states that $det(AB)=det(A)det(B)$ is satisfied since the mappings $\phi$ and $\psi$ are homomorphisms.
+The Study Determinant holds for \textbf{Axiom 2} since $\psi$ and $\phi$ are homomorphisms \cite{aslaksen}.
+
+As for \textbf{Axiom 1}, notice that for an $n\times n$ quaternionic matrix $M$, $\ccdet(\psi(M))$ is a complex determinant. When $\ccdet(\psi(M)) \neq 0 $ , the complex matrix $\psi(M)$ is invertible. We need to see if the inverse of $\psi(M)$ is also a complex matrix representation of a quaternionic linear map, i.e., $\psi(M)^{-1} \in \psi(\Mh{n}) = \{N \in \Mc{2n} | NJ = J\overline{N}\}$ \cite{aslaksen}. Since $\psi(M) \in \psi(\Mh{n})$, $\psi(M)J = J\overline{\psi(M)}$. By getting the inverse of both sides, we get 
+\begin{align*}
+	(\psi(M)J)^{-1} &= (J\overline{\psi(M)})^{-1}\\
+	J^{-1}\psi(M)^{-1} &= \overline{\psi(M)}^{-1}J^{-1}\\
+	J\psi(M)^{-1} &= \overline{\psi(M)^{-1}}J
+\end{align*}
+Hence, the inverse is in $\psi(\Mh{n})$. This implies that \textbf{Axiom 1} holds for the Study Determinant.
+
+We can represent the elementary row operation described in \textbf{Axiom 3} using an $n \times n$ matrix \\$B_{ij}(b) = 
+		\begin{pmatrix}
+			1 & 0 & \cdots & 0 \\
+			0 & 1 & \cdots & 0 \\
+			0 & b & \cdots & 0 \\
+			\vdots & \vdots & \ddots & \vdots \\
+			0 & 0 & \cdots & 1 
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			1 & 0 & 0 & \cdots & 0 \\
+			0 & 1 & 0 & \cdots & 0 \\
+			0 & 0 & 1 & \cdots & 0 \\
+			\vdots & \vdots & \vdots & \ddots & \vdots \\
+			0 & 0 & 0 & \cdots & 1
+		\end{pmatrix} + b
+		\begin{pmatrix}
+			0 & 0 & 0 & \cdots & 0 \\
+			0 & 0 & 0 & \cdots & 0 \\
+			0 & 1 & 0 & \cdots & 0 \\
+			\vdots & \vdots & \vdots & \ddots & \vdots \\
+			0 & 0 & 0 & \cdots & 0
+		\end{pmatrix} = I_n + be_{ij}$ \\where $e_{ij}$ is the $n\times n$ matrix with 1 on the $ij^{th}$ entry (for $i \neq j$) and 0 elsewhere \cite{aslaksen}. Notice that $e_{ij}e_{ij}=0$ since $i \neq j$.
+
+		Multiplying by $B_{ij}(b)$ on the left adds the left scalar multiple by $b$ of the $j^{th}$ row to the $i^{th}$ row and multiplying by $B_{ij}(b)$ on the right adds the right scalar multiple by $b$ of the $i^{th}$ column to the $j^{th}$ column \cite{aslaksen}.
+
+		Since by \textbf{Axiom 2}, $Sdet(B_{ij}(b)M) = Sdet(B_{ij}(b))Sdet(M)$, we need to show that $Sdet(B_{ij}(b)) = 1$ in order to show that $Sdet(M)$ doesn't change after applying $B_{ij}(b)$. Before we proceed, we present Theorem \ref{theorem:detmatgen} which allows us to compute for the determinant of $2m\times 2m$ matrices.
+
+\begin{theorem} \label{theorem:detmatgen}
+	\emph{\cite{aslaksen}} If $A_{11}, A_{12}$ and $A_{22}$ are $m \times m$ matrices that are mutually commutative, then,
+	\begin{equation*}
+		det
+		\begin{pmatrix}
+			A_{11} & A_{12} \\
+			A_{21} & A_{22}
+		\end{pmatrix}
+		= det(A_{11}A_{22} - A_{12}A_{21})
+	\end{equation*}
+\end{theorem}
+
+		If $b = x + \jb y$, then $B_{ij}(b) = I_n + xe_{ij} + \jb ye_{ij}$, hence,
+
+		$\psi(B_{ij}(b)) = 
+		\begin{pmatrix}
+			I_n + xe_{ij} & -\bar{y}e_{ij} \\
+			ye_{ij} & I_n+\bar{x}e_{ij}
+		\end{pmatrix}$ and,
+		\begin{align*}
+			\ccdet(\psi(B_{ij}(b))) &= \ccdet[(I_n+xe_{ij})(I_n+\bar{x}e_{ij})+y\bar{y}e_{ij}e_{ij}] \\ &\text{ by Theorem \ref{theorem:detmatgen}.} \\
+			&=\ccdet[(I_n+xe_{ij})(I_n+\bar{x}e_{ij})] \\
+			&\text{since $e_{ij}e_{ij} = 0$.} \\
+			&=\ccdet(I_n+xe_{ij})(\overline{I_n+xe_{ij}}) \\
+			&=\ccdet(I_n+xe_{ij})\overline{(\ccdet(I_n+xe_{ij}))} \\
+			&\text{by Theorem \ref{detbar}.} \\
+			&=|\ccdet(I_n+xe_{ij})|^2 \\
+			&=|\ccdet(I_n)|^2 \text{ since $B_{ij}(x)$ is a triangular matrix.} \\
+			&= 1
+		\end{align*}
+		Hence, the Study Determinant satisfies \textbf{Axiom 3}.
+
 
 \iffalse
 \section{Skew-Coninvolutory Quaternionic Matrices of Odd Dimensions}

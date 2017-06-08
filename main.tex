@@ -127,28 +127,33 @@
 	\degreemath{Bachelor of Science in Mathematics}
 	\thesistype{Undergraduate Thesis}
 	\thesisdocument{Thesis}
-	\defensedate{May 29, 2017}
+	\defensedate{June 3, 2017}
 	\submitmonth{June}
 	\submityear{2017}
 	\adviser{Dr. Lorna S. Almocera}
 	\reader{Dr. Natividad Estillore}
+	\dept{College of Science}
 
 	\bothabsenttrue
 
 	%\coadviser{co-Adviser, Ph.D.}
 
-	\chairman{Jonnifer R. Sinogaya, Ph.D.} 
-	\abs{This paper is an expository on quaternionic matrices and their implications on concepts in Linear Algebra such as the notion of vector spaces, linear maps, and determinants. We see that different definitions have been given for the latter. We choose to look into one such definition - the Study Determinant - which uses homomorphisms that represent $n\times n$ \emph{Complex Matrices} as $2n \times 2n$ real matrices, and representing $n\times n$ \emph{Quaternionic Matrices} as $2n \times 2n$ complex matrices. }
-	\iffalse
-	\acknowledge{
-	Type your acknowledgements here. It is customary to acknowledge special assistance from
-	extramural agencies. There is no obligation that assistance received from members of the dissertation or
-	thesis committee be acknowledged. \medskip
+	\dean{Jonnifer R. Sinogaya, Ph.D.} 
+	\abs{This paper is an expository on \emph{Quaternionic Linear Maps} and their implications on the notion of a \emph{Quaternionic Vector Space} and \emph{Quaternionic Matrices} and their implications on the notion of a \emph{Quaternionic Determinant}. We see that different definitions have been given for the latter. We choose to look into one such definition - the \emph{Study Determinant}. We see that the Study Determinant uses homomorphisms that represent $n\times n$ \emph{Complex Matrices} as $2n \times 2n$ real matrices and homomorphisms that represent $n\times n$ \emph{Quaternionic Matrices} as $2n \times 2n$ complex matrices. }
 
-	Acknowledgments should be couched in terms consistent with the
-	scholarly nature of the work. Your name and the date should not appear on this page.
+	\acknowledge{
+	This paper would not have been possible without the help of several individuals who contributed in the overall completion of this study.
+
+	To my advisers Prof. Trilbe Lizann Espina-Vasquez and Dr. Lorna S. Almocera, for the knowledge they have shared to guide me throughout the progress of this topic all the way from conception to finalization. It is through their patience and support that I've been given enough time and freedom to work on the study as best as I possibly could.
+
+	To Dr. Natividad Estillore, for reading and commenting on this thesis - whose suggestions and insights improved some aspects of the final manuscript.
+
+	To my colleagues and friends, for their moral support and effort in preparing for the presentation of our study.
+
+	To my parents and family, for the unceasing love and support they have given me for the fulfillment of this endeavour.
+
+	Finally, to God Almighty, for always being with me especially in times of hardship and doubt until the very end.
 	}
-	\fi
 
 	\beforepreface
 	\tableofcontents
@@ -170,7 +175,10 @@
 	\chapter{Preliminaries}
 	\input{chapters/chapter02}
 
-	\chapter{Results and Discussions}
+	\chapter{Quaternionic Linear Maps}
+	\input{chapters/chapter025}
+
+	\chapter{The Study Determinant}
 	\input{chapters/chapter03}
 
 	\chapter{Summary and Recommendations}
@@ -180,6 +188,6 @@
 	%\input{newfile}
 	\nocite*
 
-	\bibliographystyle{siam}
+	\bibliographystyle{ieeetr}
 	\bibliography{bibliography}
 \end{document}

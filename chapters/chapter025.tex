@@ -1,0 +1,193 @@
+In this Chapter, we discuss the implications of \emph{quaternionic linear maps} in defining \emph{quaternionic vector spaces}. We will also introduce the notion of a \emph{quaternionic matrix} and a \emph{quaternionic structure}.
+
+\section{Quaternionic Vector Spaces}
+
+The non-commutativity of quaternion multiplication presents a problem in defining \emph{Quaternionic Linear Maps}, specifically on Property 2 of Definition \ref{linmapdef}, i.e., $L(cv) = cL(v)$ where we take $c$ as a scalar in $\HH$. Let $L_{\HH}: V \rightarrow W$ be a quaternionic linear map where $n$ and $m$ are the dimensions of $V$ and $W$ respectively. Then, $L_\HH$ has an $m\times n$ matrix representation $A$ \cite{larson} (Note that $A$ has quaternions as entries).
+
+Let's first consider the case where $V$ and $W$ are \emph{left vector spaces}, i.e., $V$ and $W$ are vector spaces defined by left scalar multiplication \cite{stack}. Then, for $L_{\HH}(v) = Av$, we see that $cAv = c L_{\HH}(v)$ for $c \in \HH$. However, $L_{\HH}(cv) = Acv$ and we know that $Acv \neq cAv$ because $\HH$ is not commutative under quaternion multiplication. This means that $L_{\HH}(cv) \neq cL_{\HH}(v)$, thus, Property 2 of Definition \ref{linmapdef} fails \cite{stack}. Therefore, we cannot define a quaternionic linear map for left vector spaces.
+
+However, if we consider the case where $V$ and $W$ are \emph{right vector spaces}, i.e., $V$ and $W$ are vector spaces defined by right scalar multiplication \cite{stack} \cite{aslaksen}, we have, $L_{\HH}(vc) = Avc = L_{\HH}(v)c$. Thus, Property 2 of Definition \ref{linmapdef} holds if we consider the case where $V$ and $W$ are right vector spaces. This means that we can only define quaternionic linear maps for right vector spaces. 
+
+
+\section{Quaternionic Matrices} 
+
+\emph{Quaternionic Matrices} are matrices that have entries in $\HH$. They are quaternionic linear maps $L_{\HH}: V \rightarrow W$ where $V$ and $W$ are \emph{right quaternionic vector spaces}. Like complex matrices we can also take the $\HH$-conjugate of each of the entries. The resulting matrix is called a \emph{conjugate quaternionic matrix}.
+
+\begin{definition}[Conjugate Quaternionic Matrix] \label{conjquatmat}
+	\emph{\cite{stamaria}} A \emph{conjugate quaternionic matrix} is a matrix $\bar{E}$ obtained from $E$ by taking the $\HH$-conjugate of every entry of $E$.
+\end{definition}
+
+\begin{ex}
+	Take the quaternionic matrix $E = 
+	\begin{pmatrix}
+		1+2\ib & \jb-2\kb \\
+		3+2\ib-\jb+\kb & \kb
+	\end{pmatrix}$.
+	Then, $\bar{E} = 
+	\begin{pmatrix}
+		1-2\ib & -\jb+2\kb \\
+		3-2\ib+\jb-\kb & -\kb
+	\end{pmatrix}$.
+\end{ex}
+
+\iffalse
+\newline
+\newline
+\begin{definition}[Skew-Coninvolutory Quaternionic Matrix] \label{skewquatmat}
+	A quaternionic matrix $E$ is said to be \emph{Skew-Coninvolutory} if $E\bar{E} = -I_n$.
+\end{definition}
+
+\begin{ex}
+	Take $E = 
+	\begin{pmatrix}
+		0 & \kb \\
+		-\kb & 0
+	\end{pmatrix}$. 
+	Then, $E\bar{E} = 
+	\begin{pmatrix}
+		0 & \kb \\
+		-\kb & 0
+	\end{pmatrix}
+	\begin{pmatrix}
+		0 & -\kb \\
+		\kb & 0
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		-1 & 0 \\
+		0 & -1
+	\end{pmatrix}.$
+\end{ex}
+\fi
+
+Theorems \ref{distributive} and \ref{bigmatm} are extremely useful for multiplying square matrices especially those that, in turn, have square matrices as entries.
+
+\begin{theorem}\label{distributive}
+	For matrices $A,B,C \in \Mh{n}$, $A(B+C) = AB + AC$.
+}
+\end{theorem}
+
+\begin{proof}
+	Let $A = [a_{ij}]$, $B = [b_{ij}]$, $C = [c_{ij}] \in \Mc{n}$. Then $B+C = [b_{ij}+c_{ij}]$ and \begin{equation} 
+	\begin{align*} 
+	A(B+C) &= [\sum_{k=1}^{n}a_{ik}(b_{kj}+c_{kj})] = [\sum_{k=1}^{n}(a_{ik}b_{kj}+a_{ik}c_{kj})] \\ 
+	&= [\sum_{k=1}^{n}a_{ik}b_{kj} + \sum_{k=1}^{n}a_{ik}c_{kj}] = [\sum_{k=1}^{n}a_{ik}b_{kj}] + [\sum_{k=1}^{n}a_{ik}c_{kj}] = AB + AC 
+	\end{align*} \end{equation}
+\end{proof}
+
+The same method of proof can be used for the right distributive law. Furthermore, since $\R \subseteq \CC \subseteq \HH$, Theorem \ref{distributive} holds for matrices in $\Mr{n}$ and $\Mc{n}$. 
+
+\begin{theorem} \label{bigmatm}
+	For matrices $A_{ij}, B_{ij} \in \Mh{n}$ where $i,j = 1,2,...,m$, 
+	\begin{equation*}
+		\pgenmat{A}\pgenmat{B} = 
+		\begin{pmatrix}
+			\sum_{k=1}^{m}A_{1k}B_{k1} & \cdots & \sum_{k=1}^{m}A_{1k}B_{km} \\
+			\vdots & \ddots & \vdots \\
+			\sum_{k=1}^{m}A_{mk}B_{k1} & \cdots & \sum_{k=1}^{m}A_{mk}B_{km} 
+		\end{pmatrix}
+	\end{equation*}
+\end{theorem}
+\newcommand{\gengmat}[1]{\pgenmatk{\genmat{#1_{11}}}{\genmat{#1_{1m}}}{\genmat{#1_{m1}}}{\genmat{#1_{mm}}}}
+\newcommand{\ddsumprod}[2]{\sum_{k=1}^m[\sum_{l=1}^na_{#1 il}b_{#2 lj}]}
+\begin{proof}
+	\begin{align*}
+		&\pgenmat{A}\pgenmat{B} \\
+		=&\gengmat{a}\gengmat{b} \\
+	%\end{align*}
+	%\begin{align*}
+		=&\pgenmatk{\ddsumprod{1k}{k1}}{\ddsumprod{1k}{km}}{\ddsumprod{mk}{k1}}{\ddsumprod{mk}{km}} \\
+		=&\begin{pmatrix}
+			\sum_{k=1}^{m}A_{1k}B_{k1} & \cdots & \sum_{k=1}^{m}A_{1k}B_{km} \\
+			\vdots & \ddots & \vdots \\
+			\sum_{k=1}^{m}A_{mk}B_{k1} & \cdots & \sum_{k=1}^{m}A_{mk}B_{km} 
+		\end{pmatrix}
+	\end{align*}
+\end{proof}
+
+Theorem \ref{bigmatm} also holds for matrices in $\Mr{n}$ and $\Mc{n}$ because $\R \subseteq \CC \subseteq \HH$. 
+
+\section{Quaternionic Structures}
+
+ Before we define a \emph{quaternionic structure} on a complex vector space, we first introduce a different kind of map over complex vector spaces.
+
+\begin{definition}[Antilinear Map] \label{def:antilinear}
+	 \emph{\cite{sakurai}} An \emph{antilinear map} or antilinear operator is a map $\Psi: V \rightarrow V$ where $V$ is a complex vector space, such that for $c_1,c_2 \in \CC$ and $v_1,v_2 \in V$, $\Psi(c_1v_1 + c_2v_2) = \bar{c_1}\Psi(v_1)+\bar{c_2}\Psi(v_2)$.
+\end{definition} 
+
+\begin{ex} \label{ex:antilinear}
+	We define the map $\Psi: \CC^2 \rightarrow \CC^2$ by $\Psi(v) = \overline{Jv}$ where $v \in \CC^2$ and $J = 
+	\begin{pmatrix}
+		0 & -1 \\
+		1 & 0
+	\end{pmatrix}$.
+	We then see that for $c_1,c_2 \in \CC$ and $v_1 = \vectC{x_1}{y_1}, v_2 = \vectC{x_2}{y_2}$, 
+	\begin{align*}
+		\Psi(v_1) &= 
+		\overline{
+		\begin{pmatrix}
+			0 & -1 \\
+			1 & 0
+		\end{pmatrix}\vectC{x_1}{y_1}} = \vectC{-\bar{y_1}}{\bar{x_1}}\text{, }
+		\Psi(v_2) = 
+		\overline{
+		\begin{pmatrix}
+			0 & -1 \\
+			1 & 0
+		\end{pmatrix}\vectC{x_2}{y_2}} = \vectC{-\bar{y_2}}{\bar{x_2}}\text{ and,}
+		\\ 
+		\Psi(c_1v_1+c_2v_2) &= 
+		\overline{
+		\begin{pmatrix}
+			0 & -1 \\
+			1 & 0
+		\end{pmatrix}
+		\vectC{c_1x_1+c_2x_2}{c_1y_1+c_2y_2}
+		} = \overline{\vectC{-(c_1y_1+c_2y_2)}{c_1x_1+c_2x_2}} = \vectC{-\overline{(c_1y_1+c_2y_2)}}{\overline{c_1x_1+c_2x_2}} \\
+		&=\vectC{-(\bar{c_1}\bar{y_1}+\bar{c_2}\bar{y_2})}{\bar{c_1}\bar{x_1}+\bar{c_2}\bar{x_2}} = \vectC{-\bar{c_1}\bar{y_1}}{\bar{c_1}\bar{x_1}}+\vectC{-\bar{c_2}\bar{y_2}}{\bar{c_2}\bar{x_2}} = \bar{c_1}\vectC{-\bar{y_1}}{\bar{x_1}} + \bar{c_2}\vectC{-\bar{y_2}}{\bar{x_2}} \\
+		&= \bar{c_1}\Psi(v_1)+\bar{c_2}\Psi(v_2)
+	\end{align*}
+\end{ex}
+
+\begin{definition}[Quaternionic Structure] \label{def:quatstruct}
+	\emph{\cite{jwr}} A \emph{quaternionic structure} on a complex vector space $V$ is an antilinear map $S: V \rightarrow V$ such that $S^2(v) = -v$.
+\end{definition}
+
+\textit{Remark.} A complex vector space that has a quaternionic structure can essentially "mimic" a quaternionic vector space (specifically, a right quaternionic vector space) \cite{jwr} - similar to how a real vector space with a complex structure can "mimic" a complex vector space.
+
+\begin{ex} \label{ex:quatstruct}
+	The antilinear map $\Psi$ in Example \ref{ex:antilinear} actually gives a quaternionic structure in the complex vector space $\CC^2$ since for $v = \vectC{x}{y} \in \CC^2$, 
+	\begin{align*}
+		\Psi^2(v) = \Psi(\Psi(v)) = 
+		\overline{
+		\begin{pmatrix}
+			0 & -1 \\
+			1 & 0
+		\end{pmatrix}
+		\vectC{-\bar{y}}{\bar{x}}}
+		= \overline{\vectC{-\bar{x}}{-\bar{y}}}
+		= -\vectC{x}{y} = -v
+	\end{align*} 
+	Since by Theorem \ref{jx} we can express a quaternion $q = a+b\ib+c\jb+d\kb$ as $q = (a+b\ib)+\jb(c-d\ib)$. We can then think of the quaternion $q$ as a 2-dimensional complex vector $\vec{v} = \vectC{a+b\ib}{c-d\ib}$ and take the image of $\vec{v}$ under $\Psi$. We then get,
+	\begin{align*}
+		\overline{
+		\begin{pmatrix}
+			0 & -1 \\
+			1 & 0
+		\end{pmatrix}
+		\vectC{a+b\ib}{c-d\ib}
+		} =
+		\overline{
+		\vectC{-(c-d\ib)}{a+b\ib}
+		} =
+		\vectC{-(c+d\ib)}{a-b\ib}
+	\end{align*}
+	which corresponds to multiplying $q$ by $\jb$ on the right, i.e., $q\jb = a\jb + b\kb - c - d\ib = -(c+d\ib)+\jb(a-b\ib)$.
+\end{ex}
+
+\textit{Remark.} From Example \ref{ex:quatstruct}, we see that the quaternionic structure $\Psi$ corresponds to right scalar multiplication by the quaternion $\jb$ \cite{aslaksen}. In Chapter 3, when we discuss how to represent quaternions as complex matrices, we will see that right multiplication by $\jb$ has no complex matrix representation \cite{aslaksen}. This is problematic because all quaternionic linear maps (matrices) can only commute with right scalar multiplication \cite{stack} \cite{aslaksen}. We will, therefore, have to use $\Psi$. Also note that for $\Psi$ to correspond to right multiplication by $\jb$, we have to use $(a+b\ib)+\jb(c-d\ib)$ to express a quaternion as a 2-dimensional algebra over $\CC$ instead of $(a+b\ib)+(c+d\ib)\jb$.
+
+Before we proceed, let's revisit Property 2 of Definition \ref{linmapdef}, i.e. $L(cv) = cL(v)$ where $c$ is a scalar. Recall that this property requires a linear map $L$ to commute with scalar multiplication. We can represent scalar multiplication as a linear map, with the matrix representation $cI_n = I_n c$. We can now restate $L(cv) = cL(v)$ as having the matrix representation $A$ of the linear map $L$ commute with the matrix $cI_n$, i.e., $A(cI_n) = (cI_n)A$. Therefore, in order for a mapping to satisfy Property 2, its matrix representation must commute with $cI_n$.
+
+A complex linear map, for instance, commutes with scalar multiplication, especially with scalar multiplication by $\ib$ since for any complex matrix $E$, $E(\ib I_n) = (\ib I_n)E$ \cite{aslaksen}. A quaternionic linear map commutes with right scalar multiplication especially by $\jb$ (however, again as we'll see in Chapter 3, there is no matrix representation for right scalar multiplication), i.e., for quaternionic linear map $L_{\HH}$ and $v$ a quaternionic vector $L_{\HH}(v\jb) = L_{\HH}(v)\jb$. Therefore, if we are to represent a complex linear map as a real linear map, the said map has to \emph{commute with the complex structure} defined in the corresponding real space. Likewise, if we are to represent a quaternionic linear map as a complex linear map, such a linear map also has to \emph{commute with the quaternionic structure} defined in the corresponding complex space \cite{aslaksen}. 
+
+\textit{Remark.} What it means for a complex linear map $N$ to commute with the quaternionic structure is having $N\Psi(v) = N\overline{Jv} = \overline{JNv}$. This means that taking the image of $v$ under $\Psi$ first before multiplying by $N$ is the same as multiplying $v$ by $N$ first before taking the image of $Nv$ under $\Psi$ \cite{aslaksen}.
